@@ -2,6 +2,7 @@
 ## 建置啟動環境  docker-compose --compatibility up -d
 ## 起用指令集 node psyl
 ## 起用指令集後 node psyl -> psyl -h 起用幫助
+## 擁有加速封裝技術、離散載入source 功能、強調MVVM及註解開發之專案特性
 ### 其它備註
 - dir = build web 夾(release/debug model)
 - src = psyl 前端開發資料夾
