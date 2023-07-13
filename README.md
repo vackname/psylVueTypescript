@@ -45,8 +45,8 @@
 
 ### src/libary 靜態圖檔
 - build 時機 將會自動 以資料夾 單位 封裝 整拼為一個載入資源
-- 開發 可經由 new jObj().loadlib(....) 控制載入時機及取用
-- 取用物件 示例 new jObj().loadlib(...).src("/dd.jpeg")
+- 開發 可經由 jObj().loadlib(....) 控制載入時機及取用
+- 取用物件 示例 jObj().loadlib(...).src("/dd.jpeg")
 
 ### src/models 擴充 模組 說明
 - 以資料夾為單位為一個模組、或單檔js
@@ -57,8 +57,8 @@
 - src/models/vueSDK.ts = 引入 開發框架物件入口
 
 ### src/models/jsonDoc 文檔/多過語系/環境資料 json 文件 擴充 模組
-- 開發  經由 new jObj().load(...) 控制載入時機及取用
-- 取用物件 示例 new jObj().load(...).get("testJson")
+- 開發  經由 jObj().load(...) 控制載入時機及取用
+- 取用物件 示例 jObj().load(...).get("testJson")
 
 ### 專案 開發框架
 - controllers(數據處理分類模組)及view(樣版渲染及特效動畫層) => 同名檔為構件渲染框架
