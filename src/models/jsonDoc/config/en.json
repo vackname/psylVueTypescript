@@ -1,0 +1,14 @@
+{
+    "title":"伴手有禮human space",
+    "page":{
+        "index":"Home"
+    },
+    "error":
+    {
+        "svbusy":"server busy!"
+    },
+    "input":
+    {
+        "return":"Return"
+    }
+}

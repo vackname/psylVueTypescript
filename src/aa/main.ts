@@ -1,0 +1,35 @@
+﻿import {mainData,main} from './main_VueTemp';
+import {vueComponentModel} from '../models/vueSDK';
+
+
+//example view
+var indata:mainData = {
+        maindata:{a1:'firstname',a2:'lastname'},
+        VueName:""
+    };
+
+export default {
+    data:indata,
+    init:($t,$temp)=>{
+        $t.VueName='view1';//完成程序後 Get Set 渲染樣版
+        $temp();
+    },
+    temp:($t)=>{
+        /*init $temp() run to temp*/
+        return {
+            view1:$t.import('@view/index')
+            .exportVue({
+                main:{layout:'hi(layout)'},//data注入模板
+                datamain:indata.maindata
+            })
+        };
+    },
+    tsc:[],//project -> typescript model
+    completed:($t,tscAry,$temp)=>
+    {
+        /*init $temp() run to completed or not exist init*/
+    },
+    methods:{
+
+    }
+} as vueComponentModel<mainData,main>;

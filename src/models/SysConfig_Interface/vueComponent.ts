@@ -1,0 +1,200 @@
+interface templateProject
+{
+    /** create template name(註冊渲染樣版名) */
+    Name:(name:string)=>template,
+}
+
+interface template
+{
+    /** 加入 template 物件 project=eval("this['projectName'].main")、eval()*/
+    Add:<T1,T extends ThisImport<T1>>(obj:templateObj<T1,T>|ThisImport<any>)=>void,
+    
+}
+/**
+ * 已渲染成功Vue 樣版名
+*/
+interface ExistVue
+{
+    [name:string]:string
+}
+
+/**
+ *(T1=專案入口 最高層級樣版) vue this 內import 注入功能 備註:model js 只能取 project 本身
+*/
+export interface ThisImport<T1>
+{
+    /** include project template  
+     * @param path template file=[project name]@[path]   ex "@temp/MGPDS/gift"、  js file= [path] ex "@t/model/jsmodel"
+    */
+    import:<T extends ThisImport<T1>>(path:string)=>templateObj<T1,T>,
+
+    /** 當前已曾經渲染完成 樣版名 */
+    v:ExistVue,
+
+    /** 主要專案層樣版物件 */
+    pj:T1
+}
+
+/** (T1=專案入口 最高層級樣版) template format(psyl vue) */
+export interface templateObj<T1,T extends ThisImport<T1>>
+{
+    /** template 繼承 參數
+     * @param json json 參數 與 vue template data bind)
+     */
+    exportVue:<T extends ThisImport<T1>>(json:any)=>templateObj<T1,T>,
+    
+    /** 注入樣版source物件 */
+    vue:T
+}
+
+/**
+ * template 載入
+*/
+export interface vueComponent
+{
+    /** tamp this */
+    <T>($t:T):templateProject
+}
+
+/**
+ * vueModel 樣版初始化 階段(起動渲染生命周期)
+ */
+interface vueModeInit<T>
+{
+    /**
+     * @param $t VueTemplate<T?> 樣版 extends
+     * @param $temp 起動運行 注入 子樣版
+     */
+    ($t:T,$temp:()=>void):void
+}
+
+
+/**
+ * vueModel 偵聽參數get/set渲染 function
+ */
+interface vueModelWatchFun
+{
+    /**
+     * @param NewVal 當前變動參睥
+     * @param OldVal 未變動前參數
+    */
+    (NewVal:any,OldVal?:any):void;
+}
+
+/** 程序初始化完成(生命周期) */
+interface vueModelCompleted<T>
+{
+    /**
+     * @param $t VueTemplate<T?> 樣版 extends
+     * @param tscAry 載入 匹次 model 物件
+     * @param $temp 起動運行 注入 子樣版
+     */
+    ($t:T,tscAry:Array<any>,$temp:()=>void):void
+}
+
+/** 載入子樣版(生命周期) 陣列*/
+export interface vueModelTempLI
+{
+    [name:string]:templateObj<any,ThisImport<any>> | ThisImport<any>
+}
+
+/** 載入子樣版(生命周期) */
+interface vueModelTemp<T>
+{
+    /**
+     * @param $t VueTemplate<T?> 樣版 extends
+     */
+    ($t:T):vueModelTempLI
+}
+
+/**
+ * vueModel 偵聽渲染參數get/set
+ */
+interface vueModelWatch
+{
+    [name:string]:vueModelWatchFun
+}
+
+/**
+ * vueModel get/set 運算 function
+ */
+interface vueModeMethods
+{
+    [name:string]:Function
+}
+
+/**
+ * vueModel funcFilter 過濾字符
+ */
+interface vueModeFfuncFilterli
+{
+    <T>(value:any):T
+}
+
+/**
+ * vueModel funcFilter 過濾字符
+ */
+interface vueModeFfuncFilter
+{
+    [name:string]:vueModeFfuncFilterli
+}
+
+/**
+ * vueModel funcFilter 過濾字符
+ */
+interface vueModeFfuncFilterFun<T>
+{
+     /**
+     * @param $t VueTemplate<T?> 樣版 extends
+     */
+     ($t:T):vueModeFfuncFilter
+}
+
+/**
+ * 自動 注入 $m mark(temp使用)
+*/
+interface vueModelToModelMark
+{
+    [name:string]:any
+}
+
+export interface vueModel<T1,T2>
+{
+    /** 樣版繫結數量 json 物件 */
+    data?:T1,
+    /** 樣版初始化階段(生命周期) */
+    init?:vueModeInit<T2>,
+    /** 偵聽渲染參數get/set */
+    watch?:vueModelWatch,
+    /** 過慮字符 */
+    funcFilters?:vueModeFfuncFilterFun<T2>,
+    /** typescript 注入取用匹次載入model 路徑,建議使用於(動畫類) animate model ex:["modelAnimate/index"]*/
+    tsc?:Array<string>,
+    /** javascript/source 物件 model 注入路徑 (自動注入 this.$m[....])*/
+    model?:vueModelToModelMark,
+    /** 程序初始化完成(生命周期) */
+    completed?:vueModelCompleted<T2>,
+    /** 載入子樣版(生命周期) */
+    temp?:vueModelTemp<T2>
+    /** vueModel get/set 運算 function */
+    methods:vueModeMethods
+}
+
+/** controllers 數據取用層級 */
+export interface vueColModel<T1,T2> 
+{
+    /** 樣版繫結數量 json 物件 */
+    data?:T1,
+    /** 樣版初始化階段(生命周期) */
+    init?:vueModeInit<T2>,
+    /** 偵聽渲染參數get/set */
+    watch?:vueModelWatch,
+    /** 過慮字符 */
+    funcFilters?:vueModeFfuncFilterFun<T2>,
+    /** typescript 注入取用匹次載入model 路徑,建議使用於(動畫類) animate model ex:["modelAnimate/index"]*/
+    tsc?:Array<string>,
+    /** javascript/source 物件 (自動注入 this.$m[....])*/
+    model?:vueModelToModelMark,
+    /** 程序初始化完成(生命周期) */
+    completed?:vueModelCompleted<T2>,
+}

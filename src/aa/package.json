@@ -1,0 +1,19 @@
+[
+  {
+    "outputFileName": "/OpenWeb/wwwroot/libjs/aa.min",
+    "inputFiles": [
+      "/aa/controllers/index.ts",
+      "/aa/controllers/userset.ts",
+      "/aa/view/index.ts",
+      "/aa/view/userset.ts",
+      "/aa/view/index.html",
+      "/aa/view/userset.html"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false,
+    "LastWriteInputFiles": []
+  }
+]

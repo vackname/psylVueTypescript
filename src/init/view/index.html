@@ -1,0 +1,12 @@
+﻿<div style="width:100%;">
+
+    <component v-bind:is="v.headTemp"></component>
+    <div>{{title}}</div>
+<div>
+    aa_TEMP----start 異步載入 樣版(無 get set bind 需 注入 v-show)
+    <component v-bind:is="v.aaTemp" v-show="v.aaTemp!=null"></component>
+    aa_TEMP----end
+</div>
+   <input v-model="textBox" type="text"/> {{textBox}} {{((mLoad)?$m.mymodel():"")}}
+    <component v-bind:is="v.footTemp"></component>
+</div>

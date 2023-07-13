@@ -1,0 +1,19 @@
+﻿<bundle>true</bundle><!--不離散 與封裝至project-->
+<style>
+       .aa_index_content{
+              color:#FF8800;
+       }
+</style>
+<div style='width:100%;position:relative;' >
+       OK index
+       1.project main data to index.html:<span class='aa_index_content'>{{datamain.a1}}__{{datamain.a2}}</span>
+       <div style='width:100%;font-size:18px;'>2.project main data to index.html: <span class='aa_index_content'>{{main.layout}}</span></div>
+       3.index button(open include userset.html)(wait show 3s)<input type='button' value='openUser' v-on:click='$m.page()' v-show='show' />
+       <div style='height:70px;'>5.index img (catch libary)->close userset.html:
+              <button  v-on:click='$m.close()' v-show='!show'>Close</button>
+            <!--demon catch image  img v-bind:src= lib.src('close.png') /> -->
+       </div>
+       <div>
+              index component(include userset.html):<component v-bind:is='data.user.load'></component>
+       </div>
+</div>
