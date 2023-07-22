@@ -10,10 +10,6 @@ export default function($t:importLoadObjInterface){
     //公共 css
     $t.m.css.sit((e)=>{
         console.log("Model css =>sit_"+e);
-    });
-
-    $t.m.js["googleLogin"]((e)=>
-    {//載入google model
         $t.pub = configObj.setPublic(()=>{//download libary            
             console.log("libary =>init");
             setTimeout(()=>{

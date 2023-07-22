@@ -54,18 +54,17 @@ export default class configDataList
     {
         if(this.inLibary.lang=="")//注入預選語系
             this.inLibary.lang = getSysLang();
-
         /**
          * 載入完成計數(共計2)
         */
         var loadCount:number = 0;
-        this.inLibary.config.load("config."+this.inLibary.lang,function(e){//載入 config
+        this.inLibary.config.load("config."+this.inLibary.lang,(e)=>{//載入 config
             loadCount++;
             if(loadCount==2)
                 loadFun();
         });
 
-        this.inLibary.lib.loadlib("pub",function(e){//載入img
+        this.inLibary.lib.loadlib("pub",(e)=>{//載入img
             loadCount++;
             if(loadCount==2)
                 loadFun();
