@@ -2,12 +2,13 @@
 import {vueComponentModel} from '../models/vueSDK';
 
 
-//example view
+/** example view */
 var indata:mainData = {
         maindata:{a1:'firstname',a2:'lastname'},
         VueName:""
     };
 
+/** aa 專案 入口 */
 export default {
     data:indata,
     init:($t,$temp)=>{

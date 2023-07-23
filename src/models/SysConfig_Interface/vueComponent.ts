@@ -4,11 +4,11 @@ interface templateProject
     Name:(name:string)=>template,
 }
 
-interface template
+/** 樣版注冊開始渲染 */
+export interface template
 {
     /** 加入 template 物件 project=eval("this['projectName'].main")、eval()*/
     Add:<T1,T extends ThisImport<T1>>(obj:templateObj<T1,T>|ThisImport<any>)=>void,
-    
 }
 /**
  * 已渲染成功Vue 樣版名

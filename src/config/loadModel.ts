@@ -13,7 +13,7 @@ export default function($t:importLoadObjInterface){
         $t.pub = configObj.setPublic(()=>{//download libary            
             console.log("libary =>init");
             setTimeout(()=>{
-                $t.p.init(function(e3){//載入口點
+                $t.p.init((e3)=>{//載入口點
                     console.log("page vue =>init---"+e3);
                     console.warn("在找我/find me？https://psyltw.com/author");
                     if(pb.debug)//debug model

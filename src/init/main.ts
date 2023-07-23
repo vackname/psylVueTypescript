@@ -4,7 +4,8 @@ import CreateVue from "../models/SysConfig_Interface/psylVueTsc";
 
 /** 當下網址路徑 */
 var spUrl:string = window.location.pathname;
-new CreateVue("@view/index")
+
+new CreateVue(temp=>temp.view_index)
     .getData<mainData>({
         init:{//共用資訊
             pub:importLoad.pub,
@@ -24,4 +25,5 @@ new CreateVue("@view/index")
         };
 });
 
+/** application 入口 */
 export default undefined;//初始化不需要輸出樣版 object

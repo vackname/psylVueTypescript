@@ -1,4 +1,3 @@
-import * as vueComponent from "./vueComponent";
 /**
  * load async function
 */

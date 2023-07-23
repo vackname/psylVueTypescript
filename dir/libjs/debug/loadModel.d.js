@@ -1,43 +1,4 @@
-﻿
-var vToaW5pdA__Model = null;
-function init_VuePJ(){
-
- this.pjAPI = {};
-var selfPJ = this;
-this.pjAPI['controllers_index'] = function($t){ var self = this; 
-   pb.AddPrototype(self,vToaW5pdA__Model.controllers_index); 
-return self;
- }; 
- function view_index_vueclass(){ 
-  this.vue=vToaW5pdA__Model.view_index; 
- new oderLoad(selfPJ.pjAPI).Co(this,selfPJ.pjAPI.controllers_index,'init/');
-} 
- this.view_index = function(){ var runCreateVue = new VueChild().html(importLoad.root+'inittemp/t3').export(new view_index_vueclass());runCreateVue.styleID = 'init_view_index'; if(checkStyleDownload.indexOf(runCreateVue.styleID)==-1){ 
- checkStyleDownload.push(runCreateVue.styleID); 
-}
- return runCreateVue; 
- }; 
- 
- function temp_index_head_vueclass(){ 
-  this.vue=vToaW5pdA__Model.temp_index_head; 
- new oderLoad(selfPJ.pjAPI).Co(this,null,'init/');
-} 
- this.temp_index_head = function(){ var runCreateVue = new VueChild().html(importLoad.root+'inittemp/t2').export(new temp_index_head_vueclass());runCreateVue.styleID = 'init_temp_index_head'; runCreateVue.styleurl(importLoad.root+'init/c1.css'); return runCreateVue; 
- }; 
- 
- function temp_index_foot_vueclass(){ 
-  this.vue=vToaW5pdA__Model.temp_index_foot; 
- new oderLoad(selfPJ.pjAPI).Co(this,null,'init/');
-} 
- this.temp_index_foot = function(){ var runCreateVue = new VueChild().html(importLoad.root+'inittemp/t1').export(new temp_index_foot_vueclass());runCreateVue.styleID = 'init_temp_index_foot'; runCreateVue.styleurl(importLoad.root+'init/c0.css'); return runCreateVue; 
- }; 
-
- }; 
- var init_main_run = function(){ 
- this.DEBUG = true;
-vToaW5pdA__Model = (function()
-{
-var PJVueModel = (function () {
+﻿var importLoad = new oderLoad().run((function () {
     var defines = {};
     var entry = [null];
     function define(name, dependencies, factory) {
@@ -74,39 +35,39 @@ var PJVueModel = (function () {
         __setModuleDefault(result, mod);
         return result;
     };
-    define("src/models/SysConfig_Interface/ajax", ["require", "exports"], function (require, exports) {
+    define("models/SysConfig_Interface/ajax", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
-    define("src/models/SysConfig_Interface/importLoad", ["require", "exports"], function (require, exports) {
+    define("models/SysConfig_Interface/importLoad", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
-    define("src/config/interface/publicObjec_Interface", ["require", "exports"], function (require, exports) {
+    define("config/interface/publicObjec_Interface", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
-    define("src/config/interface/getPubObject_interface", ["require", "exports"], function (require, exports) {
+    define("config/interface/getPubObject_interface", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
-    define("src/models/SysConfig_Interface/middleWare", ["require", "exports"], function (require, exports) {
+    define("models/SysConfig_Interface/middleWare", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
-    define("src/models/SysConfig_Interface/pb", ["require", "exports"], function (require, exports) {
+    define("models/SysConfig_Interface/pb", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
-    define("src/models/SysConfig_Interface/vueComponent", ["require", "exports"], function (require, exports) {
+    define("models/SysConfig_Interface/vueComponent", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
-    define("src/models/SysConfig_Interface/JObj", ["require", "exports"], function (require, exports) {
+    define("models/SysConfig_Interface/JObj", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
-    define("src/models/SysConfig_Interface/ProjectMap/ProjectList", ["require", "exports"], function (require, exports) {
+    define("models/SysConfig_Interface/ProjectMap/ProjectList", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
         var ProjectMap = /** @class */ (function () {
@@ -120,7 +81,7 @@ var PJVueModel = (function () {
         }());
         exports.default = ProjectMap;
     });
-    define("src/models/SysConfig_Interface/ProjectMap/aa_View", ["require", "exports"], function (require, exports) {
+    define("models/SysConfig_Interface/ProjectMap/aa_View", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
         var aa = /** @class */ (function () {
@@ -134,7 +95,7 @@ var PJVueModel = (function () {
         }());
         exports.default = aa;
     });
-    define("src/models/SysConfig_Interface/ProjectMap/init_View", ["require", "exports"], function (require, exports) {
+    define("models/SysConfig_Interface/ProjectMap/init_View", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
         var init = /** @class */ (function () {
@@ -150,7 +111,7 @@ var PJVueModel = (function () {
         }());
         exports.default = init;
     });
-    define("src/models/SysConfig_Interface/ProjectMap/MapProject", ["require", "exports", "src/models/SysConfig_Interface/ProjectMap/aa_View", "src/models/SysConfig_Interface/ProjectMap/init_View"], function (require, exports, aa_View_1, init_View_1) {
+    define("models/SysConfig_Interface/ProjectMap/MapProject", ["require", "exports", "models/SysConfig_Interface/ProjectMap/aa_View", "models/SysConfig_Interface/ProjectMap/init_View"], function (require, exports, aa_View_1, init_View_1) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
         aa_View_1 = __importDefault(aa_View_1);
@@ -166,7 +127,7 @@ var PJVueModel = (function () {
         }());
         exports.default = ViewMap;
     });
-    define("src/models/SysConfig_Interface/vueComponentAdd", ["require", "exports", "src/models/SysConfig_Interface/ProjectMap/ProjectList", "src/models/SysConfig_Interface/ProjectMap/MapProject"], function (require, exports, ProjectList_1, MapProject_1) {
+    define("models/SysConfig_Interface/vueComponentAdd", ["require", "exports", "models/SysConfig_Interface/ProjectMap/ProjectList", "models/SysConfig_Interface/ProjectMap/MapProject"], function (require, exports, ProjectList_1, MapProject_1) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
         ProjectList_1 = __importDefault(ProjectList_1);
@@ -241,7 +202,7 @@ var PJVueModel = (function () {
         }());
         exports.default = ComponentObj;
     });
-    define("src/models/SysConfig_Interface/JsonInterface/enum", ["require", "exports"], function (require, exports) {
+    define("models/SysConfig_Interface/JsonInterface/enum", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
         exports.Enum_view_EnumSample = exports.Enum_EnumSample = void 0;
@@ -271,11 +232,11 @@ var PJVueModel = (function () {
         };
         exports.Enum_view_EnumSample = Enum_view_EnumSample;
     });
-    define("src/models/SysConfig_Interface/JsonInterface/db", ["require", "exports"], function (require, exports) {
+    define("models/SysConfig_Interface/JsonInterface/db", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
-    define("src/models/vueSDK", ["require", "exports", "src/models/SysConfig_Interface/vueComponentAdd", "src/models/SysConfig_Interface/JsonInterface/enum", "src/models/SysConfig_Interface/JsonInterface/db"], function (require, exports, vueComponentAdd_1, EnumsAPI, TablesAPI) {
+    define("models/vueSDK", ["require", "exports", "models/SysConfig_Interface/vueComponentAdd", "models/SysConfig_Interface/JsonInterface/enum", "models/SysConfig_Interface/JsonInterface/db"], function (require, exports, vueComponentAdd_1, EnumsAPI, TablesAPI) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
         exports.Component = exports.TablesAPI = exports.EnumsAPI = exports.getMiddleCode = exports.getMiddle = exports.jObj = exports.importLoad = exports.ajax = exports.pb = void 0;
@@ -355,195 +316,103 @@ var PJVueModel = (function () {
         }
         exports.Component = Component;
     });
-    define("src/init/main_VueTemp", ["require", "exports"], function (require, exports) {
+    define("config/public", ["require", "exports", "models/vueSDK"], function (require, exports, vueSDK_1) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
-    });
-    define("src/init/controllers/index_interface", ["require", "exports"], function (require, exports) {
-        "use strict";
-        Object.defineProperty(exports, "__esModule", { value: true });
-    });
-    define("src/init/view/index_Interface", ["require", "exports"], function (require, exports) {
-        "use strict";
-        Object.defineProperty(exports, "__esModule", { value: true });
-    });
-    define("src/init/view/index_VueTemp", ["require", "exports"], function (require, exports) {
-        "use strict";
-        Object.defineProperty(exports, "__esModule", { value: true });
-    });
-    define("src/init/controllers/index", ["require", "exports"], function (require, exports) {
-        "use strict";
-        Object.defineProperty(exports, "__esModule", { value: true });
-        exports.default = {
-            data: {
-                title: "hihi-data-controllers",
-                head: {
-                    headTitle: "prop head title"
-                },
-                foot: {}
-            },
-            tsc: ["model/indexTsc"],
-            completed: function ($t, tscAry) {
-                $t["$m"] = tscAry[0];
-                $t.mLoad = true;
-            }
-        };
-    });
-    define("src/init/temp/index/foot", ["require", "exports"], function (require, exports) {
-        "use strict";
-        Object.defineProperty(exports, "__esModule", { value: true });
-        exports.default = {
-            data: {},
-            init: function ($t, $temp) {
-            },
-            temp: function ($t) {
-                return {};
-            },
-            methods: {}
-        };
-    });
-    define("src/init/temp/index/head_Interface", ["require", "exports"], function (require, exports) {
-        "use strict";
-        Object.defineProperty(exports, "__esModule", { value: true });
-    });
-    define("src/init/temp/index/head_VueTemp", ["require", "exports"], function (require, exports) {
-        "use strict";
-        Object.defineProperty(exports, "__esModule", { value: true });
-    });
-    define("src/init/temp/index/head", ["require", "exports"], function (require, exports) {
-        "use strict";
-        Object.defineProperty(exports, "__esModule", { value: true });
-        exports.default = {
-            data: {
-                head1: "head1-value",
-                ctrInput: "hihi"
-            },
-            watch: {},
-            init: function ($t, $temp) {
-                $temp();
-            },
-            temp: function ($t) {
-                return {};
-            },
-            tsc: [],
-            completed: function ($t, tscAry, $temp) {
-            },
-            methods: {}
-        };
-    });
-    define("src/init/view/index", ["require", "exports", "src/models/vueSDK"], function (require, exports, vueSDK_1) {
-        "use strict";
-        Object.defineProperty(exports, "__esModule", { value: true });
-        /** 首頁-入口Body Temp */
-        exports.default = {
-            data: {
-                mLoad: false,
-                textBox: "my textbox"
-            },
-            init: function ($t, $temp) {
-            },
-            funcFilters: function ($t) {
-                return {
-                    toFormat: function (value) {
-                        return "";
-                    }
-                };
-            },
-            watch: {},
-            tsc: [],
-            completed: function ($t, tscAry, $temp) {
-                vueSDK_1.importLoad.p.aa(function (e) {
-                    (0, vueSDK_1.Component)($t)
-                        .Extends("aaTemp") //宣告樣版名
-                        .Project(function (map) { return map(function (Name) { return Name.aa; }).exportVue({
-                        textProject: "----myTextProject---" //受繼承變數
-                    }); }); //專案物件
-                    $temp(); //已引用完成所有樣版時機-插入樣版
-                });
-            },
-            temp: function ($t) {
-                vueSDK_1.pb.AddPrototype($t.head, { main: $t });
-                (0, vueSDK_1.Component)($t)
-                    .Extends("headTemp") //宣告樣版名
-                    .Template(function (map) { return map(function (path) { return path.init.temp_index_head; }).exportVue($t.head); });
-                /** 樣版緩存 */
-                var tempObj = {};
-                tempObj["footTemp"] = (0, vueSDK_1.Component)($t).import(function (path) { return path.init.temp_index_foot; }).exportVue($t.foot);
-                return tempObj;
-            },
-            methods: {
-                /** add function */
-                getFun: function () {
+        /**
+         * 取預設定語系
+         */
+        var getSysLang = function () {
+            /** System language */
+            var SysLang = navigator.language.toLowerCase();
+            /** 繁中 */
+            var nowLangVal = "ch";
+            if (SysLang.indexOf("zh-") > -1 || SysLang.indexOf("hk-") > -1) {
+                if (SysLang.indexOf("-cn") > -1) { //簡體
+                    nowLangVal = "sch";
+                }
+                else { //繁體
+                    nowLangVal = "ch";
                 }
             }
-        }; //<bind data KeyName,VueTemplate=$t>
-    });
-    define("src/models/SysConfig_Interface/psylVueTsc", ["require", "exports", "src/models/SysConfig_Interface/ProjectMap/init_View"], function (require, exports, init_View_2) {
-        "use strict";
-        Object.defineProperty(exports, "__esModule", { value: true });
-        init_View_2 = __importDefault(init_View_2);
-        /** 初始化 Vue */
-        var CreateVue = /** @class */ (function () {
-            /**
-             * @param temp 取得樣版路徑(起始渲染樣版)
-            */
-            function CreateVue(temp) {
+            else if (SysLang.indexOf("en-") > -1) { //英語系國家
+                nowLangVal = "en";
+            }
+            else if (SysLang == "ja") { //日語
+                nowLangVal = "jp";
+            }
+            return nowLangVal;
+        };
+        /**
+         * 載入 物件序列化(public 物件)
+        */
+        var configDataList = /** @class */ (function () {
+            function configDataList() {
                 var _this = this;
                 /**
-                 * app 樣版數據物件
+                 * 載入Libary json/image/語系資訊
                 */
-                this.getData = function (mainDataJson) { return _this.nowVueObj.getData(mainDataJson); };
-                /** 樣版路徑名 */
-                var catchTempName = temp(new init_View_2.default()).split('@');
-                /** 起始樣版物件取用 */
-                var startTemp = function (outhis) {
-                    return new (eval(((catchTempName[0] == '') ? 'init' : catchTempName[0]) + "_VuePJ"))()[catchTempName[1].replace(/\//g, '_')](outhis);
+                this.inLibary = {
+                    config: (0, vueSDK_1.jObj)(),
+                    lib: (0, vueSDK_1.jObj)(),
+                    lang: ""
                 };
-                this.nowVueObj = new (eval("psylVue"))(startTemp);
+                /**
+                 * 宣告載入data config & public libary
+                 * @param loadFun async 載入 Function(完成載入 /models/jsonDoc/Config [json 檔案] )
+                */
+                this.setPublic = function (loadFun) {
+                    if (_this.inLibary.lang == "") //注入預選語系
+                        _this.inLibary.lang = getSysLang();
+                    /**
+                     * 載入完成計數(共計2)
+                    */
+                    var loadCount = 0;
+                    _this.inLibary.config.load("config." + _this.inLibary.lang, function (e) {
+                        loadCount++;
+                        if (loadCount == 2)
+                            loadFun();
+                    });
+                    _this.inLibary.lib.loadlib("pub", function (e) {
+                        loadCount++;
+                        if (loadCount == 2)
+                            loadFun();
+                    });
+                    return _this.inLibary; //生成陣列
+                };
             }
-            return CreateVue;
+            return configDataList;
         }());
-        exports.default = CreateVue;
+        exports.default = configDataList;
+        ;
     });
-    define("src/init/main", ["require", "exports", "src/models/vueSDK", "src/models/SysConfig_Interface/psylVueTsc"], function (require, exports, vueSDK_2, psylVueTsc_1) {
+    define("config/loadModel", ["require", "exports", "config/public", "models/vueSDK"], function (require, exports, public_1, vueSDK_2) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
-        psylVueTsc_1 = __importDefault(psylVueTsc_1);
-        /** 當下網址路徑 */
-        var spUrl = window.location.pathname;
-        new psylVueTsc_1.default(function (temp) { return temp.view_index; })
-            .getData({
-            init: {
-                pub: vueSDK_2.importLoad.pub,
-                page: "index",
-                urlName: ((spUrl.split('/').length >= 2) ? spUrl.split('/')[1] : ""),
-                spUrl: spUrl,
-            }
-        })
-            .getIcon(function ($t) {
-            return $t.init.pub.lib.src('inlayout.ico');
-        })
-            .getHeadTitle("init.page", //資料切換觸發 key
-        function ($t) {
-            return $t.init.pub.config.get("title") + "-" + $t.init.pub.config.get("page")[$t.init.page];
-        }) //html title name
-            .load(function ($t) {
-            return {
-                main: $t.init //注入共用入口點數據(繼承)
-            };
-        });
-        /** application 入口 */
-        exports.default = undefined; //初始化不需要輸出樣版 object
-    });
-    define("psylbundletscView/init_MapSorce", ["require", "exports", "src/init/controllers/index", "src/init/temp/index/foot", "src/init/temp/index/head", "src/init/view/index", "src/init/main"], function (require, exports, index_1, foot_1, head_1, index_2, main_1) {
-        "use strict";
-        Object.defineProperty(exports, "__esModule", { value: true });
-        index_1 = __importDefault(index_1);
-        foot_1 = __importDefault(foot_1);
-        head_1 = __importDefault(head_1);
-        index_2 = __importDefault(index_2);
-        main_1 = __importDefault(main_1);
-        exports.default = { controllers_index: index_1.default, temp_index_foot: foot_1.default, temp_index_head: head_1.default, view_index: index_2.default, main: main_1.default };
+        public_1 = __importDefault(public_1);
+        /** 繼承importLoad 物件(importLoad 入口class) */
+        function default_1($t) {
+            /**
+             * 載入 oder
+            */
+            var configObj = new public_1.default();
+            //公共 css
+            $t.m.css.sit(function (e) {
+                console.log("Model css =>sit_" + e);
+                $t.pub = configObj.setPublic(function () {
+                    console.log("libary =>init");
+                    setTimeout(function () {
+                        $t.p.init(function (e3) {
+                            console.log("page vue =>init---" + e3);
+                            console.warn("在找我/find me？https://psyltw.com/author");
+                            if (vueSDK_2.pb.debug) //debug model
+                                console.warn("----------runing-debug-model----------");
+                        });
+                    }, 99);
+                });
+            });
+        }
+        exports.default = default_1;
     });
     
     'marker:resolver';
@@ -591,8 +460,5 @@ var PJVueModel = (function () {
     if (entry[0] !== null) {
         return resolve(entry[0]);
     }
-})();
- return PJVueModel.default;
-})();
- 
- }; var init_mainrunVue = new init_main_run();
+})().default);
+pb.debug = true;

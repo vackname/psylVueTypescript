@@ -1,7 +1,8 @@
 ﻿import indexData from "./index_Interface";
 import indexVueTemp from "./index_VueTemp";
-import {importLoad,pb,vueComponentModel,vueModelTemp,vueComponent,ProjectComponent} from "../../models/vueSDK";
+import {importLoad,pb,vueComponentModel,vueModelTemp,Component} from "../../models/vueSDK";
 
+/** 首頁-入口Body Temp */
 export default {
     data:{
         mLoad:false,
@@ -29,19 +30,27 @@ export default {
     {//主樣版初始化完成
         importLoad.p.aa((e)=>
         {//注入專案
-            vueComponent($t)
-            .Name("aaTemp")//宣告樣版名
-            .Add(ProjectComponent("aa"));//專案物件
-            $temp();
+            Component($t)
+            .Extends("aaTemp")//宣告樣版名
+            .Project(map=>map(Name=>Name.aa).exportVue({
+                textProject:"----myTextProject---"//受繼承變數
+            }));//專案物件
+
+            $temp();//已引用完成所有樣版時機-插入樣版
         });
     },
     temp:($t)=>
     {
+        pb.AddPrototype($t.head,{main:$t});
+        
+        Component($t)
+        .Extends("headTemp")//宣告樣版名
+        .Template(map=>map(path=>path.init.temp_index_head).exportVue($t.head));
+
         /** 樣版緩存 */
         var tempObj:vueModelTemp = {};
-        pb.AddPrototype($t.head,{main:$t});
-        tempObj["headTemp"] = $t.import("@temp/index/head").exportVue($t.head);
-        tempObj["footTemp"] = $t.import("@temp/index/foot").exportVue($t.foot);
+
+        tempObj["footTemp"] =  Component($t).import(path=>path.init.temp_index_foot).exportVue($t.foot);
         return tempObj;
     },
     methods:

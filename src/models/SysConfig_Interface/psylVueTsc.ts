@@ -1,4 +1,4 @@
-
+import InITempMap from "./ProjectMap/init_View";//注入初始 樣版map
 /**
  * 樣版注入function output data json
 */
@@ -74,10 +74,10 @@ export default class CreateVue
     /**
      * @param temp 取得樣版路徑(起始渲染樣版)
     */
-    constructor(temp:string) 
+    constructor(temp:(obj:InITempMap)=>string) 
     {
         /** 樣版路徑名 */
-        let catchTempName:string[] = temp.split('@');
+        let catchTempName:string[] = temp(new InITempMap()).split('@');
         /** 起始樣版物件取用 */
         let startTemp:Function = (outhis:any)=>
             new (eval(((catchTempName[0]=='')?'init':catchTempName[0])+"_VuePJ") as any)()[catchTempName[1].replace(/\//g,'_')](outhis);

@@ -1,4 +1,4 @@
-﻿import {vueComponentModel} from '../../models/vueSDK';
+﻿import {vueComponentModel,Component} from '../../models/vueSDK';
 import * as indexData from './index_Interface';
 import indexVueTemp from './index_VueTemp';
 
@@ -16,7 +16,7 @@ export default {
     temp:($t)=>{
         /*init $temp() run to temp*/
         return {
-            userpage : $t.import('@view/userset')
+            userpage : Component($t).import(path=>path.aa.view_userset)
             .exportVue({//bind data for user page
                 main: $t.main,
                 data: $t.data.user
