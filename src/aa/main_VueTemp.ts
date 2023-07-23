@@ -17,6 +17,8 @@ export interface mainData
     maindata:maindataObj,
     /** 渲染樣版名 */
     VueName:string
+    /** input box */
+    textProject:string
 }
 
 /** 主要入口樣版 */

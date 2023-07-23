@@ -5,6 +5,7 @@ import {vueComponentModel} from '../models/vueSDK';
 /** example view */
 var indata:mainData = {
         maindata:{a1:'firstname',a2:'lastname'},
+        textProject:"input box",
         VueName:""
     };
 
