@@ -1,5 +1,5 @@
 ﻿<div id="init_panel" v-show="mLoad">
-<component v-bind:is="v.headTemp"></component>
+<component v-bind:is="((v.indexOf('headTemp')>-1)?'headTemp':'')"></component>
 <div style="width:100%;padding-top:20px;padding-bottom:20px;" v-show="showAnimateFlag">
     <div id="AAPanel">
         <div id="meAn">
@@ -46,9 +46,9 @@
 <div>{{title}}</div>
 <div>
     aa_TEMP----start 異步載入 樣版(後注入需重起渲染)
-    <component is="aaTemp"></component>
+    <component v-bind:is="((v.indexOf('aaTemp')>-1)?'aaTemp':'')"></component>
     aa_TEMP----end
 </div>
    <input v-model="textBox" type="text"/> {{textBox}} {{((mLoad)?$m.mymodel():"")}}
-    <component v-bind:is="v.footTemp"></component>
+    <component v-bind:is="((v.indexOf('footTemp')>-1)?'footTemp':'')"></component>
 </div>

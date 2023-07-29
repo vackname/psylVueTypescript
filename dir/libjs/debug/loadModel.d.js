@@ -39,6 +39,30 @@
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
+    define("models/SysConfig_Interface/vueComponentGetPJ", ["require", "exports"], function (require, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: true });
+    });
+    define("models/SysConfig_Interface/ProjectMap/ProjectImportLoadList", ["require", "exports"], function (require, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: true });
+    });
+    define("models/SysConfig_Interface/vueModelsJS", ["require", "exports"], function (require, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: true });
+    });
+    define("models/SysConfig_Interface/ModelsInterface/js", ["require", "exports"], function (require, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: true });
+    });
+    define("models/SysConfig_Interface/vueModelsCss", ["require", "exports"], function (require, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: true });
+    });
+    define("models/SysConfig_Interface/ModelsInterface/css", ["require", "exports"], function (require, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: true });
+    });
     define("models/SysConfig_Interface/importLoad", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
@@ -59,6 +83,14 @@
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
+    define("models/SysConfig_Interface/vueComponentImportPJ", ["require", "exports"], function (require, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: true });
+    });
+    define("models/SysConfig_Interface/ProjectMap/ProjectImportList", ["require", "exports"], function (require, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: true });
+    });
     define("models/SysConfig_Interface/vueComponent", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
@@ -72,9 +104,9 @@
         Object.defineProperty(exports, "__esModule", { value: true });
         var ProjectMap = /** @class */ (function () {
             function ProjectMap() {
-                /**  aa-> project */
+                /**  aa 專案 入口  */
                 this.aa = 'aa';
-                /**  init-> project */
+                /**  application 入口  */
                 this.init = 'init';
             }
             return ProjectMap;
@@ -104,7 +136,7 @@
                 this.temp_index_foot = 'init@temp/index/foot';
                 /** Project[init]->Temp[temp/index/head] */
                 this.temp_index_head = 'init@temp/index/head';
-                /** Project[init]->Temp[view/index] */
+                /**  首頁-入口Body Temp  */
                 this.view_index = 'init@view/index';
             }
             return init;
@@ -118,9 +150,9 @@
         init_View_1 = __importDefault(init_View_1);
         var ViewMap = /** @class */ (function () {
             function ViewMap() {
-                /**  aa-> project */
+                /**  aa 專案 入口  */
                 this.aa = new aa_View_1.default();
-                /**  init-> project */
+                /**  application 入口  */
                 this.init = new init_View_1.default();
             }
             return ViewMap;
@@ -136,19 +168,19 @@
           * 注冊樣版端口
          */
         var toComponentObj = /** @class */ (function () {
-            function toComponentObj($t, vue) {
-                var _this = this;
-                /**
-                 * 專案樣版入口 注冊物件
-                 * @param map 專案 樣版路徑 物件
-                 * @returns 取得 專案Vue
-                 */
-                this.Project = function (map) {
-                    return _this.getVue.Add(map(new ComponentObj(_this.get$t).Project));
-                };
+            function toComponentObj(tempName, $t, vue) {
                 this.get$t = $t;
                 this.getVue = vue;
+                this.getTempName = tempName;
             }
+            /**
+             * 專案樣版入口 注冊物件
+             * @param map 專案 樣版路徑 物件
+             * @returns 取得 專案Vue
+             */
+            toComponentObj.prototype.Project = function (map) {
+                this.getVue.Add(map(new ComponentObj(this.get$t).Project));
+            };
             /**
               * template 注冊物件
               * @param map 樣版路徑 物件
@@ -157,7 +189,7 @@
             toComponentObj.prototype.Template = function (map) {
                 var toGet$t = this.get$t;
                 this.getVue.Add(map(function (Path) {
-                    return toGet$t.import(Path(new MapProject_1.default()));
+                    return toGet$t.import.url(Path(new MapProject_1.default()));
                 }));
             };
             return toComponentObj;
@@ -185,7 +217,7 @@
                   * @returns 注冊該樣版
                   */
                 this.import = function (Path) {
-                    return _this.get$t.import(Path(new MapProject_1.default()));
+                    return _this.get$t.import.url(Path(new MapProject_1.default()));
                 };
                 this.get$t = $t;
             }
@@ -195,7 +227,7 @@
             */
             ComponentObj.prototype.Extends = function (Name) {
                 var vueObj = eval("vueComponent");
-                return new toComponentObj(this.get$t, vueObj(this.get$t)
+                return new toComponentObj(Name, this.get$t, vueObj(this.get$t)
                     .Name(Name)); //宣告樣版名
             };
             return ComponentObj;

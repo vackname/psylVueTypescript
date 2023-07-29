@@ -18,12 +18,17 @@ export default {
     {
         $an = new animate_author($t);
         $t["$an"] = $an;//注入樣版
+
+        $t.import.p.aa(InsertTemp=>
+            InsertTemp("aaTemp", tempObj=>tempObj).toLoad());
+
+        /* 與 $t.import.p.aa 等同作動
         importLoad.p.aa((e)=>{//異步載入 注入專案
             Component($t)
             .Extends("aaTemp")//宣告樣版名
             .Project(map=>map(Name=>Name.aa));
             $temp();
-        });
+        });*/
     },
     funcFilters:($t)=>
     {
@@ -60,7 +65,7 @@ export default {
         var tempObj:vueModelTemp = {};
         pb.AddPrototype($t.head,{main:$t});
         tempObj["headTemp"] = Component($t).import(temp=>temp.init.temp_index_head).exportVue($t.head);
-        tempObj["footTemp"] = $t.import("@temp/index/foot").exportVue($t.foot);
+        tempObj["footTemp"] = $t.import.url("@temp/index/foot").exportVue($t.foot);
         return tempObj;
     },
     methods:

@@ -1,3 +1,8 @@
+import PJImport from "./ProjectMap/ProjectImportList";
+import mImport from "./ModelsInterface/js";
+import cssImport from "./ModelsInterface/css";
+
+
 interface templateProject
 {
     /** create template name(註冊渲染樣版名) */
@@ -17,6 +22,38 @@ interface ExistVue
 {
     [name:string]:string
 }
+//------------------- importLoad model -start
+/** 載入專案 */
+interface importPJ extends PJImport
+{
+
+}
+
+/** models sdk 夾 */
+interface models
+{
+    /** css 載入 ex importLoad.[cssName]((e:string)=> {}) */
+    css:cssImport,
+    /** model 載入 importLoad.[ModelName]((e:string)=> {}) */
+    js:mImport,
+}
+
+/** importLoad Obj */
+interface toImport<T1>
+{
+    /** include project template  
+     * @param path template file=[project name]@[path]   ex "@temp/MGPDS/gift"、  js file= [path] ex "@t/model/jsmodel"
+    */
+    url:<T extends ThisImport<T1>>(path:string)=>templateObj<T1,T>
+
+    /** models sdk 夾 */
+    m:models
+
+    /** project 夾載入 importLoad.[ProjectName]((e:string)=> {}) */
+    p:importPJ
+}
+
+//------------------- importLoad model -end
 
 /**
  *(T1=專案入口 最高層級樣版) vue this 內import 注入功能 備註:model js 只能取 project 本身
@@ -26,7 +63,7 @@ export interface ThisImport<T1>
     /** include project template  
      * @param path template file=[project name]@[path]   ex "@temp/MGPDS/gift"、  js file= [path] ex "@t/model/jsmodel"
     */
-    import:<T extends ThisImport<T1>>(path:string)=>templateObj<T1,T>,
+    import:toImport<T1>,
 
     /** 當前已曾經渲染完成 樣版名 */
     v:ExistVue,

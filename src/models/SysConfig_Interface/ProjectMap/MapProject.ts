@@ -2,8 +2,8 @@
 import init_obj from './init_View'
 export default class ViewMap 
 {
-/**  aa-> project */
-aa = new aa_obj();
-/**  init-> project */
-init = new init_obj();
+ /**  aa 專案 入口  */
+ aa = new aa_obj();
+ /**  application 入口  */
+ init = new init_obj();
 }

@@ -19,7 +19,7 @@ export default {
     temp:($t)=>{
         /*init $temp() run to temp*/
         return {
-            view1:$t.import('@view/index')
+            view1:$t.import.url('@view/index')
             .exportVue({
                 main:{layout:'hi(layout)'},//data注入模板
                 datamain:indata.maindata

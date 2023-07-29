@@ -1,74 +1,6 @@
-/**
- * load async function
-*/
-interface AsyncFun
-{
-    /**
-     * @param e type =(complete = 載入成功！)(fail = 載入失敗！)
-    */
-    (e:string):void
-}
-
-
-/**
- * load async function
-*/
-interface AsyncJsFun<T>
-{
-    /**
-     * @param e T model
-    */
-    (e:T):void
-}
-
-
-/**
- *  project name(function)
-*/
-interface objPJFun{
-    /**
-     * @param fun load async function
-    */
-    (fun:AsyncFun):void;
-}
-
-
-/** 載入專案 */
-interface importPJ
-{
-    [objName:string]:objPJFun
-}
-
-
-/**
- *  models name(function)
-*/
-interface objJsFun{
-    /**
-     * @param fun load async function
-    */
-    <T>(fun:AsyncJsFun<T>):void;
-}
-
-interface importJs
-{
-    [objName:string]:objJsFun
-}
-
-/**
- *  file css name(function)
-*/
-interface objCssFun{
-    /**
-     * @param fun load async function
-    */
-    (fun:AsyncFun):void;
-}
-
-interface importCss
-{
-    [objName:string]:objCssFun
-}
+import PJImport from "./ProjectMap/ProjectImportLoadList";
+import importJs from "./ModelsInterface/js";
+import importCss from "./ModelsInterface/css";
 
 /** models sdk 夾 */
 interface models
@@ -87,7 +19,7 @@ interface importLoadObj
     /** models sdk 夾 */
     m:models
     /** project 夾載入 importLoad.[ProjectName]((e:string)=> {}) */
-    p:importPJ
+    p:PJImport
 }
 
 /**

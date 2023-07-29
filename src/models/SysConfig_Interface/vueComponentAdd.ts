@@ -81,11 +81,14 @@ class toComponentObj<T extends vueComponentM.ThisImport<any>>
    */
    private get$t:T;
    private getVue:vueComponentM.template;
+   /** 樣版名 */
+   private getTempName:string;
 
-   constructor($t:T,vue:vueComponentM.template)
+   constructor(tempName:string,$t:T,vue:vueComponentM.template)
    {
      this.get$t = $t;
      this.getVue = vue;
+     this.getTempName=tempName;
    }
 
   /**
@@ -93,8 +96,10 @@ class toComponentObj<T extends vueComponentM.ThisImport<any>>
    * @param map 專案 樣版路徑 物件
    * @returns 取得 專案Vue
    */
-   Project = (map:addProjectCrateTemplate) =>
+   Project(map:addProjectCrateTemplate)
+   {
      this.getVue.Add(map(new ComponentObj(this.get$t).Project));
+    }
 
    /**
      * template 注冊物件
@@ -105,7 +110,7 @@ class toComponentObj<T extends vueComponentM.ThisImport<any>>
    {
      var toGet$t = this.get$t;
      this.getVue.Add(map((Path:addTemplateObj):vueComponentM.templateObj<any,T>=>
-     toGet$t.import(Path(new TempMap()))));
+     toGet$t.import.url(Path(new TempMap()))));
    }
 }
 
@@ -140,7 +145,7 @@ export default class ComponentObj<T extends vueComponentM.ThisImport<any>>
      * @returns 注冊該樣版
      */
    import = (Path:addTemplateObj)=> 
-   this.get$t.import(Path(new TempMap()));
+   this.get$t.import.url(Path(new TempMap()));
    
    
    /**
@@ -150,7 +155,7 @@ export default class ComponentObj<T extends vueComponentM.ThisImport<any>>
    Extends(Name:string)
    {
      const vueObj:vueComponentM.vueComponent = eval("vueComponent");
-     return new toComponentObj(this.get$t,vueObj(this.get$t)
+     return new toComponentObj(Name,this.get$t,vueObj(this.get$t)
      .Name(Name));//宣告樣版名
    }
 

@@ -10,6 +10,7 @@
       "/init/temp/index/foot.html",
       "/init/temp/index/head.html",
       "/init/view/index.ts",
+      "/init/view/index.scss",
       "/init/view/index.html"
     ],
     "minify": {
