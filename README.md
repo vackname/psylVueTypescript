@@ -27,17 +27,11 @@
 - 可於此 資料夾或其它專案 引用 importLoad.p.[專案名] 載入其它專案夾，再進此過載入口
 - 示例 html 取用樣版名 'Management'
 ```
-    importLoad.p.Management((re)=>
+    $t.import.p.Management((re)=>
     {//載入專案
-        /** project name*/
-        let n:string='Management';
-        vueComponent($t)//掛載入 init 專案
-        .Name(n)//樣版名
-        .Add((eval('Management.main') as ManagementMainTemp)
-        .exportVue({//create project temp 綁 index temp
-            main:$t.main,//init 專案 入口點
-            mainTemp:$t//init index temp
-        }));
+            Component($t)
+            .Extends("aaTemp")//宣告樣版名
+            .Project(map=>map(Name=>Name.aa)).toLoad();
     });
 ```
 
