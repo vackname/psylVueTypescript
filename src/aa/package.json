@@ -2,10 +2,13 @@
   {
     "outputFileName": "/OpenWeb/wwwroot/libjs/aa.min",
     "inputFiles": [
+      "/aa/controllers/asyncLoadView.ts",
       "/aa/controllers/index.ts",
       "/aa/controllers/userset.ts",
+      "/aa/view/asyncLoadView.ts",
       "/aa/view/index.ts",
       "/aa/view/userset.ts",
+      "/aa/view/asyncLoadView.html",
       "/aa/view/index.html",
       "/aa/view/userset.html"
     ],

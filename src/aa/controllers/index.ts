@@ -1,4 +1,4 @@
-﻿import {importLoad} from '../../models/vueSDK';
+﻿import tscM from "../../models/SysConfig_Interface/tscModel/aa";
 import indexData from './index_interface';
 import indexVueTemp from '../view/index_VueTemp';
 import {vueModelControllers} from '../../models/vueSDK';
@@ -13,7 +13,6 @@ export default {
 
     },
     data:{
-        lib:importLoad.pub.lib,
         data:{
             user:{
                 list:[1,2,3],
@@ -21,8 +20,8 @@ export default {
             }
         }
     },
-    completed:($t,tscAry)=>
+    completed:($t)=>
     {
         $t['$m'] = new toModel($t) //注入model
     },
-} as vueModelControllers<indexData,indexVueTemp>;
+} as vueModelControllers<indexData,indexVueTemp,tscM>;

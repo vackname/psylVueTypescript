@@ -1,4 +1,5 @@
-﻿import headData from "./head_Interface";
+﻿import tscM from "../../../models/SysConfig_Interface/tscModel/init";
+import headData from "./head_Interface";
 import headVueTemp from "./head_VueTemp";
 import {vueComponentModel} from "../../../models/vueSDK";
 
@@ -11,21 +12,17 @@ export default {
     {
 
     },
-    init:($t,$temp)=>
+    init:($t)=>
     {
-        $temp();
+        $t.import.toLoad();
     },
     temp:($t)=>{
         return {};
         
     },
     tsc:[],
-    completed:($t:headVueTemp,tscAry,$temp)=>
+    completed:($t,tscModel)=>
     {
 
-    },
-    methods:
-    {
-        
     }
-} as vueComponentModel<headData,headVueTemp>;
+} as vueComponentModel<headData,headVueTemp,tscM>;

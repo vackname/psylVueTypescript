@@ -1,5 +1,3 @@
-import {jObjInterface} from '../../models/vueSDK';
-
 interface user
 {
     /** 數字陣列 */
@@ -14,7 +12,5 @@ interface data
 }
 
 export default interface index{
-    /** catch libary img (config public.js download) */
-    lib:jObjInterface,
     data:data
 }

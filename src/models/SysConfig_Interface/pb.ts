@@ -61,7 +61,7 @@ interface AnimateAction
     /** wait 後再 action(unit sec) */
     delay?:number,
     /** number = 運行次數,string "infinite" = 永久運行 */
-    count?:any
+    count?:string|number
 
     /** 播放方向 
      * reverse, alternate, alternate-reverse, alternate, reverse, normal

@@ -1,11 +1,12 @@
-﻿import {vueComponentModel,VueTemplate,MainVueTemplate} from '../../models/vueSDK';
+﻿import tscM from "../../models/SysConfig_Interface/tscModel/aa";
+import {vueComponentModel,VueTemplate,MainVueTemplate,Component} from '../../models/vueSDK';
 
 export default {
     data:{
 
     },
-    init:($t,$temp)=>{
-
+    init:($t)=>{
+        $t.import.toLoad();
     },
     temp:($t)=>{
         /*init $temp() run to temp*/
@@ -14,11 +15,18 @@ export default {
             }
     },
     tsc:[],//project -> typescript model
-    completed:($t,tscAry,$temp)=>
+    completed:($t,tscModel)=>
     {
         /*init $temp() run to completed or not exist init*/
     },
-    methods:{
-
+    action:$t=>{
+        return{
+            /** add Temp example */
+            openAsyncView:()=>
+            {
+                Component($t)
+                .Extends("asynTemp").Template(map=>map(temp=>temp.aa.view_asyncLoadView));
+            }
+        }
     }
-} as vueComponentModel<any,VueTemplate<MainVueTemplate>>;
+} as vueComponentModel<any,VueTemplate<MainVueTemplate>,tscM>;

@@ -63,15 +63,15 @@
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
-    define("models/SysConfig_Interface/importLoad", ["require", "exports"], function (require, exports) {
-        "use strict";
-        Object.defineProperty(exports, "__esModule", { value: true });
-    });
     define("config/interface/publicObjec_Interface", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
     define("config/interface/getPubObject_interface", ["require", "exports"], function (require, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: true });
+    });
+    define("models/SysConfig_Interface/importLoad", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
@@ -118,6 +118,8 @@
         Object.defineProperty(exports, "__esModule", { value: true });
         var aa = /** @class */ (function () {
             function aa() {
+                /** Project[aa]->Temp[view/asyncLoadView] */
+                this.view_asyncLoadView = 'aa@view/asyncLoadView';
                 /** Project[aa]->Temp[view/index] */
                 this.view_index = 'aa@view/index';
                 /** Project[aa]->Temp[view/userset] */
@@ -271,7 +273,7 @@
     define("models/vueSDK", ["require", "exports", "models/SysConfig_Interface/vueComponentAdd", "models/SysConfig_Interface/JsonInterface/enum", "models/SysConfig_Interface/JsonInterface/db"], function (require, exports, vueComponentAdd_1, EnumsAPI, TablesAPI) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
-        exports.Component = exports.TablesAPI = exports.EnumsAPI = exports.getMiddleCode = exports.getMiddle = exports.jObj = exports.importLoad = exports.ajax = exports.pb = void 0;
+        exports.Component = exports.TablesAPI = exports.EnumsAPI = exports.getMiddleCode = exports.getMiddle = exports.jObj = exports.ajax = exports.pb = void 0;
         vueComponentAdd_1 = __importDefault(vueComponentAdd_1);
         EnumsAPI = __importStar(EnumsAPI);
         TablesAPI = __importStar(TablesAPI);
@@ -285,10 +287,6 @@
          * ajax
          */
         exports.ajax = eval("ajax");
-        /**
-         * 系統掛載(公共域物件/載入初始化物件)
-         */
-        exports.importLoad = eval("importLoad");
         /**
          * libary載入系統
         */
@@ -430,10 +428,10 @@
             var configObj = new public_1.default();
             //公共 css
             $t.m.css.sit(function (e) {
-                console.log("Model css =>sit_" + e);
                 $t.pub = configObj.setPublic(function () {
-                    console.log("libary =>init");
+                    console.log("Model css =>sit_" + e);
                     setTimeout(function () {
+                        console.log("libary =>init");
                         $t.p.init(function (e3) {
                             console.log("page vue =>init---" + e3);
                             console.warn("在找我/find me？https://psyltw.com/author");

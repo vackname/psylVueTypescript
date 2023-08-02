@@ -1,4 +1,5 @@
 import {mainData} from '../main_VueTemp';
+import {jObjInterface} from '../../models/vueSDK';
 
 export interface dataFormat
 {
@@ -15,4 +16,6 @@ export interface indexTemp
 {
     /** show/hidden 樣版 */
     show:boolean,
+    /** (經由 init main 繼承) catch libary img (config public.js download) */
+    lib?:jObjInterface,
 }

@@ -1,8 +1,10 @@
-﻿import indexData from "./index_Interface";
+﻿import tscM from "../../models/SysConfig_Interface/tscModel/init";
+import indexData from "./index_Interface";
 import indexVueTemp from "./index_VueTemp";
 import animate_author from "../animateModel/author";//作者主題 動畫
 
-import {importLoad,pb,vueComponentModel,vueModelTemp,Component,jObj} from "../../models/vueSDK";
+import {pb,vueComponentModel,vueModelTemp,Component,jObj} from "../../models/vueSDK";
+
 /** 作者主題 動畫模組宣告 */
 var $an:animate_author;
 
@@ -14,13 +16,10 @@ export default {
         mLoad:false,
         textBox:"my textbox"
         },
-    init:($t,$temp)=>
+    init:($t)=>
     {
         $an = new animate_author($t);
         $t["$an"] = $an;//注入樣版
-
-        $t.import.p.aa(InsertTemp=>
-            InsertTemp("aaTemp", tempObj=>tempObj).toLoad());
 
         /* 與 $t.import.p.aa 等同作動
         importLoad.p.aa((e)=>{//異步載入 注入專案
@@ -44,8 +43,12 @@ export default {
 
     },
     tsc:[],
-    completed:($t,tscAry,$temp)=>
+    completed:($t,tscModel)=>
     {//主樣版初始化完成
+
+        $t.import.p.aa(InsertTemp=>
+            InsertTemp("aaTemp", tempObj=>tempObj).toLoad());
+
         //樣版渲染完成
         pb.el.id("init_panel").style({"opacity":"0"}).animate({"duration":0.6,"delay":0.3,"count":1},
         {//主樣版 body 漸顯示
@@ -68,14 +71,14 @@ export default {
         tempObj["footTemp"] = $t.import.url("@temp/index/foot").exportVue($t.foot);
         return tempObj;
     },
-    methods:
-    {
-        /** add function */
-       getFun:()=>
-       {
-
-       }
-
+    action:($t)=>{
+        return {
+            /** add function */
+            getFun:()=>
+            {
+                
+            }
+        }
     }
-} as vueComponentModel<indexData,indexVueTemp>;//<bind data KeyName,VueTemplate=$t>
+} as vueComponentModel<indexData,indexVueTemp,tscM>;//<bind data KeyName,VueTemplate=$t>
 

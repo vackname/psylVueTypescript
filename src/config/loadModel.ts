@@ -6,13 +6,12 @@ export default function($t:importLoadObjInterface){
      * 載入 oder
     */
     var configObj = new configDataList();
-
     //公共 css
     $t.m.css.sit((e)=>{
-        console.log("Model css =>sit_"+e);
-        $t.pub = configObj.setPublic(()=>{//download libary            
-            console.log("libary =>init");
+        $t.pub = configObj.setPublic(()=>{//download libary     
+            console.log("Model css =>sit_"+e);
             setTimeout(()=>{
+                console.log("libary =>init");
                 $t.p.init((e3)=>{//載入口點
                     console.log("page vue =>init---"+e3);
                     console.warn("在找我/find me？https://psyltw.com/author");

@@ -1,6 +1,9 @@
-﻿import indexVueTemp from "../view/index_VueTemp";
+﻿import tscM from "../../models/SysConfig_Interface/tscModel/init";
+import indexVueTemp from "../view/index_VueTemp";
 import indexData from "./index_interface";
 import {vueModelControllers} from "../../models/vueSDK";
+
+var M:tscM = new tscM();
 
 export default 
 {
@@ -11,10 +14,10 @@ export default
         },
         foot:{}
     },
-    tsc:["model/indexTsc"],
-    completed:($t,tscAry)=>
+    tsc:[M.model_indexTsc],
+    completed:($t,tscModel)=>
     {
-        $t["$m"] = tscAry[0];
+        $t["$m"] = tscModel.model_indexTsc;
         $t.mLoad=true;
     }
-} as vueModelControllers<indexData,indexVueTemp>;
+} as vueModelControllers<indexData,indexVueTemp,tscM>;

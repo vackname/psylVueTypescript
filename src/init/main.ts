@@ -23,7 +23,7 @@ new CreateVue(temp=>temp.view_index)
         return {
             main:$t.init//注入共用入口點數據(繼承)
         };
-});
+    });
 
 /** application 入口 */
 export default undefined;//初始化不需要輸出樣版 object

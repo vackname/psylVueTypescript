@@ -5,5 +5,7 @@
         }
 </style>
 <div style="width:100%;position:relative;" >
-        <div><span class="aa_userset_content">index->userset content:{{data.list}}<span>_{{subject}}</div>
+        <div><span class="aa_userset_content">index->userset content:{{data.list}}</span>_{{subject}}<input type="button" value="LoadAsyncView" v-on:click="openAsyncView()" /></div>
+        <component v-bind:is='((v.indexOf("asynTemp")>-1)?"asynTemp":"")'></component>
+                
 </div>

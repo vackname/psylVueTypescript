@@ -73,7 +73,8 @@ export const getMiddle:runFUnM.runFUnction = eval("getMiddleWare");
 */
  export interface VueTemplate<T> extends vueComponentM.ThisImport<T>
  {
-
+    /** 無註解 自動注入 class/model */
+    [name:string]:any
  }
 
  /**
@@ -85,9 +86,9 @@ export const getMiddle:runFUnM.runFUnction = eval("getMiddleWare");
  }
 
  /**
-  * 樣版 model T1=data class,T2=VueTemplate<T?> 樣版 extends
+  * 樣版 model T1=data class,T2=VueTemplate<T?> ,T3=tscModel 樣版 extends
  */
- export interface vueComponentModel<T1,T2> extends vueComponentM.vueModel<T1,T2>
+ export interface vueComponentModel<T1,T2,T3> extends vueComponentM.vueModel<T1,T2,T3>
  {
 
  }
@@ -98,8 +99,8 @@ export const getMiddle:runFUnM.runFUnction = eval("getMiddleWare");
 
  }
 
- /** controllers 數據取用層級 */
- export interface vueModelControllers<T1,T2> extends vueComponentM.vueColModel<T1,T2>
+ /** controllers 數據取用層級 T1=data class,T2=VueTemplate<T?> ,T3=tscModel */
+ export interface vueModelControllers<T1,T2,T3> extends vueComponentM.vueColModel<T1,T2,T3>
  {
     
  }

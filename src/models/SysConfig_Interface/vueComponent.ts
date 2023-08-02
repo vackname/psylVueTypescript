@@ -51,6 +51,11 @@ interface toImport<T1>
 
     /** project 夾載入 importLoad.[ProjectName]((e:string)=> {}) */
     p:importPJ
+
+    /** 開始載入樣版 (temp=>function)
+     * @param fun 開始載入樣版階段 (註冊載入樣版後運行function)
+     */
+    toLoad:(fun?:Function)=>void
 }
 
 //------------------- importLoad model -end
@@ -100,9 +105,8 @@ interface vueModeInit<T>
 {
     /**
      * @param $t VueTemplate<T?> 樣版 extends
-     * @param $temp 起動運行 注入 子樣版
      */
-    ($t:T,$temp:()=>void):void
+    ($t:T):void
 }
 
 
@@ -119,14 +123,13 @@ interface vueModelWatchFun
 }
 
 /** 程序初始化完成(生命周期) */
-interface vueModelCompleted<T>
+interface vueModelCompleted<T,T1>
 {
     /**
      * @param $t VueTemplate<T?> 樣版 extends
-     * @param tscAry 載入 匹次 model 物件
-     * @param $temp 起動運行 注入 子樣版
+     * @param tscModel 載入 匹次 model 物件
      */
-    ($t:T,tscAry:Array<any>,$temp:()=>void):void
+    ($t:T,tscModel:T1):void
 }
 
 /** 載入子樣版(生命周期) 陣列*/
@@ -195,7 +198,13 @@ interface vueModelToModelMark
     [name:string]:any
 }
 
-export interface vueModel<T1,T2>
+/** vue methods */
+interface vueMethods<T>
+{
+    ($t:T):vueModeMethods
+}
+
+export interface vueModel<T1,T2,T3>
 {
     /** 樣版繫結數量 json 物件 */
     data?:T1,
@@ -205,20 +214,20 @@ export interface vueModel<T1,T2>
     watch?:vueModelWatch,
     /** 過慮字符 */
     funcFilters?:vueModeFfuncFilterFun<T2>,
-    /** typescript 注入取用匹次載入model 路徑,建議使用於(動畫類) animate model ex:["modelAnimate/index"]*/
+    /** typescript 注入取用匹次載入model 路徑,建議使用於(動畫類) animate model (tscM class)  ex:["modelAnimate/index"]*/
     tsc?:Array<string>,
     /** javascript/source 物件 model 注入路徑 (自動注入 this.$m[....])*/
     model?:vueModelToModelMark,
     /** 程序初始化完成(生命周期) */
-    completed?:vueModelCompleted<T2>,
+    completed?:vueModelCompleted<T2,T3>,
     /** 載入子樣版(生命周期) */
     temp?:vueModelTemp<T2>
-    /** vueModel get/set 運算 function */
-    methods:vueModeMethods
+    /** vueModel get/set 運算 function/methods */
+    action?:vueMethods<T2>
 }
 
 /** controllers 數據取用層級 */
-export interface vueColModel<T1,T2> 
+export interface vueColModel<T1,T2,T3> 
 {
     /** 樣版繫結數量 json 物件 */
     data?:T1,
@@ -228,10 +237,10 @@ export interface vueColModel<T1,T2>
     watch?:vueModelWatch,
     /** 過慮字符 */
     funcFilters?:vueModeFfuncFilterFun<T2>,
-    /** typescript 注入取用匹次載入model 路徑,建議使用於(動畫類) animate model ex:["modelAnimate/index"]*/
+    /** typescript 注入取用匹次載入model 路徑,建議使用於(動畫類) animate model (tscM class) ex:["modelAnimate/index"]*/
     tsc?:Array<string>,
     /** javascript/source 物件 (自動注入 this.$m[....])*/
     model?:vueModelToModelMark,
     /** 程序初始化完成(生命周期) */
-    completed?:vueModelCompleted<T2>,
+    completed?:vueModelCompleted<T2,T3>,
 }

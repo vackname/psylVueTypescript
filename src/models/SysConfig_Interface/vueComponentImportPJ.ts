@@ -9,7 +9,7 @@ interface AsyncFunProjectTemp
 /** 載入樣版 mark */
 interface objPJfunLoad
 {
-    /** 載入樣版 mark(等同 $temp)
+    /** 開始載入樣版 
      * @param fun 開始載入樣版階段 運行function
      */
     toLoad:(fun?:Function)=>void
@@ -43,7 +43,6 @@ interface AsyncFun
 export default interface objPJFun{
     /**
      * @param fun load async function
-     * @param $temp 起動運行 注入 子樣版
     */
     (fun:AsyncFun):void;
 }

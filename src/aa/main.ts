@@ -1,4 +1,5 @@
-﻿import {mainData,main} from './main_VueTemp';
+﻿import tscM from "../models/SysConfig_Interface/tscModel/aa";
+import {mainData,main} from './main_VueTemp';
 import {vueComponentModel} from '../models/vueSDK';
 
 
@@ -12,12 +13,11 @@ var indata:mainData = {
 /** aa 專案 入口 */
 export default {
     data:indata,
-    init:($t,$temp)=>{
-        $t.VueName='view1';//完成程序後 Get Set 渲染樣版
-        $temp();
+    init:($t)=>{
+        $t.import.toLoad();
     },
     temp:($t)=>{
-        /*init $temp() run to temp*/
+        /*init temp() run to temp*/
         return {
             view1:$t.import.url('@view/index')
             .exportVue({
@@ -27,11 +27,12 @@ export default {
         };
     },
     tsc:[],//project -> typescript model
-    completed:($t,tscAry,$temp)=>
+    completed:($t,tscModel)=>
     {
-        /*init $temp() run to completed or not exist init*/
+        $t.VueName='view1';//完成程序後 Get Set 渲染樣版
+        /*init temp() run to completed or not exist init*/
     },
     methods:{
 
     }
-} as vueComponentModel<mainData,main>;
+} as vueComponentModel<mainData,main,tscM>;
