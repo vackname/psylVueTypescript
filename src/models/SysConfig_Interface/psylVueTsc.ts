@@ -1,4 +1,6 @@
 import InITempMap from "./ProjectMap/init_View";//注入初始 樣版map
+import vueDirectiveEvt from "./vueDirectiveEvt";
+
 /**
  * 樣版注入function output data json
 */
@@ -83,6 +85,13 @@ export default class CreateVue
             new (eval(((catchTempName[0]=='')?'init':catchTempName[0])+"_VuePJ") as any)()[catchTempName[1].replace(/\//g,'_')](outhis);
 
         this.nowVueObj = new (eval("psylVue") as any)(startTemp);
+    }
+
+    /** add 自定義指令 */
+    addCommand = (fun:(dir:vueDirectiveEvt)=>void)=>
+    {
+        fun(new vueDirectiveEvt());
+        return this;
     }
 
     /**

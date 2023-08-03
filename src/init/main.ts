@@ -6,6 +6,42 @@ import CreateVue from "../models/SysConfig_Interface/psylVueTsc";
 var spUrl:string = window.location.pathname;
 
 new CreateVue(temp=>temp.view_index)
+    .addCommand(dir=>dir.inserted<string>("focus",
+    (el,binding)=>{//html element v-focus 指令
+
+        el.delay(1)//延遲起動指令防止其它奪取 focus指令目標 
+        .style({"opacity":"0"})//物件樣示
+        .frame(toel=>{
+            toel.get.focus();//element foucs
+            toel.animate({"duration":6,"delay":0.03,"count":1},
+            {//漸顯示
+                "0%":{"opacity":"0.1"},
+                "50%":{"opacity":"0.5"},
+                "100%":{"opacity":"1"}
+            });
+        },1)
+        .remove();//移除style
+    }))
+    .addCommand(dir=>dir.bind<string>("desbind",//html 觸發調用一次
+    (el, binding, vnode)=>{
+        var s = JSON.stringify
+        el.get.innerHTML =
+        'name: '       + s(binding?.name) + '<br>' +
+        'value: '      + s(binding?.value) + '<br>' +
+        'expression: ' + s(binding?.expression) + '<br>' +
+        'argument: '   + s(binding?.arg) + '<br>' +
+        'modifiers: '  + s(binding?.modifiers) + '<br>' +
+        'vnode keys: ' + Object.keys(vnode??[]).join(', ');
+    }))
+    .addCommand(dir=>dir.update<string>("upm",//value 被觸發變動
+    (el, binding, vnode,oldVnode)=>{
+        el.style({"opacity":"0"})//物件樣示
+        .animate({"duration":0.2,"delay":0.03,"count":1},
+        {//漸顯示
+            "0%":{"opacity":"0.1"},
+            "100%":{"opacity":"1"}
+        }).remove();
+    }))
     .getData<mainData>({
         init:{//共用資訊
             pub:importLoad.pub,

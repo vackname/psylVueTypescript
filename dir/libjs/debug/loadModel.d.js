@@ -63,6 +63,10 @@
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
+    define("models/SysConfig_Interface/importLoad", ["require", "exports"], function (require, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: true });
+    });
     define("config/interface/publicObjec_Interface", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
@@ -71,11 +75,11 @@
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
-    define("models/SysConfig_Interface/importLoad", ["require", "exports"], function (require, exports) {
+    define("models/SysConfig_Interface/urlHistory", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
-    define("models/SysConfig_Interface/middleWare", ["require", "exports"], function (require, exports) {
+    define("models/SysConfig_Interface/animate", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
@@ -273,33 +277,23 @@
     define("models/vueSDK", ["require", "exports", "models/SysConfig_Interface/vueComponentAdd", "models/SysConfig_Interface/JsonInterface/enum", "models/SysConfig_Interface/JsonInterface/db"], function (require, exports, vueComponentAdd_1, EnumsAPI, TablesAPI) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
-        exports.Component = exports.TablesAPI = exports.EnumsAPI = exports.getMiddleCode = exports.getMiddle = exports.jObj = exports.ajax = exports.pb = void 0;
+        exports.Component = exports.TablesAPI = exports.EnumsAPI = exports.jObj = exports.importLoad = exports.urlHistory = exports.ajax = exports.pb = void 0;
         vueComponentAdd_1 = __importDefault(vueComponentAdd_1);
         EnumsAPI = __importStar(EnumsAPI);
         TablesAPI = __importStar(TablesAPI);
         exports.EnumsAPI = EnumsAPI;
         exports.TablesAPI = TablesAPI;
-        /**
-         * public 程序處理
-        */
+        /** public sdk */
         exports.pb = eval("pb");
-        /**
-         * ajax
-         */
+        /** ajax */
         exports.ajax = eval("ajax");
-        /**
-         * libary載入系統
-        */
+        /** add browser history(sorce code) */
+        exports.urlHistory = eval("urlHistory");
+        /** system public to object/init(function) */
+        exports.importLoad = eval("importLoad");
+        /** libary to load system */
         var jObj = function () { return eval("new Jobj()"); };
         exports.jObj = jObj;
-        /**
-         * url add middleware
-        */
-        exports.getMiddle = eval("getMiddleWare");
-        /**
-         * catch url middleware code
-         */
-        exports.getMiddleCode = eval("geMiddleWareCode");
         /* 後端 DB enum ->webapi for net core 注冊
           public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
           {
@@ -339,6 +333,7 @@
         /**
         * 樣版物件注冊
         * @param $t 繼承已起用樣版
+        * @returns 注冊樣版物件 主要 class
        */
         function Component($t) {
             var toTemp = new vueComponentAdd_1.default($t);

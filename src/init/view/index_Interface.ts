@@ -9,5 +9,7 @@ export  default interface index
     /** controller model是否載入完成*/
     mLoad:boolean,
     /** 控項名 */
-    textBox:string
+    textBox:string,
+    /** 自定義 指令 bind */
+    toMesBind:string
 }

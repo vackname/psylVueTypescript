@@ -116,10 +116,10 @@ interface vueModeInit<T>
 interface vueModelWatchFun
 {
     /**
-     * @param NewVal 當前變動參睥
-     * @param OldVal 未變動前參數
+     * @param value 當前變動參睥
+     * @param oldValue 未變動前參數
     */
-    (NewVal:any,OldVal?:any):void;
+    <T>(value:T,oldValue?:T):void;
 }
 
 /** 程序初始化完成(生命周期) */

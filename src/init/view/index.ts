@@ -14,8 +14,9 @@ export default {
         authorImg:null,
         showAnimateFlag:false,
         mLoad:false,
-        textBox:"my textbox"
-        },
+        textBox:"my textbox",
+        toMesBind:"自定義指令"
+    },
     init:($t)=>
     {
         $an = new animate_author($t);
@@ -40,7 +41,10 @@ export default {
     },
     watch:
     {
-
+        "textBox":(val:string,oldValue:string)=>
+        {
+            //偵聽元素 sample
+        }
     },
     tsc:[],
     completed:($t,tscModel)=>

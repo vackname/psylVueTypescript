@@ -1,9 +1,8 @@
 ﻿import {pb,importLoad} from "../../../models/vueSDK";
+import asyncLoadView_VueTemp from '../../view/asyncLoadView_VueTemp';
 
 /** temp this */
 let $t:any | undefined;
-/** psyl public api */
-/** psyl ajax api */
 /** class this */
 let self:model;
 /** example model item1 */

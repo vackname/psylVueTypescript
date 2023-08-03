@@ -31,8 +31,5 @@ export default {
     {
         $t.VueName='view1';//完成程序後 Get Set 渲染樣版
         /*init temp() run to completed or not exist init*/
-    },
-    methods:{
-
     }
 } as vueComponentModel<mainData,main,tscM>;
