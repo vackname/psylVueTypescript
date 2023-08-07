@@ -15,13 +15,7 @@ export interface template
     /** 加入 template 物件 project=eval("this['projectName'].main")、eval()*/
     Add:<T1,T extends ThisImport<T1>>(obj:templateObj<T1,T>|ThisImport<any>)=>void,
 }
-/**
- * 已渲染成功Vue 樣版名
-*/
-interface ExistVue
-{
-    [name:string]:string
-}
+
 //------------------- importLoad model -start
 /** 載入專案 */
 interface importPJ extends PJImport
@@ -71,7 +65,7 @@ export interface ThisImport<T1>
     import:toImport<T1>,
 
     /** 當前已曾經渲染完成 樣版名 */
-    v:ExistVue,
+    v:Array<string>,
 
     /** 主要專案層樣版物件 */
     pj:T1
@@ -191,6 +185,42 @@ interface vueModeFfuncFilterFun<T>
 }
 
 /**
+ * vueModel 運算即時參數 get
+ */
+interface vueModelFunComputeFunli
+{
+    /** get */
+    <T>():T
+}
+
+/**
+ * vueModel 運算即時參數 get set
+ */
+interface vueModelFunComputeli
+{
+    get:<T>()=>T
+    set:()=>void
+}
+
+/**
+ * vueModel 運算即時參數 extends
+ */
+interface vueModelFunComputed
+{
+    /** extends get set function | key=cache=開關閉緩存 default = true */
+    [name:string]:vueModelFunComputeli|vueModelFunComputeFunli|boolean
+}
+
+/** 運算即時參數(參數變化取用 負載運算較重(與watch類似)) */
+interface vueModelFunComputedFun<T>
+{
+    /**
+     * @param $t VueTemplate<T?> 樣版 extends
+     */
+    ($t:T):vueModelFunComputed,
+}
+
+/**
  * 自動 注入 $m mark(temp使用)
 */
 interface vueModelToModelMark
@@ -210,10 +240,12 @@ export interface vueModel<T1,T2,T3>
     data?:T1,
     /** 樣版初始化階段(生命周期) */
     init?:vueModeInit<T2>,
-    /** 偵聽渲染參數get/set */
+    /** 偵聽渲染參數get/set(屬性變化取用 負載運算較輕) */
     watch?:vueModelWatch,
     /** 過慮字符 */
     funcFilters?:vueModeFfuncFilterFun<T2>,
+    /** 運算即時參數(參數變化取用 負載運算較重(與watch類似)) */
+    funComputed?:vueModelFunComputedFun<T2>,
     /** typescript 注入取用匹次載入model 路徑,建議使用於(動畫類) animate model (tscM class)  ex:["modelAnimate/index"]*/
     tsc?:Array<string>,
     /** javascript/source 物件 model 注入路徑 (自動注入 this.$m[....])*/
@@ -233,10 +265,12 @@ export interface vueColModel<T1,T2,T3>
     data?:T1,
     /** 樣版初始化階段(生命周期) */
     init?:vueModeInit<T2>,
-    /** 偵聽渲染參數get/set */
+    /** 偵聽渲染參數get/set(屬性變化取用 負載運算較輕) */
     watch?:vueModelWatch,
     /** 過慮字符 */
     funcFilters?:vueModeFfuncFilterFun<T2>,
+    /** 運算即時參數(參數變化取用 負載運算較重(與watch類似)) */
+    funComputed?:vueModelFunComputedFun<T2>,
     /** typescript 注入取用匹次載入model 路徑,建議使用於(動畫類) animate model (tscM class) ex:["modelAnimate/index"]*/
     tsc?:Array<string>,
     /** javascript/source 物件 (自動注入 this.$m[....])*/

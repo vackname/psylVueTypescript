@@ -4,6 +4,7 @@ import pubObj from '../config/interface/getPubObject_interface';
 import urlHistoryM from "./SysConfig_Interface/urlHistory";
 import pbM from "./SysConfig_Interface/pb";
 import * as vueComponentM from "./SysConfig_Interface/vueComponent";
+import vuePubComponent from "./SysConfig_Interface/publicComponent";
 import jObjM from "./SysConfig_Interface/JObj";
 import addComponent from "./SysConfig_Interface/vueComponentAdd";
 import * as EnumsAPI from "./SysConfig_Interface/JsonInterface/enum";
@@ -140,3 +141,19 @@ export function Component<T extends vueComponentM.ThisImport<any>>($t:T)
   var toTemp = new addComponent($t);
   return toTemp;
 }
+
+/** v-loadimg for load image 指令 */
+export interface Commandloadimg
+{
+    /** source libary */
+    source:jObjInterface,
+    /** show/hidden image */
+    show:boolean,
+    /** image src */
+    src:string
+}
+
+/**
+ * 自定義組件
+*/
+export const addPublicComponent:vuePubComponent = eval("pubComponent");

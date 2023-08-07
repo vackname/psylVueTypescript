@@ -1,4 +1,4 @@
-import {jObj} from '../models/vueSDK';
+import {jObj,Commandloadimg} from '../models/vueSDK';
 import pubObj from './interface/publicObjec_Interface';
 
 /**
@@ -44,7 +44,11 @@ export default class configDataList
     private inLibary:pubObj = {
         config:jObj(),
         lib:jObj(),
-        lang:""
+        lang:"",
+        libSrc:(src:string)=>
+        {
+            return {source:this.inLibary.lib,src:src,show:true} as Commandloadimg
+        }
     };
     /**
      * 宣告載入data config & public libary

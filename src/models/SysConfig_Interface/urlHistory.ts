@@ -28,4 +28,6 @@ export default interface urlHistory
     get:getCode,
     /** add browser history(get function) */
     add:addHistory
+    /** 入口頁this join to add browser history(get app->this join for function ex getRunA()=this.getRunA()) */
+    addJoinApp:addHistory
 }

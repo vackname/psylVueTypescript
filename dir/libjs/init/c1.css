@@ -1,10 +1,6 @@
-﻿@charset "UTF-8";
-/* 背景色 */
-#HeadPanel {
- /* head panel 框架 */
-  position: relative;
-  width: 100%;
-  height: 100px;
-  background-color: #006241;
-}
+﻿#HeadPanel{
+position:relative;
+width:100%;
+height:100px;
+background-color:#006241}
  

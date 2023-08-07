@@ -3,7 +3,7 @@ import indexData from "./index_Interface";
 import indexVueTemp from "./index_VueTemp";
 import animate_author from "../animateModel/author";//作者主題 動畫
 
-import {pb,vueComponentModel,vueModelTemp,Component,jObj} from "../../models/vueSDK";
+import {pb,vueComponentModel,vueModelTemp,Component,jObj,Commandloadimg,urlHistory} from "../../models/vueSDK";
 
 /** 作者主題 動畫模組宣告 */
 var $an:animate_author;
@@ -15,7 +15,7 @@ export default {
         showAnimateFlag:false,
         mLoad:false,
         textBox:"my textbox",
-        toMesBind:"自定義指令"
+        toMesBind:"自定義欄位"
     },
     init:($t)=>
     {
@@ -43,7 +43,7 @@ export default {
     {
         "textBox":(val:string,oldValue:string)=>
         {
-            //偵聽元素 sample
+            
         }
     },
     tsc:[],
@@ -59,8 +59,9 @@ export default {
             "0%":{"opacity":"0.1"},
             "100%":{"opacity":"1"}
         }).remove();
-        $t.authorImg = jObj();//啟用注入jObj 物件
-        $t.authorImg.loadlib("author",e=>{//異步載入圖片
+        var authorImg = jObj();//啟用注入jObj 物件
+        authorImg.loadlib("author",e=>{//異步載入圖片
+            $t.authorImg = authorImg;
             $t.showAnimateFlag = true;
             $an.run();
 
@@ -81,8 +82,25 @@ export default {
             getFun:()=>
             {
                 
+            },
+            /** 作者動畫 image 指令 載入 設定 <image v-loadimg='authorSrc("bk.png")' />*/
+            authorSrc:(src:string) => ({'source':$t.authorImg,'src':src,'show':$t.showAnimateFlag} as Commandloadimg),
+            /**
+             * 運行url function
+            */
+            toUrlHistoryFuntion:()=>
+            {
+                alert('test 你觸發網址錨點程序記錄功能');
+            },
+            /** 儲存此頁程序參數 記錄 於url 錨點 */
+            saveHomeToHistory:()=>
+            {
+                //click 後，重新整理頁面即可出現運行 url function 效果
+                urlHistory.addJoinApp("toUrlHistoryFuntion()");//join index of this.toUrlHistoryFuntion()
+                //urlHistory.add("appThis.toUrlHistoryFuntion()"); 等同
             }
         }
     }
 } as vueComponentModel<indexData,indexVueTemp,tscM>;//<bind data KeyName,VueTemplate=$t>
+
 

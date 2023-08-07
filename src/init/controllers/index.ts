@@ -19,5 +19,21 @@ export default
     {
         $t["$m"] = tscModel.model_indexTsc;
         $t.mLoad=true;
+    },
+    funComputed:($t)=>
+    {
+        return {
+            cache:true,
+            mesCo:{
+                get:()=>
+                {
+                    return $t.page+$t.spUrl;
+                },
+                set:()=>
+                {
+
+                }
+            }
+        };
     }
 } as vueModelControllers<indexData,indexVueTemp,tscM>;

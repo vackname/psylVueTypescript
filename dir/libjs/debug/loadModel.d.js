@@ -103,6 +103,10 @@
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
+    define("models/SysConfig_Interface/publicComponent", ["require", "exports"], function (require, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: true });
+    });
     define("models/SysConfig_Interface/ProjectMap/ProjectList", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
@@ -277,7 +281,7 @@
     define("models/vueSDK", ["require", "exports", "models/SysConfig_Interface/vueComponentAdd", "models/SysConfig_Interface/JsonInterface/enum", "models/SysConfig_Interface/JsonInterface/db"], function (require, exports, vueComponentAdd_1, EnumsAPI, TablesAPI) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
-        exports.Component = exports.TablesAPI = exports.EnumsAPI = exports.jObj = exports.importLoad = exports.urlHistory = exports.ajax = exports.pb = void 0;
+        exports.publicComponent = exports.Component = exports.TablesAPI = exports.EnumsAPI = exports.jObj = exports.importLoad = exports.urlHistory = exports.ajax = exports.pb = void 0;
         vueComponentAdd_1 = __importDefault(vueComponentAdd_1);
         EnumsAPI = __importStar(EnumsAPI);
         TablesAPI = __importStar(TablesAPI);
@@ -340,6 +344,10 @@
             return toTemp;
         }
         exports.Component = Component;
+        /**
+         * 自定義組件
+        */
+        exports.publicComponent = eval("pubComponent");
     });
     define("config/public", ["require", "exports", "models/vueSDK"], function (require, exports, vueSDK_1) {
         "use strict";
@@ -380,7 +388,10 @@
                 this.inLibary = {
                     config: (0, vueSDK_1.jObj)(),
                     lib: (0, vueSDK_1.jObj)(),
-                    lang: ""
+                    lang: "",
+                    libSrc: function (src) {
+                        return { source: _this.inLibary.lib, src: src, show: true };
+                    }
                 };
                 /**
                  * 宣告載入data config & public libary

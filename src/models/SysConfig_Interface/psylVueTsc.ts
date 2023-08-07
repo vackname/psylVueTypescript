@@ -51,13 +51,23 @@ interface getHeadTitleObj<T>
 /**
  * Icon base64 string
 */
-interface getIconObj<T>
+interface getIconGetObj<T>
 {
     /**
      * 注入 web icon
     */
     getIcon:(fun:tempStrObj<T>)=>getHeadTitleObj<T>
 }
+
+/**
+ * Icon base64 string
+*/
+interface getIconObj<T> extends getIconGetObj<T>
+{
+    /** 自動起動url history參數程序(default=true) */
+    urlHistoryRuning:(ck:boolean)=>getIconGetObj<T>
+}
+
 
 /** psyl Vue DataObj */
 interface DataObj
@@ -87,10 +97,14 @@ export default class CreateVue
         this.nowVueObj = new (eval("psylVue") as any)(startTemp);
     }
 
-    /** add 自定義指令 */
-    addCommand = (fun:(dir:vueDirectiveEvt)=>void)=>
+    /** add 自定義指令 
+     * @param name 指令名
+    */
+    addCommand = (name:string,fun:(dir:vueDirectiveEvt)=>void)=>
     {
-        fun(new vueDirectiveEvt());
+        var getCommand = new vueDirectiveEvt(name);
+        fun(getCommand);
+        getCommand.toRegister();//註冊物件
         return this;
     }
 

@@ -10,6 +10,6 @@ export  default interface index
     mLoad:boolean,
     /** 控項名 */
     textBox:string,
-    /** 自定義 指令 bind */
+    /** 自定義全域指令 */
     toMesBind:string
 }
