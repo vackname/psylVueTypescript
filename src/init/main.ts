@@ -72,7 +72,7 @@ new CreateVue(temp=>temp.view_index)
 )
 .getData<mainData>({
     init:{//共用資訊
-        page:"index",
+        page:"",
         urlName:((spUrl.split('/').length>=2)?spUrl.split('/')[1]:""),
         spUrl:spUrl,
     }
@@ -82,11 +82,11 @@ new CreateVue(temp=>temp.view_index)
     importLoad.pub.lib.src('inlayout.ico'))
 .getHeadTitle("init.page",//資料切換觸發 key
 ($t)=>//browser page html title name
-    importLoad.pub.config.get("title")+"-"+importLoad.pub.config.get("page")[$t.init.page])//html title name
+importLoad.pub.config.get("title")+"-"+importLoad.pub.config.get("page")[$t.init.page])//html title name
 .load(($t)=>{
     return {
         main:$t.init//注入共用入口點數據(繼承)
-    };
+    }
 });
 
 /** application 入口 */

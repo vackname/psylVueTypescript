@@ -4,7 +4,7 @@ import pubObj from '../config/interface/getPubObject_interface';
 import urlHistoryM from "./SysConfig_Interface/urlHistory";
 import pbM from "./SysConfig_Interface/pb";
 import * as vueComponentM from "./SysConfig_Interface/vueComponent";
-import vuePubComponent from "./SysConfig_Interface/publicComponent";
+import {pubFunComponent,pubComponentObj} from "./SysConfig_Interface/publicComponent";
 import jObjM from "./SysConfig_Interface/JObj";
 import addComponent from "./SysConfig_Interface/vueComponentAdd";
 import * as EnumsAPI from "./SysConfig_Interface/JsonInterface/enum";
@@ -156,4 +156,9 @@ export interface Commandloadimg
 /**
  * 自定義組件
 */
-export const addPublicComponent:vuePubComponent = eval("pubComponent");
+export const addPublicComponent:pubFunComponent = eval("pubComponent");
+
+/**
+ * 自定義組件
+*/
+export interface PublicComponentInterface<T> extends pubComponentObj<T>{ }

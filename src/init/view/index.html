@@ -54,6 +54,19 @@
         <br/><input v-model="textBox" type="text" v-focus:onlyInputIDName="textBox"/><!--全域自定義指令 節點 元素 調用-->
         {{textBox}} {{((mLoad)?$m.mymodel():"")}}
     </div>
-    <!--getTemp(this,'footTemp')-->
+    <!--getJson 取用 <json>{}</json>-->
+    <div style="width:100%;background-color:#000000;color:#FFFFFF;">html-Json-ch = {{getJson("ch").HIHI}},<br>html-Json-eh = {{getJson("en").HIHI}},</div>
+    <!--getVue 自動喚醒 component 載入 樣版-->
     <component v-bind:is="getVue(this,'footTemp')"></component>
 </div>
+<!--僅注入 唯一(不能存在多餘逗符號) -->
+<json>
+{
+    "en":{
+        "HIHI":"OK"
+    },
+    "ch":{
+        "HIHI":"好"
+    }
+}
+</json>

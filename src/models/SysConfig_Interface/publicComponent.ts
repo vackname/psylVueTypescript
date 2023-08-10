@@ -31,22 +31,28 @@ interface methodsObj
     [name:string]:Function
 }
 
-
 /** 共用 組件 component */
-interface pubComponent<T>
+export interface pubComponentObj<T>
 {
-    /** 註冊 外部繼承 變數 */
-    props?: PropsObj | Array<string>,
     /** 組件 get/set 數據 */
     data?:T,
-    /** html string */
-    template:string,
+    /** 註冊 外部繼承 變數 */
+    props?: PropsObj | Array<string>,
     /** 運算程序 */
     methods?:methodsObj
 }
 
+
+
+/** 共用 組件 component */
+interface pubComponent<T> extends pubComponentObj<T>
+{
+    /** html string */
+    template:string,
+}
+
 /** 註冊 組件程序 */
-export default interface pubFunComponent
+export interface pubFunComponent
 {
     /** 
      * @param tempName 樣版框架名 ex <sample />

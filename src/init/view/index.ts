@@ -66,6 +66,9 @@ export default {
             $an.run();
 
         });
+
+        if($t.main!=null)
+            $t.main.page = 'index';//啟動觸發 html head title
     },
     temp:($t)=>
     {
