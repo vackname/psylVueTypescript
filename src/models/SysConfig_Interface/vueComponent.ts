@@ -1,6 +1,7 @@
 import PJImport from "./ProjectMap/ProjectImportList";
 import mImport from "./ModelsInterface/js";
 import cssImport from "./ModelsInterface/css";
+import PropsObj from "./vueComponentProps";
 
 
 interface templateProject
@@ -229,15 +230,14 @@ interface vueModelToModelMark
 }
 
 /** vue methods */
-interface vueMethods<T>
+export interface vueMethods<T>
 {
     ($t:T):vueModeMethods
 }
 
-export interface vueModel<T1,T2,T3>
+/** 基礎物件 格式 */
+export interface vueObjBest<T2>
 {
-    /** 樣版繫結數量 json 物件 */
-    data?:T1,
     /** 樣版初始化階段(生命周期) */
     init?:vueModeInit<T2>,
     /** 偵聽渲染參數get/set(屬性變化取用 負載運算較輕) */
@@ -245,36 +245,29 @@ export interface vueModel<T1,T2,T3>
     /** 過慮字符 */
     funcFilters?:vueModeFfuncFilterFun<T2>,
     /** 運算即時參數(參數變化取用 負載運算較重(與watch類似)) */
-    funComputed?:vueModelFunComputedFun<T2>,
-    /** typescript 注入取用匹次載入model 路徑,建議使用於(動畫類) animate model (tscM class)  ex:["modelAnimate/index"]*/
-    tsc?:Array<string>,
-    /** javascript/source 物件 model 注入路徑 (自動注入 this.$m[....])*/
-    model?:vueModelToModelMark,
-    /** 程序初始化完成(生命周期) */
-    completed?:vueModelCompleted<T2,T3>,
-    /** 載入子樣版(生命周期) */
-    temp?:vueModelTemp<T2>
-    /** vueModel get/set 運算 function/methods */
-    action?:vueMethods<T2>
+    funComputed?:vueModelFunComputedFun<T2>
 }
 
 /** controllers 數據取用層級 */
-export interface vueColModel<T1,T2,T3> 
-{
+export interface vueColModel<T1,T2,T3> extends vueObjBest<T2>
+{    
     /** 樣版繫結數量 json 物件 */
     data?:T1,
-    /** 樣版初始化階段(生命周期) */
-    init?:vueModeInit<T2>,
-    /** 偵聽渲染參數get/set(屬性變化取用 負載運算較輕) */
-    watch?:vueModelWatch,
-    /** 過慮字符 */
-    funcFilters?:vueModeFfuncFilterFun<T2>,
-    /** 運算即時參數(參數變化取用 負載運算較重(與watch類似)) */
-    funComputed?:vueModelFunComputedFun<T2>,
-    /** typescript 注入取用匹次載入model 路徑,建議使用於(動畫類) animate model (tscM class) ex:["modelAnimate/index"]*/
-    tsc?:Array<string>,
     /** javascript/source 物件 (自動注入 this.$m[....])*/
     model?:vueModelToModelMark,
+    /** typescript 注入取用匹次載入model 路徑,建議使用於(動畫類) animate model (tscM class)  ex:["modelAnimate/index"]*/
+    tsc?:Array<string>,
     /** 程序初始化完成(生命周期) */
     completed?:vueModelCompleted<T2,T3>,
+}
+
+/** view temp */
+export interface vueModel<T1,T2,T3> extends vueColModel<T1,T2,T3>
+{
+    /** 載入子樣版(生命周期) */
+    temp?:vueModelTemp<T2>,
+    /** vueModel get/set 運算 function/methods */
+    action?:vueMethods<T2>,
+    /** 註冊 外部繼承 變數(參數 key 於Html 皆為 caselower | boolean=false=自動繼承參數) | 不使用 props=自動繼承參數 */
+    props?: PropsObj | Array<string> | boolean,
 }

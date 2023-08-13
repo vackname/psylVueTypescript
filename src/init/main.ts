@@ -1,23 +1,6 @@
 import {mainData} from "./main_VueTemp";
-import {importLoad,addPublicComponent} from "../models/vueSDK";
+import {importLoad} from "../models/vueSDK";
 import CreateVue from "../models/SysConfig_Interface/psylVueTsc";
-
-//自定義件 demon
-//<input-open v-bind:anwA="ansObj" />
-addPublicComponent<any>("input-open",
-{
-    template:"<div><input v-model=\"anwA\" />{{anwA}}</div>",
-    props:
-    {
-        anwA:
-        {
-            type:String,
-            default:"null",
-            required:true,
-        }
-    }
-});
-
 
 /** 當下網址路徑 */
 var spUrl:string = window.location.pathname;

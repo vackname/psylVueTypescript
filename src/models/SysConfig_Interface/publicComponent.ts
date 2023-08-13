@@ -1,62 +1,22 @@
-import jObjM from "./JObj";
+import { vueObjBest,vueMethods } from "./vueComponent";
+import PropsObj from "./vueComponentProps";
 
-/** 預設值程序設定設定 */
-interface defaultColum
+/** 程序初始化完成(生命周期 注冊共用域) */
+interface vueExtendsCompleted<T>
 {
-    <T>():T
-}
-
-/** 欄位 驗證型態 */
-interface PropsColum
-{
-    /** 參數容許 型態 */
-    type: Object | String | Number | Boolean | (StringConstructor|NumberConstructor|BooleanConstructor|ObjectConstructor)[],
-    /** 預設參數設定 */
-    default?: any | defaultColum,
-    /** 傳入參數必為 指定 type, default=false=不啟用  */
-    required?: boolean,
-    /** 驗證參數 */
-    validator?:<T>(value:T)=>boolean
-}
-
-
-/** 承接參數 */
-interface PropsObj
-{
-    [name:string]:PropsColum
-}
-
-interface methodsObj
-{
-    [name:string]:Function
-}
-
-/** 共用 組件 component */
-export interface pubComponentObj<T>
-{
-    /** 組件 get/set 數據 */
-    data?:T,
-    /** 註冊 外部繼承 變數 */
-    props?: PropsObj | Array<string>,
-    /** 運算程序 */
-    methods?:methodsObj
-}
-
-
-
-/** 共用 組件 component */
-interface pubComponent<T> extends pubComponentObj<T>
-{
-    /** html string */
-    template:string,
-}
-
-/** 註冊 組件程序 */
-export interface pubFunComponent
-{
-    /** 
-     * @param tempName 樣版框架名 ex <sample />
-     * @param program 註冊運行程序
+    /**
+     * @param $t VueTemplate<T?> 樣版 extends
      */
-    <T>(tempName:string,program:pubComponent<T>):void
+    ($t:T):void
+}
+
+/** 共用 組件 component */
+export default interface pubComponentObj<T2> extends vueObjBest<T2>
+{
+    /** 註冊 外部繼承 變數(參數 key 於Html 皆為 caselower | boolean=false=自動繼承參數) | 不使用 props=自動繼承參數 */
+    props?: PropsObj | Array<string> | boolean,
+    /** vueModel get/set 運算 function/methods */
+    action?:vueMethods<T2>,
+    /** 程序初始化完成(生命周期) */
+    completed?:vueExtendsCompleted<T2>
 }

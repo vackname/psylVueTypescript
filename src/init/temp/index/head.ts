@@ -8,6 +8,12 @@ export default {
         head1:"head1-value",
         ctrInput:"hihi"
     },
+    props:false,
+    /*
+    props:
+    {
+        getValue:String
+    },*/
     watch:
     {
 
@@ -23,6 +29,6 @@ export default {
     tsc:[],
     completed:($t,tscModel)=>
     {
-
+        console.log($t);
     }
 } as vueComponentModel<headData,headVueTemp,tscM>;

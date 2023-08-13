@@ -1,5 +1,5 @@
 ﻿<div id="init_panel" v-show="mLoad">
-    <component v-bind:is="getVue(this,'headTemp')"></component>
+    <component v-bind:is="getVue(this,'headTemp')" getValue="1"></component>
     <div style="width:100%;padding-top:20px;padding-bottom:20px;" v-show="showAnimateFlag">
         <div id="AAPanel">
             <div id="meAn">
@@ -36,6 +36,7 @@
             </div>
         </div>
     </div>
+    <div>test extendsComponent-><load-img2 :source="authorImg" src="dagamon_gx.png" /></div>
     <div style="background-color: rgb(5, 56, 68);color:#FFFFFF;">now url to save for history-><input type="button" v-on:click="saveHomeToHistory()" value="click" /></div>
     <div style="background-color: rgb(61, 36, 6);color:#FFFFFF;">data-value->{{title}}</div>
     <div style="background-color:#666666;">
@@ -57,7 +58,7 @@
     <!--getJson 取用 <json>{}</json>-->
     <div style="width:100%;background-color:#000000;color:#FFFFFF;">html-Json-ch = {{getJson("ch").HIHI}},<br>html-Json-eh = {{getJson("en").HIHI}},</div>
     <!--getVue 自動喚醒 component 載入 樣版-->
-    <component v-bind:is="getVue(this,'footTemp')"></component>
+    <component v-bind:is="getVue(this,'footTemp')" footValue="index page=> to this value"></component>
 </div>
 <!--僅注入 唯一(不能存在多餘逗符號) -->
 <json>

@@ -5,8 +5,20 @@ export default {
     data:{
                                     
     },
+    //props:["footValue"],
+    props:{
+        footValue:
+        {
+            type:String,
+            default:"test default"
+        }
+    },
     init:($t)=>{
        
+    },
+    completed:($t,tscModel)=>
+    {
+
     },
     temp:($t)=>{ 
         return {

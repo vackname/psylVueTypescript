@@ -1,4 +1,4 @@
-var aa_model_asyncM_tscm = (function () {
+﻿var importLoad = new oderLoad().run((function () {
     var defines = {};
     var entry = [null];
     function define(name, dependencies, factory) {
@@ -35,83 +35,83 @@ var aa_model_asyncM_tscm = (function () {
         __setModuleDefault(result, mod);
         return result;
     };
-    define("models/SysConfig_Interface/ajax", ["require", "exports"], function (require, exports) {
+    define("src/models/SysConfig_Interface/ajax", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
-    define("models/SysConfig_Interface/vueComponentGetPJ", ["require", "exports"], function (require, exports) {
+    define("src/models/SysConfig_Interface/vueComponentGetPJ", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
-    define("models/SysConfig_Interface/ProjectMap/ProjectImportLoadList", ["require", "exports"], function (require, exports) {
+    define("src/models/SysConfig_Interface/ProjectMap/ProjectImportLoadList", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
-    define("models/SysConfig_Interface/vueModelsJS", ["require", "exports"], function (require, exports) {
+    define("src/models/SysConfig_Interface/vueModelsJS", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
-    define("models/SysConfig_Interface/ModelsInterface/js", ["require", "exports"], function (require, exports) {
+    define("src/models/SysConfig_Interface/ModelsInterface/js", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
-    define("models/SysConfig_Interface/vueModelsCss", ["require", "exports"], function (require, exports) {
+    define("src/models/SysConfig_Interface/vueModelsCss", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
-    define("models/SysConfig_Interface/ModelsInterface/css", ["require", "exports"], function (require, exports) {
+    define("src/models/SysConfig_Interface/ModelsInterface/css", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
-    define("models/SysConfig_Interface/importLoad", ["require", "exports"], function (require, exports) {
+    define("src/models/SysConfig_Interface/importLoad", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
-    define("config/interface/publicObjec_Interface", ["require", "exports"], function (require, exports) {
+    define("src/config/interface/publicObjec_Interface", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
-    define("config/interface/getPubObject_interface", ["require", "exports"], function (require, exports) {
+    define("src/config/interface/getPubObject_interface", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
-    define("models/SysConfig_Interface/urlHistory", ["require", "exports"], function (require, exports) {
+    define("src/models/SysConfig_Interface/urlHistory", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
-    define("models/SysConfig_Interface/animate", ["require", "exports"], function (require, exports) {
+    define("src/models/SysConfig_Interface/animate", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
-    define("models/SysConfig_Interface/pb", ["require", "exports"], function (require, exports) {
+    define("src/models/SysConfig_Interface/pb", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
-    define("models/SysConfig_Interface/vueComponentImportPJ", ["require", "exports"], function (require, exports) {
+    define("src/models/SysConfig_Interface/vueComponentImportPJ", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
-    define("models/SysConfig_Interface/ProjectMap/ProjectImportList", ["require", "exports"], function (require, exports) {
+    define("src/models/SysConfig_Interface/ProjectMap/ProjectImportList", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
-    define("models/SysConfig_Interface/vueComponentProps", ["require", "exports"], function (require, exports) {
+    define("src/models/SysConfig_Interface/vueComponentProps", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
-    define("models/SysConfig_Interface/vueComponent", ["require", "exports"], function (require, exports) {
+    define("src/models/SysConfig_Interface/vueComponent", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
-    define("models/SysConfig_Interface/publicComponent", ["require", "exports"], function (require, exports) {
+    define("src/models/SysConfig_Interface/publicComponent", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
-    define("models/SysConfig_Interface/JObj", ["require", "exports"], function (require, exports) {
+    define("src/models/SysConfig_Interface/JObj", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
-    define("models/SysConfig_Interface/ProjectMap/ProjectList", ["require", "exports"], function (require, exports) {
+    define("src/models/SysConfig_Interface/ProjectMap/ProjectList", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
         var ProjectMap = /** @class */ (function () {
@@ -125,7 +125,7 @@ var aa_model_asyncM_tscm = (function () {
         }());
         exports.default = ProjectMap;
     });
-    define("models/SysConfig_Interface/ProjectMap/aa_View", ["require", "exports"], function (require, exports) {
+    define("src/models/SysConfig_Interface/ProjectMap/aa_View", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
         var aa = /** @class */ (function () {
@@ -141,7 +141,7 @@ var aa_model_asyncM_tscm = (function () {
         }());
         exports.default = aa;
     });
-    define("models/SysConfig_Interface/ProjectMap/init_View", ["require", "exports"], function (require, exports) {
+    define("src/models/SysConfig_Interface/ProjectMap/init_View", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
         var init = /** @class */ (function () {
@@ -157,7 +157,7 @@ var aa_model_asyncM_tscm = (function () {
         }());
         exports.default = init;
     });
-    define("models/SysConfig_Interface/ProjectMap/MapProject", ["require", "exports", "models/SysConfig_Interface/ProjectMap/aa_View", "models/SysConfig_Interface/ProjectMap/init_View"], function (require, exports, aa_View_1, init_View_1) {
+    define("src/models/SysConfig_Interface/ProjectMap/MapProject", ["require", "exports", "src/models/SysConfig_Interface/ProjectMap/aa_View", "src/models/SysConfig_Interface/ProjectMap/init_View"], function (require, exports, aa_View_1, init_View_1) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
         aa_View_1 = __importDefault(aa_View_1);
@@ -173,7 +173,7 @@ var aa_model_asyncM_tscm = (function () {
         }());
         exports.default = ViewMap;
     });
-    define("models/SysConfig_Interface/vueComponentAdd", ["require", "exports", "models/SysConfig_Interface/ProjectMap/ProjectList", "models/SysConfig_Interface/ProjectMap/MapProject"], function (require, exports, ProjectList_1, MapProject_1) {
+    define("src/models/SysConfig_Interface/vueComponentAdd", ["require", "exports", "src/models/SysConfig_Interface/ProjectMap/ProjectList", "src/models/SysConfig_Interface/ProjectMap/MapProject"], function (require, exports, ProjectList_1, MapProject_1) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
         ProjectList_1 = __importDefault(ProjectList_1);
@@ -248,7 +248,7 @@ var aa_model_asyncM_tscm = (function () {
         }());
         exports.default = ComponentObj;
     });
-    define("models/SysConfig_Interface/JsonInterface/enum", ["require", "exports"], function (require, exports) {
+    define("src/models/SysConfig_Interface/JsonInterface/enum", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
         exports.Enum_view_EnumSample = exports.Enum_EnumSample = void 0;
@@ -278,11 +278,11 @@ var aa_model_asyncM_tscm = (function () {
         };
         exports.Enum_view_EnumSample = Enum_view_EnumSample;
     });
-    define("models/SysConfig_Interface/JsonInterface/db", ["require", "exports"], function (require, exports) {
+    define("src/models/SysConfig_Interface/JsonInterface/db", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
-    define("models/vueSDK", ["require", "exports", "models/SysConfig_Interface/vueComponentAdd", "models/SysConfig_Interface/JsonInterface/enum", "models/SysConfig_Interface/JsonInterface/db"], function (require, exports, vueComponentAdd_1, EnumsAPI, TablesAPI) {
+    define("src/models/vueSDK", ["require", "exports", "src/models/SysConfig_Interface/vueComponentAdd", "src/models/SysConfig_Interface/JsonInterface/enum", "src/models/SysConfig_Interface/JsonInterface/db"], function (require, exports, vueComponentAdd_1, EnumsAPI, TablesAPI) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
         exports.Component = exports.TablesAPI = exports.EnumsAPI = exports.jObj = exports.importLoad = exports.urlHistory = exports.ajax = exports.pb = void 0;
@@ -349,57 +349,216 @@ var aa_model_asyncM_tscm = (function () {
         }
         exports.Component = Component;
     });
-    define("aa/main_VueTemp", ["require", "exports"], function (require, exports) {
+    define("src/config/public", ["require", "exports", "src/models/vueSDK"], function (require, exports, vueSDK_1) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
-    });
-    define("aa/view/asyncLoadView_Interface", ["require", "exports"], function (require, exports) {
-        "use strict";
-        Object.defineProperty(exports, "__esModule", { value: true });
-    });
-    define("aa/controllers/asyncLoadView_Interface", ["require", "exports"], function (require, exports) {
-        "use strict";
-        Object.defineProperty(exports, "__esModule", { value: true });
-    });
-    define("aa/view/asyncLoadView_VueTemp", ["require", "exports"], function (require, exports) {
-        "use strict";
-        Object.defineProperty(exports, "__esModule", { value: true });
-    });
-    define("aa/model/asyncM/item1model", ["require", "exports"], function (require, exports) {
-        "use strict";
-        Object.defineProperty(exports, "__esModule", { value: true });
-        /** temp this */
-        var $t;
-        /** class this */
-        var self;
-        /** example model item1 */
-        var model = /** @class */ (function () {
-            function model($tObj) {
-                this.testFun = function (test) {
-                    return test;
+        /**
+         * 取預設定語系
+         */
+        var getSysLang = function () {
+            /** System language */
+            var SysLang = navigator.language.toLowerCase();
+            /** 繁中 */
+            var nowLangVal = "ch";
+            if (SysLang.indexOf("zh-") > -1 || SysLang.indexOf("hk-") > -1) {
+                if (SysLang.indexOf("-cn") > -1) { //簡體
+                    nowLangVal = "sch";
+                }
+                else { //繁體
+                    nowLangVal = "ch";
+                }
+            }
+            else if (SysLang.indexOf("en-") > -1) { //英語系國家
+                nowLangVal = "en";
+            }
+            else if (SysLang == "ja") { //日語
+                nowLangVal = "jp";
+            }
+            return nowLangVal;
+        };
+        /**
+         * 載入 物件序列化(public 物件)
+        */
+        var configDataList = /** @class */ (function () {
+            function configDataList() {
+                var _this = this;
+                /**
+                 * 載入Libary json/image/語系資訊
+                */
+                this.inLibary = {
+                    config: (0, vueSDK_1.jObj)(),
+                    lib: (0, vueSDK_1.jObj)(),
+                    lang: "",
+                    libSrc: function (src) {
+                        return { source: _this.inLibary.lib, src: src, show: true };
+                    }
                 };
-                $t = $tObj;
-                self = this;
+                /**
+                 * 宣告載入data config & public libary
+                 * @param loadFun async 載入 Function(完成載入 /models/jsonDoc/Config [json 檔案] )
+                */
+                this.setPublic = function (loadFun) {
+                    if (_this.inLibary.lang == "") //注入預選語系
+                        _this.inLibary.lang = getSysLang();
+                    /**
+                     * 載入完成計數(共計2)
+                    */
+                    var loadCount = 0;
+                    _this.inLibary.config.load("config." + _this.inLibary.lang, function (e) {
+                        loadCount++;
+                        if (loadCount == 2)
+                            loadFun();
+                    });
+                    _this.inLibary.lib.loadlib("pub", function (e) {
+                        loadCount++;
+                        if (loadCount == 2)
+                            loadFun();
+                    });
+                    return _this.inLibary; //生成陣列
+                };
             }
-            return model;
+            return configDataList;
         }());
-        exports.default = model;
+        exports.default = configDataList;
         ;
     });
-    define("aa/model/asyncM/main", ["require", "exports", "aa/model/asyncM/item1model"], function (require, exports, item1model_1) {
+    define("src/config/loadModel", ["require", "exports", "src/config/public", "src/models/vueSDK"], function (require, exports, public_1, vueSDK_2) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
-        item1model_1 = __importDefault(item1model_1);
-        var main = /** @class */ (function () {
-            function main($tObj) {
-                console.log("asyncLoadView.html-> load modle asyncM-successfully");
-                /* $tObj join this*/
-                this.mItem1Model = new item1model_1.default($tObj); //join model class
+        public_1 = __importDefault(public_1);
+        /** 繼承importLoad 物件(importLoad 入口class) */
+        function default_1($t) {
+            /**
+             * 載入 oder
+            */
+            var configObj = new public_1.default();
+            //公共 css
+            $t.m.css.sit(function (e) {
+                $t.pub = configObj.setPublic(function () {
+                    console.log("Model css =>sit_" + e);
+                    setTimeout(function () {
+                        console.log("libary =>init");
+                        $t.p.init(function (e3) {
+                            console.log("page vue =>init---" + e3);
+                            console.warn("在找我/find me？https://psyltw.com/author");
+                            if (vueSDK_2.pb.debug) //debug model
+                                console.warn("----------runing-debug-model----------");
+                        });
+                    }, 99);
+                });
+            });
+        }
+        exports.default = default_1;
+    });
+    define("copy_e_Component/loadConfig_output_Map_interface", ["require", "exports"], function (require, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: true });
+    });
+    define("copy_e_Component/input/open_VueTemp", ["require", "exports"], function (require, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: true });
+    });
+    define("copy_e_Component/input/open_vue", ["require", "exports"], function (require, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: true });
+        /** 自定義擴充組件 */
+        exports.default = {
+            props: {
+                anwA: {
+                    type: String,
+                    default: "null",
+                    required: true,
+                }
+            },
+            action: function ($t) {
+                return {};
             }
-            return main;
-        }());
-        exports.default = main;
-        ;
+        };
+    });
+    define("copy_e_Component/load/img2_VueTemp", ["require", "exports"], function (require, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: true });
+    });
+    define("copy_e_Component/load/img2_vue", ["require", "exports"], function (require, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: true });
+        /** 自定義擴充組件 */
+        exports.default = {
+            props: {
+                title: {
+                    type: String,
+                    default: "我是自定義組件"
+                },
+                src: String,
+                source: Object,
+                show: {
+                    type: Boolean,
+                    default: true
+                }
+            },
+            action: function ($t) {
+                return {
+                    use: function () {
+                        return { 'source': $t.source, 'src': $t.src, 'show': $t.show };
+                    }
+                };
+            }
+        };
+    });
+    define("copy_e_Component/load2/img2_VueTemp", ["require", "exports"], function (require, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: true });
+    });
+    define("copy_e_Component/load2/img2_vue", ["require", "exports"], function (require, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: true });
+        /** 自定義擴充組件 */
+        exports.default = {
+            props: ["src", "source", "show"],
+            action: function ($t) {
+                console.log("img2-------");
+                console.log($t);
+                return {
+                    use: function () {
+                        return { 'source': $t.source, 'src': $t.src, 'show': $t.show };
+                    }
+                };
+            }
+        };
+    });
+    define("copy_e_Component/loadConfig_output_CAry", ["require", "exports", "copy_e_Component/input/open_vue", "copy_e_Component/load/img2_vue", "copy_e_Component/load2/img2_vue"], function (require, exports, open_vue_1, img2_vue_1, img2_vue_2) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: true });
+        open_vue_1 = __importDefault(open_vue_1);
+        img2_vue_1 = __importDefault(img2_vue_1);
+        img2_vue_2 = __importDefault(img2_vue_2);
+        var ary = [
+            {
+                n: 'input-open',
+                t: 'H4sIAAAAAAAAA7NJySxTyEyxVSooTXKtKEnNSyl2zs8tyM9LzStRsrPJzCsoLVEoqSxItVUqSa0oUVIo083NT0nNsVVKzCt3VLKrrgbRtbU2+kCD7ABMzkZqTgAAAA==',
+                p: open_vue_1.default
+            },
+            {
+                n: 'load-img2',
+                t: 'H4sIAAAAAAAAA7MpLkjMs7PJzE1XyEyxVcrPy6kMSS0uUVIo083JT0wBitsqlRanamgq2dmAlVZXl2SW5KTW1troQ7RCKACrdP+cSAAAAA==',
+                p: img2_vue_1.default
+            },
+            {
+                n: 'load2-img2',
+                t: 'H4sIAAAAAAAAA7MpLkjMs7PJzE1XyEyxVcrPy6kMSS0uMVJSKNPNyU9MAUrYKpUWp2poKtnZ6IMVAwAhAx28MwAAAA==',
+                p: img2_vue_2.default
+            }
+        ];
+        exports.default = ary;
+    });
+    define("copy_e_Component/loadConfig_output_Map", ["require", "exports", "src/config/loadModel", "copy_e_Component/loadConfig_output_CAry"], function (require, exports, loadModel_1, loadConfig_output_CAry_1) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: true });
+        loadModel_1 = __importDefault(loadModel_1);
+        loadConfig_output_CAry_1 = __importDefault(loadConfig_output_CAry_1);
+        var cv = eval("pcv_t");
+        cv(loadConfig_output_CAry_1.default); //注冊 共用域
+        exports.default = loadModel_1.default;
     });
     
     'marker:resolver';
@@ -447,4 +606,5 @@ var aa_model_asyncM_tscm = (function () {
     if (entry[0] !== null) {
         return resolve(entry[0]);
     }
-})();
+})().default);
+pb.debug = true;
