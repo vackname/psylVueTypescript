@@ -16,6 +16,7 @@
 - 7.deverloper CreateVue涵數 整合 首頁自動化生成網頁標籤、自定義指令集共構html element動化特效涵數使用
 - 8.deverloper 擁有架構化MVVM及數據分類並與特效動化共構開發式架構、interface強調註解(強固maintain時期)
 - 9.deverloper 底層為為Javascript，減化過多不必要之source code封裝
+- 10.docker for web name，即為web 前端站台並已建置伺服使用之所需緩存技術之標準
 
 ### dir/imageSet.json = 設定 web 靜態路徑(匹次/合拼載入)
 - 示例
