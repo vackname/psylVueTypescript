@@ -68,7 +68,7 @@ new CreateVue(temp=>temp.view_index)
 importLoad.pub.config.get("title")+"-"+importLoad.pub.config.get("page")[$t.init.page])//html title name
 .load(($t)=>{
     return {
-        main:$t.init//注入共用入口點數據(繼承)
+        main:$t//注入共用入口點數據(繼承)
     }
 });
 

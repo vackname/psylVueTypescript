@@ -6,8 +6,10 @@ import indexData from "./index_Interface";
 /** init project(初始化入口點project) */
 export  default interface index extends indexData,indexTemp,mainTemp.init,VueTemplate<mainTemp.main>
 {
+
     /** data model (斷開載入model時機)*/
     $m:any,
     /** 動畫 animate model*/
     $an:any,
+    
 }
