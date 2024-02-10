@@ -13,6 +13,16 @@ import * as TablesAPI from "./SysConfig_Interface/JsonInterface/db";
 /** public sdk */
 export const pb:pbM = eval("pb");
 
+/**
+ * 緩執行程序(休眠)(需加入 await)
+ * @param ms 休眠時間毫秒 
+ */
+export function sleep(ms:number) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}
+
 /** ajax */
 export const ajax:ajaxM.ajax = eval("ajax");
 
@@ -21,12 +31,6 @@ export interface ajaxInterface extends ajaxM.ajax {}
 
 /** add browser history(sorce code) */
 export const urlHistory:urlHistoryM = eval("urlHistory");
-
-/** ajax join function */
-export interface asyncGetInterface extends ajaxM.asyncGet {}
-
-/** ajax join function(僅限 Get) */
-export interface asyncToGetInterface extends ajaxM.asyncToGet{}
 
 /** system public to object/init(function) interface */
 export interface importLoadObjInterface extends pubObj,importLoadM{}

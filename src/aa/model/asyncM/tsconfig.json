@@ -1,6 +1,12 @@
 {
   "compilerOptions": {
     "incremental": true,
+    "lib": [
+      "dom",
+      "es5",
+      "scripthost",
+      "es2015.promise"
+    ],
     "noFallthroughCasesInSwitch": true,
     "target": "es5",
     "module": "es2015",
