@@ -1,4 +1,5 @@
-import {ajax} from "../ajax";
+import {TaskFactoryObj} from "../Task";
+
 /**
  * @param re response data
  * @param sendData send Data
@@ -7,42 +8,12 @@ import {ajax} from "../ajax";
 type asyncTp = (re:string,sendData?:any,url?:string)=>void;
 
 /** ajax catch then response for any value*/
-interface ajaxThenResFun
+interface ajaxToCatchResFun
 {
-    (Res:any):void
-}
-
-/** ajax then catch */
-interface ajaxThenCatchFirst
-{
-    /** ajax 程序完成後 下一個程序(response for cash) */
-    awaitCatch:(Fun?:ajaxThenResFun)=>ajaxThenFinal
-}
-
-/** ajax then catch */
-interface ajaxThenFinal
-{
-    /** ajax 程序完成後(Response for successfully) */
-    awaitThen:(Fun?:<T>(re:T)=>void)=>void
-}
-
-/** ajax then */
-interface ajaxThenCatch
-{
-    /** ajax 程序完成後 下一個程序(response for cash) */
-    awaitCatch:(Fun?:ajaxThenResFun)=>void
-}
-
-/** ajax then */
-interface ajaxThen
-{
-    /** ajax 程序完成後(Response for successfully) */
-    awaitThen:(Fun?:<T>(re:T)=>void)=>ajaxThenCatch
-}
-
-interface ajaxThenJoin extends ajaxThen,ajaxThenCatchFirst
-{
-
+    /** return ajax 錯誤資訊
+     * @param re return get if(status<>200,readyState=XMLHttpRequest.DONE=4)
+     */
+    (re:any):void
 }
 
 /**
@@ -53,7 +24,7 @@ export interface Response
     /**
      * @param fun response function (未使用Catch 事件=預設=錯誤將不理會而重新連線3次)
     */
-    (fun:asyncTp):ajaxThenJoin;
+    (fun:asyncTp):TaskFactoryObj;
 }
 
 /**
@@ -64,7 +35,7 @@ export interface ResponseJson
     /**
      * @param fun response function (未使用Catch 事件=預設=錯誤將不理會而重新連線3次)
     */
-    <T>(fun:(re:T,sendData?:any,url?:string)=>void):ajaxThenJoin;
+    <T>(fun:(re:T,sendData?:any,url?:string)=>void):TaskFactoryObj;
 }
 
 /**
@@ -114,7 +85,7 @@ interface AjaxBestSumbit
     /**
      * 啟動API
      */
-    toSubmit:()=>ajaxThenJoin,
+    toSubmit:()=>TaskFactoryObj,
 }
 
 /**

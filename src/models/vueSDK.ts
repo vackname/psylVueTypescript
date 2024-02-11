@@ -3,6 +3,7 @@ import importLoadM from "./SysConfig_Interface/importLoad";
 import pubObj from '../config/interface/getPubObject_interface';
 import urlHistoryM from "./SysConfig_Interface/urlHistory";
 import pbM from "./SysConfig_Interface/pb";
+import {TaskObj} from "./SysConfig_Interface/Task";
 import * as vueComponentM from "./SysConfig_Interface/vueComponent";
 import pubComponentObj from "./SysConfig_Interface/publicComponent";
 import jObjM from "./SysConfig_Interface/JObj";
@@ -12,16 +13,26 @@ import * as TablesAPI from "./SysConfig_Interface/JsonInterface/db";
 
 /** public sdk */
 export const pb:pbM = eval("pb");
+/**
+ * 緩執行程序(休眠)(需加入 await)
+*/
+interface sleepM
+{
+  /**
+ * 緩執行程序(休眠)(需加入 await)
+ * @param ms 休眠時間毫秒 
+ */
+  (ms:number):Promise<any>
+}
 
 /**
  * 緩執行程序(休眠)(需加入 await)
  * @param ms 休眠時間毫秒 
  */
-export function sleep(ms:number) {
-  return new Promise((resolve) => {
-    setTimeout(resolve, ms);
-  });
-}
+export const sleep:sleepM = eval("sleepObj");
+
+/** Task Factory */
+export const task:TaskObj = eval("taskObj");
 
 /** ajax */
 export const ajax:ajaxM.ajax = eval("ajax");

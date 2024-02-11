@@ -35,6 +35,10 @@
         __setModuleDefault(result, mod);
         return result;
     };
+    define("src/models/SysConfig_Interface/Task", ["require", "exports"], function (require, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: true });
+    });
     define("src/models/SysConfig_Interface/ajax/ajaxPublic", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
@@ -497,7 +501,7 @@
     define("src/models/vueSDK", ["require", "exports", "src/models/SysConfig_Interface/vueComponentAdd", "src/models/SysConfig_Interface/JsonInterface/enum", "src/models/SysConfig_Interface/JsonInterface/db"], function (require, exports, vueComponentAdd_1, EnumsAPI, TablesAPI) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
-        exports.Component = exports.TablesAPI = exports.EnumsAPI = exports.jObj = exports.importLoad = exports.urlHistory = exports.ajax = exports.sleep = exports.pb = void 0;
+        exports.Component = exports.TablesAPI = exports.EnumsAPI = exports.jObj = exports.importLoad = exports.urlHistory = exports.ajax = exports.task = exports.sleep = exports.pb = void 0;
         vueComponentAdd_1 = __importDefault(vueComponentAdd_1);
         EnumsAPI = __importStar(EnumsAPI);
         TablesAPI = __importStar(TablesAPI);
@@ -509,12 +513,9 @@
          * 緩執行程序(休眠)(需加入 await)
          * @param ms 休眠時間毫秒
          */
-        function sleep(ms) {
-            return new Promise(function (resolve) {
-                setTimeout(resolve, ms);
-            });
-        }
-        exports.sleep = sleep;
+        exports.sleep = eval("sleepObj");
+        /** Task Factory */
+        exports.task = eval("taskObj");
         /** ajax */
         exports.ajax = eval("ajax");
         /** add browser history(sorce code) */
