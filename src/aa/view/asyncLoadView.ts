@@ -19,9 +19,8 @@ export default {
 
             }
     },
-    tsc:[],//project -> typescript model
-    completed:($t,tscModel)=>
+    completed:($t)=>
     {
 
     }
-} as vueComponentModel<asyncLoadViewData.asyncLoadViewTemp,asyncLoadViewVueTemp,tscM>;
+} as vueComponentModel<asyncLoadViewData.asyncLoadViewTemp,asyncLoadViewVueTemp>;

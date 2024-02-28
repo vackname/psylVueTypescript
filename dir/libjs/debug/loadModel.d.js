@@ -251,6 +251,10 @@
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
+    define("src/models/SysConfig_Interface/ajax/ajaxDeleteObj", ["require", "exports"], function (require, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: true });
+    });
     define("src/models/SysConfig_Interface/ajax", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
@@ -312,6 +316,10 @@
         Object.defineProperty(exports, "__esModule", { value: true });
     });
     define("src/models/SysConfig_Interface/vueComponentProps", ["require", "exports"], function (require, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: true });
+    });
+    define("src/models/SysConfig_Interface/discreteModel", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });

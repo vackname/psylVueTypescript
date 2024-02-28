@@ -14,8 +14,7 @@ export default {
 
             }
     },
-    tsc:[],//project -> typescript model
-    completed:($t,tscModel)=>
+    completed:($t)=>
     {
         /*init $temp() run to completed or not exist init*/
     },
@@ -29,4 +28,4 @@ export default {
             }
         }
     }
-} as vueComponentModel<any,VueTemplate<MainVueTemplate>,tscM>;
+} as vueComponentModel<any,VueTemplate<MainVueTemplate>>;

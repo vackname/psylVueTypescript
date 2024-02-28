@@ -8,5 +8,5 @@
         <div style="background-color:#222;">extends project->value={{textProject}}</div>
         OK-main-{{VueName}}
         <!-- 待完整載入 透過 重新渲染 v-show='v.view1!=null'-->
-        <component v-bind:is='(v.indexOf(VueName)>-1?VueName:"")'></component>
+        <component v-bind:is="getVue(this,VueName)"></component>
 </div>

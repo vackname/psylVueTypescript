@@ -26,9 +26,8 @@ export default {
         return {};
         
     },
-    tsc:[],
-    completed:($t,tscModel)=>
+    completed:($t)=>
     {
         console.log($t);
     }
-} as vueComponentModel<headData,headVueTemp,tscM>;
+} as vueComponentModel<headData,headVueTemp>;

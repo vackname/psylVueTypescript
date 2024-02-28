@@ -14,10 +14,11 @@ export default
         },
         foot:{}
     },
-    tsc:[M.model_indexTsc],
-    completed:($t,tscModel)=>
+    discreteModelLoad:tsc => 
+    tsc(new tscM()).toMap(map=>[map.model_indexTsc])
+    .CreateJson(modelObj=>{ return { $m:modelObj.model_indexTsc} }),
+    completed:($t)=>
     {
-        $t["$m"] = tscModel.model_indexTsc;
         $t.mLoad=true;
     },
     funComputed:($t)=>
@@ -36,4 +37,4 @@ export default
             }
         };
     }
-} as vueModelControllers<indexData,indexVueTemp,tscM>;
+} as vueModelControllers<indexData,indexVueTemp>;

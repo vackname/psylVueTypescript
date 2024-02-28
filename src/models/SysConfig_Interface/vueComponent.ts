@@ -2,6 +2,7 @@ import PJImport from "./ProjectMap/ProjectImportList";
 import mImport from "./ModelsInterface/js";
 import cssImport from "./ModelsInterface/css";
 import PropsObj from "./vueComponentProps";
+import dModel from "./discreteModel";
 
 
 interface templateProject
@@ -118,13 +119,13 @@ interface vueModelWatchFun
 }
 
 /** 程序初始化完成(生命周期) */
-interface vueModelCompleted<T,T1>
+interface vueModelCompleted<T>
 {
     /**
      * @param $t VueTemplate<T?> 樣版 extends
      * @param tscModel 載入 匹次 model 物件
      */
-    ($t:T,tscModel:T1):void
+    ($t:T):void
 }
 
 /** 載入子樣版(生命周期) 陣列*/
@@ -249,20 +250,20 @@ export interface vueObjBest<T2>
 }
 
 /** controllers 數據取用層級 */
-export interface vueColModel<T1,T2,T3> extends vueObjBest<T2>
+export interface vueColModel<T1,T2> extends vueObjBest<T2>
 {    
     /** 樣版繫結數量 json 物件 */
     data?:T1,
     /** javascript/source 物件 (自動注入 this.$m[....])*/
     model?:vueModelToModelMark,
     /** typescript 注入取用匹次載入model 路徑,建議使用於(動畫類) animate model (tscM class)  ex:["modelAnimate/index"]*/
-    tsc?:Array<string>,
+    discreteModelLoad?:(JoinModel:dModel)=>any,
     /** 程序初始化完成(生命周期) */
-    completed?:vueModelCompleted<T2,T3>,
+    completed?:vueModelCompleted<T2>,
 }
 
 /** view temp */
-export interface vueModel<T1,T2,T3> extends vueColModel<T1,T2,T3>
+export interface vueModel<T1,T2> extends vueColModel<T1,T2>
 {
     /** 載入子樣版(生命周期) */
     temp?:vueModelTemp<T2>,

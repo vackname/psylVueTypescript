@@ -24,4 +24,4 @@ export default {
     {
         $t['$m'] = new toModel($t) //注入model
     },
-} as vueModelControllers<indexData,indexVueTemp,tscM>;
+} as vueModelControllers<indexData,indexVueTemp>;

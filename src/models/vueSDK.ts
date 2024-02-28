@@ -66,13 +66,13 @@ export interface jObjInterface extends jObjM { }
  export interface MainVueTemplate extends vueComponentM.templateObj<any,vueComponentM.ThisImport<any>>{}
 
  /** 樣版 model T1=data class,T2=VueTemplate<T?> ,T3=tscModel 樣版 extends */
- export interface vueComponentModel<T1,T2,T3> extends vueComponentM.vueModel<T1,T2,T3> {}
+ export interface vueComponentModel<T1,T2> extends vueComponentM.vueModel<T1,T2> {}
 
  /** 載入子樣版(生命周期) 陣列 templateObj<T1,T> */
  export interface vueModelTemp extends vueComponentM.vueModelTempLI {}
 
  /** controllers 數據取用層級 T1=data class,T2=VueTemplate<T?> ,T3=tscModel */
- export interface vueModelControllers<T1,T2,T3> extends vueComponentM.vueColModel<T1,T2,T3>{}
+ export interface vueModelControllers<T1,T2> extends vueComponentM.vueColModel<T1,T2>{}
 
  /*
 後端 enum 實例 ->webapi for net core 

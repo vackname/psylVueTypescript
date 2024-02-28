@@ -16,7 +16,7 @@ export default {
     init:($t)=>{
        
     },
-    completed:($t,tscModel)=>
+    completed:($t)=>
     {
 
     },
@@ -25,4 +25,4 @@ export default {
 
             }
     }
-} as vueComponentModel<any,VueTemplate<MainVueTemplate>,tscM>;
+} as vueComponentModel<any,VueTemplate<MainVueTemplate>>;

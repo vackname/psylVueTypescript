@@ -11,8 +11,10 @@ export default {
     data:{
         subject:"((my...asyncLoadView))"
     },
-    tsc:[M.model_asyncM],
-    completed:($t,tscModel)=>{
-        $t["$m"] = tscModel.model_asyncM;//reg model
+    discreteModelLoad: tsc=>tsc(new tscM())
+    .toMap(map=>[map.model_asyncM])
+    .CreateJson(modelObj=>{ return { $m:modelObj.model_asyncM }; }),//reg model
+    completed:($t)=>{
+
     }
-} as vueModelControllers<asyncLoadViewData,asyncLoadViewVueTemp,tscM>;
+} as vueModelControllers<asyncLoadViewData,asyncLoadViewVueTemp>;

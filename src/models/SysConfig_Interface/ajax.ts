@@ -2,6 +2,7 @@ import GetObj from "./ajax/ajaxGetObj";
 import PostObj from "./ajax/ajaxPostObj";
 import FileStreamObj from "./ajax/ajaxFileStreamObj";
 import JsonObj from "./ajax/ajaxJsonObj";
+import DeleteObj from "./ajax/ajaxDeleteObj";
 /**
  * @param url Api 路經
 */
@@ -25,6 +26,37 @@ type goApiFileStream= (url:string)=>FileStreamObj;
 */
 type goApiJson = (url:string)=>JsonObj;
 
+/**
+ * url ID key Put作動 ajax
+ */
+interface urlIDPutObj
+{
+    /** Set PKey */
+    InputID:(valID:any)=>JsonObj
+}
+
+/**
+ * url ID key Delete 作動 ajax
+ */
+interface urlIDDeleteObj
+{
+    /** Set PKey */
+    InputID:(valID:any)=>DeleteObj
+}
+
+/**
+ * 僅限 PUT json body 使用
+ * @param url Api 路經
+*/
+type goApiJsonToUrlIDPut = (url:string)=>urlIDPutObj;
+
+/**
+ * 僅限 DELETE json body 使用
+ * @param url Api 路經
+*/
+type goApiJsonToUrlIDDELETE = (url:string)=>urlIDDeleteObj;
+
+
 export interface ajax
 {
     /**
@@ -40,7 +72,15 @@ export interface ajax
     /**
      *  ajax post to gZip data
     */
-    postGzip:goApiPost,
+    postInputToGzip:goApiPost,
+    
+    /** remove source */
+    delete:goApiJsonToUrlIDDELETE,
+
+    /**
+     * ajax Replace (Create or Update)
+     */
+    put:goApiJsonToUrlIDPut,
 
     /**
      *  ajax post

@@ -27,7 +27,7 @@ export default {
         };
     },
     tsc:[],//project -> typescript model
-    completed:($t,tscModel)=>
+    completed:($t)=>
     {
         pb.el.delay(e=>
         e.id("aa_index_closBt")//close userset.html button
@@ -48,4 +48,4 @@ export default {
         ,0.05);//延遲50ms 進入
         /*init temp() run to completed or not exist init*/
     }
-} as vueComponentModel<indexData.indexTemp,indexVueTemp,tscM>;
+} as vueComponentModel<indexData.indexTemp,indexVueTemp>;

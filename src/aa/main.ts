@@ -26,10 +26,9 @@ export default {
             })
         };
     },
-    tsc:[],//project -> typescript model
-    completed:($t,tscModel)=>
+    completed:($t)=>
     {
         $t.VueName='view1';//完成程序後 Get Set 渲染樣版
         /*init temp() run to completed or not exist init*/
     }
-} as vueComponentModel<mainData,main,tscM>;
+} as vueComponentModel<mainData,main>;

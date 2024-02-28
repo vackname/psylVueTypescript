@@ -46,8 +46,7 @@ export default {
             
         }
     },
-    tsc:[],
-    completed:($t,tscModel)=>
+    completed:($t)=>
     {//主樣版初始化完成
 
         $t.import.p.aa(InsertTemp=>
@@ -104,6 +103,6 @@ export default {
             }
         }
     }
-} as vueComponentModel<indexData,indexVueTemp,tscM>;//<bind data KeyName,VueTemplate=$t>
+} as vueComponentModel<indexData,indexVueTemp>;//<bind data KeyName,VueTemplate=$t>
 
 
