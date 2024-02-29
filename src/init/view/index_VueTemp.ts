@@ -9,7 +9,5 @@ export  default interface index extends indexData,indexTemp,mainTemp.init,VueTem
 
     /** data model (斷開載入model時機)*/
     $m:any,
-    /** 動畫 animate model*/
-    $an:any,
     
 }

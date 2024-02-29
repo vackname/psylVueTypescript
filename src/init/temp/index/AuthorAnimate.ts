@@ -3,16 +3,13 @@
 import tscM from "../../../models/SysConfig_Interface/tscModel/init";//project for discrete model of load
 import animate_author from "../../animateModel/author";//作者主題 動畫
 
-/** 作者主題 動畫模組宣告 */
-var $an:animate_author;
-
 export default {
     data:{
         authorImg:null,
     },
     init:($t)=>{
-        $an = new animate_author($t);
-        $t["$an"] = $an;//注入樣版
+        /** 作者主題 動畫模組宣告 */
+        $t["$an"] = new animate_author($t);//animate model 注入樣版
     },
     temp:($t)=>{ 
         return {
@@ -29,7 +26,7 @@ export default {
             });
         }).ContinueWith({
             SuccessEvent:val=>{
-                $t.$an.run();
+                $t.$an.run();//動畫啟動
             },
             CatchEvent:val=>
             {
