@@ -1,27 +1,18 @@
 ﻿import tscM from "../../models/SysConfig_Interface/tscModel/init";
 import indexData from "./index_Interface";
 import indexVueTemp from "./index_VueTemp";
-import animate_author from "../animateModel/author";//作者主題 動畫
 
-import {pb,vueComponentModel,vueModelTemp,Component,jObj,Commandloadimg,urlHistory} from "../../models/vueSDK";
-
-/** 作者主題 動畫模組宣告 */
-var $an:animate_author;
+import {pb,vueComponentModel,vueModelTemp,Component,urlHistory} from "../../models/vueSDK";
 
 /** 首頁-入口Body Temp */
 export default {
     data:{
-        authorImg:null,
-        showAnimateFlag:false,
         mLoad:false,
         textBox:"my textbox",
         toMesBind:"自定義欄位"
     },
     init:($t)=>
     {
-        $an = new animate_author($t);
-        $t["$an"] = $an;//注入樣版
-
         /* 與 $t.import.p.aa 等同作動
         importLoad.p.aa((e)=>{//異步載入 注入專案
             Component($t)
@@ -58,13 +49,6 @@ export default {
             "0%":{"opacity":"0.1"},
             "100%":{"opacity":"1"}
         }).remove();
-        var authorImg = jObj();//啟用注入jObj 物件
-        authorImg.loadlib("author",e=>{//異步載入圖片
-            $t.authorImg = authorImg;
-            $t.showAnimateFlag = true;
-            $an.run();
-
-        });
 
         if($t.main!=null)
             $t.main.page = 'index';//啟動觸發 html head title
@@ -76,6 +60,7 @@ export default {
         pb.AddPrototype($t.head,{main:$t});
         tempObj["headTemp"] = Component($t).import(temp=>temp.init.temp_index_head).exportVue($t.head);
         tempObj["footTemp"] = $t.import.url("@temp/index/foot").exportVue($t.foot);
+        tempObj["AuthorATemp"] = Component($t).import(temp=>temp.init.temp_index_AuthorAnimate).exportVue({});
         return tempObj;
     },
     action:($t)=>{
@@ -85,8 +70,6 @@ export default {
             {
                 
             },
-            /** 作者動畫 image 指令 載入 設定 <image v-loadimg='authorSrc("bk.png")' />*/
-            authorSrc:(src:string) => ({'source':$t.authorImg,'src':src,'show':$t.showAnimateFlag} as Commandloadimg),
             /**
              * 運行url function
             */

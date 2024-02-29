@@ -1,42 +1,8 @@
 ﻿<div id="init_panel" v-show="mLoad">
     <component v-bind:is="getVue(this,'headTemp')" getValue="1"></component>
-    <div style="width:100%;padding-top:20px;padding-bottom:20px;" v-show="showAnimateFlag">
-        <div id="AAPanel">
-            <div id="meAn">
-                <load-img :source="authorImg" src="bk.png" id="meAn_bk" />
-                <!--背景-->
-                <load-img :source="authorImg" src="bk_wav.png" id="meAn_bk_wav" />
-                <!--背景 生命數-->
-                <load-img :source="authorImg" src="bk_369.png" id="meAn_369" />
-                <!--背景 369字符-->
-                <load-img :source="authorImg" src="body.png" id="meAn_body" />
-                <!--背景人物身體-->
-                <load-img :source="authorImg" src="me.png" id="meAn_me" />
-                <!--背景臉-->
-                <load-img :source="authorImg" src="book.png" id="meAn_book" />
-                <!--大查帳-->
-                <load-img :source="authorImg" src="bookname.png"  id="meAn_bookname" />
-                <!--大查帳-psyl標籤-->
-                <load-img :source="authorImg" src="car.png"  id="meAn_car" />
-                <!--四驅車-->
-                <load-img :source="authorImg" src="dog_1.png"  id="meAn_dog_1" />
-                <!--狗狗 碰柑-臘腸-->
-                <load-img :source="authorImg" src="dog_2.png"  id="meAn_dog_2" />
-                <!--狗狗 阿金-狐狸-->
-                <load-img :source="authorImg" src="dog_3.png"  id="meAn_dog_3" />
-                <!--狗狗 木柚-約克夏-->
-                <load-img :source="authorImg" src="dagamon_gx_bk.png"  id="meAn_dgx_bk" />
-                <!--數碼寶貝 傑斯獸-gx-背景-->
-                <load-img :source="authorImg" src="dagamon_gx.png"  id="meAn_dgx" />
-                <!--數碼寶貝 傑斯獸-gx-->
-                <load-img :source="authorImg" src="mark.png"  id="meAn_mark" />
-                <!--程式 三角涵數-斜率-->
-                <load-img :source="authorImg" src="vio.png"  id="meAn_vio" />
-                <!--小提琴-->
-            </div>
-        </div>
+    <div style="width:100%;padding-top:20px;padding-bottom:20px;">
+        <component v-bind:is="getVue(this,'AuthorATemp')"></component>
     </div>
-    <div>test extendsComponent-><load-img2 :source="authorImg" src="dagamon_gx.png" /></div>
     <div style="background-color: rgb(5, 56, 68);color:#FFFFFF;">now url to save for history-><input type="button" v-on:click="saveHomeToHistory()" value="click" /></div>
     <div style="background-color: rgb(61, 36, 6);color:#FFFFFF;">data-value->{{title}}</div>
     <div style="background-color:#666666;">
@@ -49,7 +15,8 @@
     <div v-desbind:bindOrderIDName="toMesBind" style="background-color:blueviolet;"></div><!--全域 自定義指令 bind 調用-->
     全域自定義指令bind 調用----end
     </div>
-    <div style="background-color:#162109;color:#FFFFFF"> catch 全域圖片(已載入直接取用) <img id="aa_index_closBt" style="width:70px;cursor:pointer;" v-loadimg="importLoad.pub.libSrc('takephoto.png')" /></div>
+    <div style="background-color:#162109;color:#FFFFFF;border-bottom:1px solid #FFFFFF;"> task 系統 測試(output console.log(開發者模式)) <input type="button" value="運行Task測試" v-on:click="$m.taskObj.run()" /></div>
+    <div style="background-color:#162109;color:#FFFFFF;"> catch 全域圖片(已載入直接取用) <img id="aa_index_closBt" style="width:70px;cursor:pointer;" v-loadimg="importLoad.pub.libSrc('takephoto.png')" /></div>
     <div style="background-color:rgb(51, 48, 3);color:#FFFFFF;">
         <input v-model="textBox" type="text" v-upm:modelOnlyID="textBox" />[[全域自定義指令 v-model update value 調用]]
         <br/><input v-model="textBox" type="text" v-focus:onlyInputIDName="textBox"/><!--全域自定義指令 節點 元素 調用-->

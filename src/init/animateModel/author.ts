@@ -4,8 +4,8 @@ import indexVueTemp from "../view/index_VueTemp";
 /** 作者動畫 */
 export default class author
 {
-    private _this:indexVueTemp;
-    constructor($t:indexVueTemp)
+    private _this:any;
+    constructor($t:any)
     {
         this._this = $t;
     }

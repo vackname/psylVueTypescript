@@ -3,15 +3,18 @@
     "outputFileName": "/OpenWeb/wwwroot/libjs/init.min",
     "inputFiles": [
       "/init/controllers/index.ts",
+      "/init/temp/index/AuthorAnimate.ts",
       "/init/temp/index/foot.ts",
       "/init/temp/index/head.ts",
       "/init/temp/index/foot.scss",
       "/init/temp/index/head.scss",
+      "/init/temp/index/AuthorAnimate.html",
       "/init/temp/index/foot.html",
       "/init/temp/index/head.html",
       "/init/view/index.ts",
       "/init/view/index.scss",
-      "/init/view/index.html"
+      "/init/view/index.html",
+      "/init/temp/index/AuthorAnimate.scss"
     ],
     "minify": {
       "enabled": true,

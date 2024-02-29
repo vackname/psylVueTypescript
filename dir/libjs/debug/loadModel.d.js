@@ -370,6 +370,8 @@
         Object.defineProperty(exports, "__esModule", { value: true });
         var init = /** @class */ (function () {
             function init() {
+                /** Project[init]->Temp[temp/index/AuthorAnimate] */
+                this.temp_index_AuthorAnimate = 'init@temp/index/AuthorAnimate';
                 /** Project[init]->Temp[temp/index/foot] */
                 this.temp_index_foot = 'init@temp/index/foot';
                 /** Project[init]->Temp[temp/index/head] */

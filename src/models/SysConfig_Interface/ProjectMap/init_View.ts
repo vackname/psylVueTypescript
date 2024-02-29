@@ -1,5 +1,7 @@
 ﻿export default class init
 {
+ /** Project[init]->Temp[temp/index/AuthorAnimate] */
+ temp_index_AuthorAnimate:string='init@temp/index/AuthorAnimate';
  /** Project[init]->Temp[temp/index/foot] */
  temp_index_foot:string='init@temp/index/foot';
  /** Project[init]->Temp[temp/index/head] */
