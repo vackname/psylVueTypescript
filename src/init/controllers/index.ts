@@ -15,7 +15,7 @@ export default
         foot:{}
     },
     discreteModelLoad:tsc => 
-    tsc(new tscM()).toMap(map=>[map.model_indexTsc])
+    tsc(new tscM()).toMap(map=>map.model_indexTsc)// or multiple ex [map.model_indexTsc]
     .CreateJson(modelObj=>{ return { $m:modelObj.model_indexTsc} }),
     completed:($t)=>
     {

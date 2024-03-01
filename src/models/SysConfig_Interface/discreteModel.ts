@@ -11,10 +11,8 @@ interface ModelLoad<T>
 }
 
 /** 選用Map 物件 */
-interface MapObj<T>
-{
-    (map:T):Array<string>
-}
+type MapObj<T> = (map:T)=>Array<any> | any
+
 interface addModelMap<T>
 {
     /** 注冊 model map */

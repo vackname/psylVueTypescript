@@ -74,8 +74,31 @@ interface BrowserInfo
     platform:string
 }
 
+/** 檢測 物件型態 */
+interface tryParse
+{
+    /**
+     * @param object 驗證物件
+    */
+    (object:any):boolean
+}
+
 export default interface pb
 {
+    /** tryparse char for string */
+    isString:tryParse,
+    /** tryparse char for Number */
+    isNumber:tryParse,
+    /** tryparse class or function */
+    isFuncOrClass:tryParse,
+    /** tryparse new class or event of object */
+    isObject:tryParse,
+    /** tryparse boolean */
+    isBoolean:tryParse,
+    /** tryparse null or undefined*/
+    isNaN:tryParse,
+    /** tryparse Array */
+    isArray:tryParse,
     /** 取得用戶IP */
     clientIP:string,
     /** 判斷是不是為mible */
@@ -122,6 +145,10 @@ export default interface pb
      */
     LogindelCookie:(name:string)=>string,
 
+    /** 壓縮字串 */
+    lzStrCompress:(val:string)=>string,
+    /** 解壓縮字串 */
+    lzStrDecompress:(val:string)=>string,
     /**
      * client browser
     */
