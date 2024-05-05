@@ -99,8 +99,6 @@ export default interface pb
     isNaN:tryParse,
     /** tryparse Array */
     isArray:tryParse,
-    /** 取得用戶IP */
-    clientIP:string,
     /** 判斷是不是為mible */
     isMobile:isMobile,
     /** 是否為Debug 模式 */

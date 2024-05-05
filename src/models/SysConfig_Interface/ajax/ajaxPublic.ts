@@ -28,7 +28,7 @@ export interface Response
 }
 
 /**
- * async response data to json
+ * async ungzip response data to json
 */
 export interface ResponseJson
 {
@@ -36,6 +36,18 @@ export interface ResponseJson
      * @param fun response function (未使用Catch 事件=預設=錯誤將不理會而重新連線3次)
     */
     <T>(fun:(re:T,sendData?:any,url?:string)=>void):TaskFactoryObj;
+}
+
+/**
+ * async response data to json
+*/
+export interface ResponseForKeyJson
+{
+    /**
+     * @param fun response function (未使用Catch 事件=預設=錯誤將不理會而重新連線3次)
+     * @param key unzip api key
+    */
+    <T>(key:string,fun:(re:T,sendData?:any,url?:string)=>void):TaskFactoryObj;
 }
 
 /**
@@ -109,6 +121,17 @@ export interface AjaxJsonSubmit extends AjaxBestSumbit
      * response = 回應資料 data to json object
      */
     toResponse:ResponseJson,
+
+    /**
+     * ungzip response = 回應資料 data to json object
+     * @param key ungzip response API key
+     */
+    toUnGzipForKeyResponse:ResponseForKeyJson,
+
+    /**
+     *  ungzip response = 回應資料 data to json object
+     */
+    toUnGzipResponse:ResponseJson,
 }
 
 /**

@@ -56,44 +56,78 @@ type goApiJsonToUrlIDPut = (url:string)=>urlIDPutObj;
 */
 type goApiJsonToUrlIDDELETE = (url:string)=>urlIDDeleteObj;
 
+/** form for post */
+interface ajaxMethodFormPost
+{   
+    /**
+     *  ajax post to gZip input for data (application/x-www-form-urlencoded)
+    */
+    sendGzip:goApiPost,
+
+    /**
+     *  ajax post (application/x-www-form-urlencoded)
+    */
+    send:goApiPost,
+}
+
+/** form */
+interface ajaxMethodForm
+{   
+    /**
+     *  ajax get (application/x-www-form-urlencoded)
+    */
+    Get:goApiGet,
+
+    /** remove source (application/x-www-form-urlencoded)*/
+    Delete:goApiJsonToUrlIDDELETE,
+
+    /**
+     * ajax Replace (application/x-www-form-urlencoded)(Create or Update)
+     */
+    Put:goApiJsonToUrlIDPut,
+
+    /** Method Post */
+    Post:ajaxMethodFormPost,
+
+    /**
+     *  ajax post file (multipart/form-data)
+    */
+    UploadFile:goApiPost,
+}
+
+/** json body */
+interface ajaxMethodJson
+{
+    /** remove source (application/json)*/
+    Delete:goApiJsonToUrlIDDELETE,
+
+    /**
+     * ajax Replace (application/json)(Create or Update)
+     */
+    Put:goApiJsonToUrlIDPut,
+
+    /**
+     *  ajax (application/json)
+    */
+    sendGzip:goApiJson,
+
+    /**
+     *  ajax (application/json)
+    */
+    send:goApiJson,
+}
 
 export interface ajax
 {
     /**
-     *  ajax get
+     * ajax stream for File (application/octet-stream)
     */
-    get:goApiGet,
-
+    Stream:goApiFileStream,
     /**
-     * ajax stream for File
-    */
-    getFileStream:goApiFileStream,
-
-    /**
-     *  ajax post to gZip data
-    */
-    postInputToGzip:goApiPost,
-    
-    /** remove source */
-    delete:goApiJsonToUrlIDDELETE,
-
-    /**
-     * ajax Replace (Create or Update)
+     * ajax (? / form)
      */
-    put:goApiJsonToUrlIDPut,
+    Form:ajaxMethodForm,
 
-    /**
-     *  ajax post
-    */
-    post:goApiPost,
-
-    /**
-     *  ajax json body post
-    */
-    Json:goApiJson,
-
-    /**
-     *  ajax post file
-    */
-    file:goApiPost,
+    /**  ajax (application/json) */
+    JSON:ajaxMethodJson,
 }
