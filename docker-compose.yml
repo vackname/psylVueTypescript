@@ -1,0 +1,85 @@
+version: "3.7"
+services:
+  use-comm:
+    image: f01592000/psylvue-command:3.1.0.0
+    container_name: t1715240840-comm
+    volumes:
+      - ./src:/project/src:cached
+      - ./Libary&Document/libary:/project/libary:cached
+      - ./Libary&Document/jsonDoc:/project/jsonDoc:cached
+      - ./extendsComponent:/project/extendsComponent:cached
+      - ./dir:/OpenWeb/wwwroot:cached
+    deploy:
+      resources:
+        limits:
+            cpus: "8.0"
+            memory: 8192M
+        reservations:
+            cpus: "4.0"
+            memory: 4024M
+    command: "node runPsylNode.js"
+    logging: 
+      driver: "json-file"
+      options: 
+        max-size: "10m"
+        max-file: "10"
+    networks:
+      - t1715240840_network
+
+  use-debug:
+    image: f01592000/psylvue-command:3.1.0.0
+    container_name: t1715240840-debug
+    volumes:
+      - ./src:/project/src:cached
+      - ./Libary&Document/libary:/project/libary:cached
+      - ./Libary&Document/jsonDoc:/project/jsonDoc:cached
+      - ./extendsComponent:/project/extendsComponent:cached
+      - ./dir:/OpenWeb/wwwroot:cached
+    deploy:
+      resources:
+        limits:
+            cpus: "8.0"
+            memory: 8192M
+        reservations:
+            cpus: "4.0"
+            memory: 4024M
+    command: "node runPsylNode.js"
+    logging: 
+      driver: "json-file"
+      options: 
+        max-size: "10m"
+        max-file: "10"
+    networks:
+      - t1715240840_network
+
+  use-web:
+    image: f01592000/psylvue-web:3.1.0.0
+    container_name: t1715240840-web
+    depends_on:
+      - use-comm
+      - use-debug
+    ports:
+      - 1313:80
+    volumes:
+      - ./dir:/wwwroot:cached
+    deploy:
+      resources:
+        limits:
+            cpus: "8.0"
+            memory: 8192M
+        reservations:
+            cpus: "4.0"
+            memory: 4024M
+    logging: 
+      driver: "json-file"
+      options: 
+        max-size: "10m"
+        max-file: "10"
+    hostname: get.web.com
+    networks:
+      - t1715240840_network
+
+networks:
+  t1715240840_network:
+      external:
+        name: t1715240840_network

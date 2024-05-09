@@ -2,7 +2,6 @@ import GetObj from "./ajax/ajaxGetObj";
 import PostObj from "./ajax/ajaxPostObj";
 import FileStreamObj from "./ajax/ajaxFileStreamObj";
 import JsonObj from "./ajax/ajaxJsonObj";
-import DeleteObj from "./ajax/ajaxDeleteObj";
 /**
  * @param url Api 路經
 */
@@ -27,34 +26,39 @@ type goApiFileStream= (url:string)=>FileStreamObj;
 type goApiJson = (url:string)=>JsonObj;
 
 /**
- * url ID key Put作動 ajax
+ * url ID key Delete/PUt 作動 Form ajax
  */
-interface urlIDPutObj
+interface urlIDObjForm extends PostObj
 {
-    /** Set PKey */
-    InputID:(valID:any)=>JsonObj
+    /** Set type String delete/put 使用url ID/value */
+    InputUrlIDForString:(valID:string)=>urlIDObjForm,
+    /** Set type number delete/put 使用url ID/value*/
+    InputUrlIDForNumber:(valID:number)=>urlIDObjForm
 }
 
 /**
- * url ID key Delete 作動 ajax
+ * Delete/PUT Json Body
+ * @param url Api 路經
+*/
+type goApiJsonToUrlIDForm = (url:string)=>urlIDObjForm;
+
+
+/**
+ * url ID key Delete/PUt 作動 Json Body ajax
  */
-interface urlIDDeleteObj
+interface urlIDObj extends JsonObj
 {
-    /** Set PKey */
-    InputID:(valID:any)=>DeleteObj
+    /** Set type String delete/put 使用url ID/value*/
+    InputUrlIDForString:(valID:string)=>urlIDObj,
+    /** Set type number delete/put 使用url ID/value */
+    InputUrlIDForNumber:(valID:number)=>urlIDObj
 }
 
 /**
- * 僅限 PUT json body 使用
+ * Delete/PUT Json Body
  * @param url Api 路經
 */
-type goApiJsonToUrlIDPut = (url:string)=>urlIDPutObj;
-
-/**
- * 僅限 DELETE json body 使用
- * @param url Api 路經
-*/
-type goApiJsonToUrlIDDELETE = (url:string)=>urlIDDeleteObj;
+type goApiJsonToUrlID = (url:string)=>urlIDObj;
 
 /** form for post */
 interface ajaxMethodFormPost
@@ -79,12 +83,12 @@ interface ajaxMethodForm
     Get:goApiGet,
 
     /** remove source (application/x-www-form-urlencoded)*/
-    Delete:goApiJsonToUrlIDDELETE,
+    Delete:goApiJsonToUrlIDForm,
 
     /**
      * ajax Replace (application/x-www-form-urlencoded)(Create or Update)
      */
-    Put:goApiJsonToUrlIDPut,
+    Put:goApiJsonToUrlIDForm,
 
     /** Method Post */
     Post:ajaxMethodFormPost,
@@ -99,12 +103,12 @@ interface ajaxMethodForm
 interface ajaxMethodJson
 {
     /** remove source (application/json)*/
-    Delete:goApiJsonToUrlIDDELETE,
+    Delete:goApiJsonToUrlID,
 
     /**
      * ajax Replace (application/json)(Create or Update)
      */
-    Put:goApiJsonToUrlIDPut,
+    Put:goApiJsonToUrlID,
 
     /**
      *  ajax (application/json)
