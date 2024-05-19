@@ -10,6 +10,8 @@ export default interface models
  adapterRTC:objJsFun,
  /** chart 圓餅圖 */
  d3v4Chart:objJsFun,
+ /** models->debugBundleWebSocket */
+ debugBundleWebSocket:objJsFun,
  /** vide hls */
  hls:objJsFun,
  /** md5 decode/encode */
