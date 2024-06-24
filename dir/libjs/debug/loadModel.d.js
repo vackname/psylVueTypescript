@@ -1,33 +1,4 @@
-﻿
-var vToYWE_Model = null;
-function aa_VuePJ(){
-
- this.pjAPI = {};
-var selfPJ = this;
-split_b_obj.c(this,'controllers_userset',vToYWE_Model.controllers_userset); 
- split_b_obj.c(this,'controllers_index',vToYWE_Model.controllers_index); 
- split_b_obj.c(this,'controllers_asyncLoadView',vToYWE_Model.controllers_asyncLoadView); 
- split_b_obj.c_sID(this,'view_userset','aatemp/t3',false,true,function(){ 
- this.vue=null;split_b_obj.c_JS(this,selfPJ,function(){
-
-},[vToYWE_Model.view_userset,''],'userset','aa');
-},'aa_view_userset','aa/c2.css'); 
- split_b_obj.c_sID(this,'view_index','aatemp/t2',false,true,function(){ 
- this.vue=null;split_b_obj.c_JS(this,selfPJ,function(){
-
-},[vToYWE_Model.view_index,''],'index','aa');
-},'aa_view_index','aa/c1.css'); 
- split_b_obj.c_sID(this,'view_asyncLoadView','aatemp/t1',false,true,function(){ 
- this.vue=null;split_b_obj.c_JS(this,selfPJ,function(){
-
-},[vToYWE_Model.view_asyncLoadView,''],'asyncLoadView','aa');
-},'aa_view_asyncLoadView','aa/c0.css');
- }; 
- var aa_main_run = function(){ 
- this.DEBUG = true;
-vToYWE_Model = (function()
-{
-var PJVueModel = (function () { 
+﻿var importLoad = new oderLoad().run((function () { 
      var defines = {}; 
      var entry = [null]; 
      function define(name, dependencies, factory) { 
@@ -607,275 +578,216 @@ var PJVueModel = (function () {
          } 
          exports.Component = Component; 
      }); 
-     define("src/aa/controllers/asyncLoadView_Interface", ["require", "exports"], function (require, exports) { 
+     define("src/config/public", ["require", "exports", "src/models/vueSDK"], function (require, exports, vueSDK_1) { 
          "use strict"; 
          Object.defineProperty(exports, "__esModule", { value: true }); 
-     }); 
-     define("src/aa/main_VueTemp", ["require", "exports"], function (require, exports) { 
-         "use strict"; 
-         Object.defineProperty(exports, "__esModule", { value: true }); 
-     }); 
-     define("src/aa/view/asyncLoadView_Interface", ["require", "exports"], function (require, exports) { 
-         "use strict"; 
-         Object.defineProperty(exports, "__esModule", { value: true }); 
-     }); 
-     define("src/aa/view/asyncLoadView_VueTemp", ["require", "exports"], function (require, exports) { 
-         "use strict"; 
-         Object.defineProperty(exports, "__esModule", { value: true }); 
-     }); 
-     define("src/models/SysConfig_Interface/tscModel/aa", ["require", "exports"], function (require, exports) { 
-         "use strict"; 
-         Object.defineProperty(exports, "__esModule", { value: true }); 
-         /**  aa 專案 入口  */ 
-         var model = /** @class */ (function () { 
-             function model() { 
-                 /**  aa-> model */ 
-                 this.model_asyncM = 'model/asyncM'; 
-             } 
-             return model; 
-         }()); 
-         exports.default = model; 
-     }); 
-     define("src/aa/controllers/asyncLoadView", ["require", "exports", "src/models/SysConfig_Interface/tscModel/aa"], function (require, exports, aa_1) { 
-         "use strict"; 
-         Object.defineProperty(exports, "__esModule", { value: true }); 
-         aa_1 = __importDefault(aa_1); 
-         /** Model Path */ 
-         var M = new aa_1.default(); 
-         /** data bind (self.data) **/ 
-         exports.default = { 
-             data: { 
-                 subject: "((my...asyncLoadView))" 
-             }, 
-             discreteModelLoad: function (tsc) { return tsc(new aa_1.default()) 
-                 .toMap(function (map) { return [map.model_asyncM]; }) 
-                 .CreateJson(function (modelObj) { return { $m: modelObj.model_asyncM }; }); }, 
-             completed: function ($t) { 
-             } 
-         }; 
-     }); 
-     define("src/aa/controllers/index_interface", ["require", "exports"], function (require, exports) { 
-         "use strict"; 
-         Object.defineProperty(exports, "__esModule", { value: true }); 
-     }); 
-     define("src/aa/view/index_Interface", ["require", "exports"], function (require, exports) { 
-         "use strict"; 
-         Object.defineProperty(exports, "__esModule", { value: true }); 
-     }); 
-     define("src/aa/view/index_VueTemp", ["require", "exports"], function (require, exports) { 
-         "use strict"; 
-         Object.defineProperty(exports, "__esModule", { value: true }); 
-     }); 
-     define("src/aa/model/index", ["require", "exports", "src/models/vueSDK"], function (require, exports, vueSDK_1) { 
-         "use strict"; 
-         Object.defineProperty(exports, "__esModule", { value: true }); 
-         /** 注入 webapi tables class 示例*/ 
-         var userClient = /** @class */ (function () { 
-             function userClient() { 
-                 this.name_val = "my psyl"; 
-                 this.age_val = 3; 
-             } 
-             return userClient; 
-         }()); 
-         var $t; 
-         var index = /** @class */ (function () { 
-             function index($tObj) { 
-                 /** open user page */ 
-                 this.page = function () { 
-                     $t.data.user.load = 'userpage'; 
-                     $t.show = false; 
-                 }; 
-                 this.close = function () { 
-                     $t.data.user.load = ''; 
-                     $t.show = true; 
-                 }; 
-                 /** son obj */ 
-                 this.config = (0, vueSDK_1.jObj)(); 
-                 $t = $tObj; //model 進入樣版 
-                 console.log("---web api demon start---"); 
-                 console.log("table---"); 
-                 console.log(new userClient()); 
-                 console.log("enum value---"); 
-                 console.log(vueSDK_1.EnumsAPI.Enum_EnumSample.publsh); 
-                 console.log("enum string data---"); 
-                 console.log("-取得enum key string"); 
-                 /** 取得enum key string */ 
-                 var enumToStr = vueSDK_1.EnumsAPI.Enum_EnumSample[vueSDK_1.EnumsAPI.Enum_EnumSample.publsh]; 
-                 console.log(enumToStr); 
-                 console.log("-額外定議 enum string data"); 
-                 console.log(vueSDK_1.EnumsAPI.Enum_view_EnumSample(enumToStr)); 
-                 console.log("---web api demon end---"); 
-             } 
-             return index; 
-         }()); 
-         exports.default = index; 
-     }); 
-     define("src/aa/controllers/index", ["require", "exports", "src/aa/model/index"], function (require, exports, index_1) { 
-         "use strict"; 
-         Object.defineProperty(exports, "__esModule", { value: true }); 
-         index_1 = __importDefault(index_1); 
          /** 
-          * data bind (self.data) 
+          * 取預設定語系 
+          */ 
+         var getSysLang = function () { 
+             /** System language */ 
+             var SysLang = navigator.language.toLowerCase(); 
+             /** 繁中 */ 
+             var nowLangVal = "ch"; 
+             if (SysLang.indexOf("zh-") > -1 || SysLang.indexOf("hk-") > -1) { 
+                 if (SysLang.indexOf("-cn") > -1) { //簡體 
+                     nowLangVal = "sch"; 
+                 } 
+                 else { //繁體 
+                     nowLangVal = "ch"; 
+                 } 
+             } 
+             else if (SysLang.indexOf("en-") > -1) { //英語系國家 
+                 nowLangVal = "en"; 
+             } 
+             else if (SysLang == "ja") { //日語 
+                 nowLangVal = "jp"; 
+             } 
+             return nowLangVal; 
+         }; 
+         /** 
+          * 載入 物件序列化(public 物件) 
          */ 
-         exports.default = { 
-             init: function ($t) { 
-             }, 
-             data: { 
-                 data: { 
-                     user: { 
-                         list: [1, 2, 3], 
-                         load: '' 
+         var configDataList = /** @class */ (function () { 
+             function configDataList() { 
+                 var _this = this; 
+                 /** 
+                  * 載入Libary json/image/語系資訊 
+                 */ 
+                 this.inLibary = { 
+                     config: (0, vueSDK_1.jObj)(), 
+                     lib: (0, vueSDK_1.jObj)(), 
+                     lang: "", 
+                     libSrc: function (src) { 
+                         return { source: _this.inLibary.lib, src: src, show: true }; 
                      } 
+                 }; 
+                 /** 
+                  * 宣告載入data config & public libary 
+                  * @param loadFun async 載入 Function(完成載入 /models/jsonDoc/Config [json 檔案] ) 
+                 */ 
+                 this.setPublic = function (loadFun) { 
+                     if (_this.inLibary.lang == "") //注入預選語系 
+                         _this.inLibary.lang = getSysLang(); 
+                     /** 
+                      * 載入完成計數(共計2) 
+                     */ 
+                     var loadCount = 0; 
+                     _this.inLibary.config.load("config." + _this.inLibary.lang, function (e) { 
+                         loadCount++; 
+                         if (loadCount == 2) 
+                             loadFun(); 
+                     }); 
+                     _this.inLibary.lib.loadlib("pub", function (e) { 
+                         loadCount++; 
+                         if (loadCount == 2) 
+                             loadFun(); 
+                     }); 
+                     return _this.inLibary; //生成陣列 
+                 }; 
+             } 
+             return configDataList; 
+         }()); 
+         exports.default = configDataList; 
+         ; 
+     }); 
+     define("src/config/loadModel", ["require", "exports", "src/config/public", "src/models/vueSDK"], function (require, exports, public_1, vueSDK_2) { 
+         "use strict"; 
+         Object.defineProperty(exports, "__esModule", { value: true }); 
+         public_1 = __importDefault(public_1); 
+         /** 繼承importLoad 物件(importLoad 入口class) */ 
+         function default_1($t) { 
+             /** 
+              * 載入 oder 
+             */ 
+             var configObj = new public_1.default(); 
+             //公共 css 
+             $t.m.css.sit(function (e) { 
+                 $t.pub = configObj.setPublic(function () { 
+                     console.log("Model css =>sit_" + e); 
+                     setTimeout(function () { 
+                         console.log("libary =>init"); 
+                         $t.p.init(function (e3) { 
+                             console.log("page vue =>init---" + e3); 
+                             console.warn("在找我/find me？https://psyltw.com/author"); 
+                             if (vueSDK_2.pb.debug) //debug model 
+                                 console.warn("----------runing-debug-model----------"); 
+                         }); 
+                     }, 99); 
+                 }); 
+             }); 
+         } 
+         exports.default = default_1; 
+     }); 
+     define("copy_e_Component/loadConfig_output_Map_interface", ["require", "exports"], function (require, exports) { 
+         "use strict"; 
+         Object.defineProperty(exports, "__esModule", { value: true }); 
+     }); 
+     define("copy_e_Component/input/open_VueTemp", ["require", "exports"], function (require, exports) { 
+         "use strict"; 
+         Object.defineProperty(exports, "__esModule", { value: true }); 
+     }); 
+     define("copy_e_Component/input/open_vue", ["require", "exports"], function (require, exports) { 
+         "use strict"; 
+         Object.defineProperty(exports, "__esModule", { value: true }); 
+         /** 自定義擴充組件 */ 
+         exports.default = { 
+             props: { 
+                 anwA: { 
+                     type: String, 
+                     default: "null", 
+                     required: true, 
                  } 
              }, 
-             completed: function ($t) { 
-                 $t['$m'] = new index_1.default($t); //注入model 
-             }, 
-         }; 
-     }); 
-     define("src/aa/controllers/userset", ["require", "exports"], function (require, exports) { 
-         "use strict"; 
-         Object.defineProperty(exports, "__esModule", { value: true }); 
-         //data bind (self.data) 
-         exports.default = { 
-             data: { 
-                 subject: "myUserset" 
-             } 
-         }; 
-     }); 
-     define("src/aa/view/asyncLoadView", ["require", "exports", "src/models/SysConfig_Interface/tscModel/aa"], function (require, exports, aa_2) { 
-         "use strict"; 
-         Object.defineProperty(exports, "__esModule", { value: true }); 
-         aa_2 = __importDefault(aa_2); 
-         /** Model Path */ 
-         var M = new aa_2.default(); 
-         exports.default = { 
-             data: {}, 
-             init: function ($t) { 
-             }, 
-             temp: function ($t) { 
-                 /*init $t.import.toLoad() run to temp*/ 
+             action: function ($t) { 
                  return {}; 
-             }, 
-             completed: function ($t) { 
              } 
          }; 
      }); 
-     define("src/aa/view/index", ["require", "exports", "src/models/vueSDK"], function (require, exports, vueSDK_2) { 
+     define("copy_e_Component/load/img2_VueTemp", ["require", "exports"], function (require, exports) { 
          "use strict"; 
          Object.defineProperty(exports, "__esModule", { value: true }); 
-         exports.default = { 
-             data: { 
-                 show: false, 
-             }, 
-             init: function ($t) { 
-                 $t.lib = vueSDK_2.importLoad.pub.lib; //注入宣告共用圖片取得 
-                 setTimeout(function () { 
-                     $t.show = true; 
-                 }, 3000); 
-                 $t.data.user.load = ''; //controller data 
-                 $t.import.toLoad(); 
-             }, 
-             temp: function ($t) { 
-                 /*init temp() run to temp*/ 
-                 return { 
-                     userpage: (0, vueSDK_2.Component)($t).import(function (path) { return path.aa.view_userset; }) 
-                         .exportVue({ 
-                         main: $t.main, 
-                         data: $t.data.user 
-                     }) 
-                 }; 
-             }, 
-             tsc: [], 
-             completed: function ($t) { 
-                 vueSDK_2.pb.el.delay(function (e) { 
-                     return e.id("aa_index_closBt") //close userset.html button 
-                         .frame(function (el) { return el.animate({ "duration": 1, "delay": 1, "count": 1 }, { 
-                         "0%": { "transform": "rotateY(0deg)" }, 
-                         "60%": { "transform": "rotateY(-90deg)" }, 
-                         "62%": { "transform": "rotateY(80deg)" }, 
-                         "90%": { "transform": "rotateY(-90deg)" }, 
-                         "97%": { "transform": "rotateY(80deg)" }, 
-                         "98%": { "transform": "rotateY(-180deg)" }, 
-                         "100%": { "transform": "rotateY(-180deg)" }, 
-                     }); }, 4 //特效時長範圍 
-                     , "closeBt" //frame flagname 
-                     ).toFrame("closeBt", 3) //反回frame flagname = closeBt 
-                         .remove(); 
-                 } //移除動畫 
-                 , 0.05); //延遲50ms 進入 
-                 /*init temp() run to completed or not exist init*/ 
-             } 
-         }; 
      }); 
-     define("src/aa/view/userset", ["require", "exports", "src/models/vueSDK"], function (require, exports, vueSDK_3) { 
+     define("copy_e_Component/load/img2_vue", ["require", "exports"], function (require, exports) { 
          "use strict"; 
          Object.defineProperty(exports, "__esModule", { value: true }); 
+         /** 自定義擴充組件 */ 
          exports.default = { 
-             data: {}, 
-             init: function ($t) { 
-                 $t.import.toLoad(); 
-             }, 
-             temp: function ($t) { 
-                 /*init $temp() run to temp*/ 
-                 return {}; 
-             }, 
-             completed: function ($t) { 
-                 /*init $temp() run to completed or not exist init*/ 
+             props: { 
+                 title: { 
+                     type: String, 
+                     default: "我是自定義組件" 
+                 }, 
+                 src: String, 
+                 source: Object, 
+                 show: { 
+                     type: Boolean, 
+                     default: true 
+                 } 
              }, 
              action: function ($t) { 
                  return { 
-                     /** add Temp example */ 
-                     openAsyncView: function () { 
-                         (0, vueSDK_3.Component)($t) 
-                             .Extends("asynTemp").Template(function (map) { return map(function (temp) { return temp.aa.view_asyncLoadView; }); }); 
+                     use: function () { 
+                         return { 'source': $t.source, 'src': $t.src, 'show': $t.show }; 
                      } 
                  }; 
              } 
          }; 
      }); 
-     define("src/aa/main", ["require", "exports"], function (require, exports) { 
+     define("copy_e_Component/load2/img2_VueTemp", ["require", "exports"], function (require, exports) { 
          "use strict"; 
          Object.defineProperty(exports, "__esModule", { value: true }); 
-         /** example view */ 
-         var indata = { 
-             maindata: { a1: 'firstname', a2: 'lastname' }, 
-             textProject: "input box", 
-             VueName: "" 
-         }; 
-         /** aa 專案 入口 */ 
+     }); 
+     define("copy_e_Component/load2/img2_vue", ["require", "exports"], function (require, exports) { 
+         "use strict"; 
+         Object.defineProperty(exports, "__esModule", { value: true }); 
+         /** 自定義擴充組件 */ 
          exports.default = { 
-             data: indata, 
-             init: function ($t) { 
-                 $t.import.toLoad(); 
-             }, 
-             temp: function ($t) { 
-                 /*init temp() run to temp*/ 
+             props: ["src", "source", "show"], 
+             action: function ($t) { 
+                 console.log("img2-------"); 
+                 console.log($t); 
                  return { 
-                     view1: $t.import.url('@view/index') 
-                         .exportVue({ 
-                         main: { layout: 'hi(layout)' }, 
-                         datamain: indata.maindata 
-                     }) 
+                     use: function () { 
+                         return { 'source': $t.source, 'src': $t.src, 'show': $t.show }; 
+                     } 
                  }; 
-             }, 
-             completed: function ($t) { 
-                 $t.VueName = 'view1'; //完成程序後 Get Set 渲染樣版 
-                 /*init temp() run to completed or not exist init*/ 
              } 
          }; 
      }); 
-     define("psylbundletscView/aa_MapSorce", ["require", "exports", "src/aa/controllers/asyncLoadView", "src/aa/controllers/index", "src/aa/controllers/userset", "src/aa/view/asyncLoadView", "src/aa/view/index", "src/aa/view/userset", "src/aa/main"], function (require, exports, asyncLoadView_1, index_2, userset_1, asyncLoadView_2, index_3, userset_2, main_1) { 
+     define("copy_e_Component/loadConfig_output_CAry", ["require", "exports", "copy_e_Component/input/open_vue", "copy_e_Component/load/img2_vue", "copy_e_Component/load2/img2_vue"], function (require, exports, open_vue_1, img2_vue_1, img2_vue_2) { 
          "use strict"; 
          Object.defineProperty(exports, "__esModule", { value: true }); 
-         asyncLoadView_1 = __importDefault(asyncLoadView_1); 
-         index_2 = __importDefault(index_2); 
-         userset_1 = __importDefault(userset_1); 
-         asyncLoadView_2 = __importDefault(asyncLoadView_2); 
-         index_3 = __importDefault(index_3); 
-         userset_2 = __importDefault(userset_2); 
-         main_1 = __importDefault(main_1); 
-         exports.default = { controllers_asyncLoadView: asyncLoadView_1.default, controllers_index: index_2.default, controllers_userset: userset_1.default, view_asyncLoadView: asyncLoadView_2.default, view_index: index_3.default, view_userset: userset_2.default, main: main_1.default }; 
+         open_vue_1 = __importDefault(open_vue_1); 
+         img2_vue_1 = __importDefault(img2_vue_1); 
+         img2_vue_2 = __importDefault(img2_vue_2); 
+         var ary = [ 
+             { 
+                 n: 'input-open', 
+                 t: 'H4sIAAAAAAAAA7NJySxTyEyxVSooTXKtKEnNSyl2zs8tyM9LzStRsrPJzCsoLVEoqSxItVUqSa0oUVIo083NT0nNsVVKzCt3VLKrrgbRtbU2+kCD7ABMzkZqTgAAAA==', 
+                 p: open_vue_1.default 
+             }, 
+             { 
+                 n: 'load-img2', 
+                 t: 'H4sIAAAAAAAAA7MpLkjMs7PJzE1XyEyxVcrPy6kMSS0uUVIo083JT0wBitsqlRanamgq2dmAlVZXl2SW5KTW1troQ7RCKACrdP+cSAAAAA==', 
+                 p: img2_vue_1.default 
+             }, 
+             { 
+                 n: 'load2-img2', 
+                 t: 'H4sIAAAAAAAAA7MpLkjMs7PJzE1XyEyxVcrPy6kMSS0uMVJSKNPNyU9MAUrYKpUWp2poKtnZ6IMVAwAhAx28MwAAAA==', 
+                 p: img2_vue_2.default 
+             } 
+         ]; 
+         exports.default = ary; 
+     }); 
+     define("copy_e_Component/loadConfig_output_Map", ["require", "exports", "src/config/loadModel", "copy_e_Component/loadConfig_output_CAry"], function (require, exports, loadModel_1, loadConfig_output_CAry_1) { 
+         "use strict"; 
+         Object.defineProperty(exports, "__esModule", { value: true }); 
+         loadModel_1 = __importDefault(loadModel_1); 
+         loadConfig_output_CAry_1 = __importDefault(loadConfig_output_CAry_1); 
+         var cv = eval("pcv_t"); 
+         cv(loadConfig_output_CAry_1.default); //注冊 共用域 
+         exports.default = loadModel_1.default; 
      }); 
       
      'marker:resolver'; 
@@ -923,10 +835,5 @@ var PJVueModel = (function () {
      if (entry[0] !== null) { 
          return resolve(entry[0]); 
      } 
- })();
- return PJVueModel.default;
-})();
-split_b_obj.p(this,'aatemp/t0',false,function(){
- this.vue=null;split_b_obj.pv(this,vToYWE_Model,'',function(){},'aa'); 
-},'aa','IAogICAgICAgICAjYWFfbWFpbnsgCiAgICAgICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjojNTU1OyAKICAgICAgICAgICAgICAgICBjb2xvcjojRkZGOyAKICAgICAgICAgfSAKIA=='); 
- }; var aa_mainrunVue = new aa_main_run();
+ })().default);
+pb.debug = true;
