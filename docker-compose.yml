@@ -1,0 +1,139 @@
+version: "3.7"
+services:
+  use-comm:
+    image: f01592000/psylvue-command:3.2.0.0
+    container_name: t1719210050-comm
+    volumes:
+      - ./src:/project/src:cached
+      - ./Libary&Document/libary:/project/libary:cached
+      - ./Libary&Document/jsonDoc:/project/jsonDoc:cached
+      - ./extendsComponent:/project/extendsComponent:cached
+      - ./dir:/OpenWeb/wwwroot:cached
+      - ./DotNetProject:/DotNetProject:cached
+      - ./.vscode:/.vscode:cached
+    deploy:
+      resources:
+        limits:
+            cpus: "8.0"
+            memory: 8192M
+        reservations:
+            cpus: "4.0"
+            memory: 4024M
+    command: "node runPsylNode.js 2222:80"
+    logging: 
+      driver: "json-file"
+      options: 
+        max-size: "10m"
+        max-file: "10"
+    networks:
+      - t1719210050_network
+
+  use-debug:
+    image: f01592000/psylvue-command:3.2.0.0
+    container_name: t1719210050-debug
+    volumes:
+      - ./src:/project/src:cached
+      - ./Libary&Document/libary:/project/libary:cached
+      - ./Libary&Document/jsonDoc:/project/jsonDoc:cached
+      - ./extendsComponent:/project/extendsComponent:cached
+      - ./dir:/OpenWeb/wwwroot:cached
+      - ./DotNetProject:/DotNetProject:cached
+      - ./.vscode:/.vscode:cached
+    deploy:
+      resources:
+        limits:
+            cpus: "8.0"
+            memory: 8192M
+        reservations:
+            cpus: "4.0"
+            memory: 4024M
+    command: "node runPsylNode.js 2222:80"
+    logging: 
+      driver: "json-file"
+      options: 
+        max-size: "10m"
+        max-file: "10"
+    networks:
+      - t1719210050_network
+
+  use-websockt:
+    image: f01592000/psylvue-websocket:3.2.0.0
+    container_name: t1719210050-websocket
+    restart: always
+    depends_on:
+      - use-web
+    deploy:
+      resources:
+        limits:
+            cpus: "2.0"
+            memory: 8192M
+        reservations:
+            cpus: "1.0"
+            memory: 1024M
+    hostname: get.websocket.com
+    logging: 
+      driver: "json-file"
+      options: 
+        max-size: "5m"
+        max-file: "3"
+    networks:
+      - t1719210050_network
+
+  use-web:
+    image: f01592000/psylvue-web:3.2.0.0
+    container_name: t1719210050-web
+    depends_on:
+      - use-comm
+      - use-debug
+    volumes:
+      - ./dir:/App/wwwroot:cached
+    deploy:
+      resources:
+        limits:
+            cpus: "2.0"
+            memory: 8192M
+        reservations:
+            cpus: "1.0"
+            memory: 1024M
+    logging: 
+      driver: "json-file"
+      options: 
+        max-size: "10m"
+        max-file: "10"
+    hostname: get.web.com
+    networks:
+      - t1719210050_network
+
+  use-vue-nginx:
+    image: nginx:1.22
+    container_name: t1719210050-nginx
+    restart: always
+    depends_on:
+      - use-web
+    command: [nginx-debug, '-g', 'daemon off;']
+    deploy:
+      resources:
+        limits:
+            cpus: "2.0"
+            memory: 4096M
+        reservations:
+            cpus: "1.0"
+            memory: 1024M
+    volumes:
+      - ./nginxSet/nginx.conf:/etc/nginx/nginx.conf:cached
+      - ./nginxSet/servers:/etc/nginx/servers:cached
+    ports:
+      - 2222:80
+    hostname: get.nginx.com
+    logging: 
+      driver: "json-file"
+      options: 
+        max-size: "3m"
+        max-file: "5"
+    networks:
+      - t1719210050_network
+
+networks:
+  t1719210050_network:
+      external:
+        name: t1719210050_network_default
