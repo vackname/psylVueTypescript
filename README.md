@@ -2,6 +2,7 @@
 ### 建置啟動環境  docker-compose --compatibility up -d
 ### 起用指令集 node psyl
 ### 起用指令集後 node psyl -> psyl -h 啟用幫助
+### 支援 net core8 webapi/classlib/console 生成及dev debug(共構 前端)
 ### 其它備註
 - dir = build web 夾(release/debug model)
 - src = psyl 前端開發資料夾
