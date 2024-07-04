@@ -1,2 +1,4 @@
 # xos system catch 檔
 *.DS_Store
+DotNetProject/**/obj
+DotNetProject/**/bin
