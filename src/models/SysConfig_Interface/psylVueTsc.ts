@@ -1,5 +1,6 @@
 import InITempMap from "./ProjectMap/init_View";//注入初始 樣版map
 import vueDirectiveEvt from "./vueDirectiveEvt";
+import {pb} from "../vueSDK";
 
 /**
  * 樣版注入function output data json
@@ -93,12 +94,28 @@ export default class CreateVue
         /** 起始樣版物件取用 */
         let startTemp:Function = (outhis:any)=>
             new (eval(((catchTempName[0]=='')?'init':catchTempName[0])+"_VuePJ") as any)()[catchTempName[1].replace(/\//g,'_')](outhis);
-
+      
         this.nowVueObj = new (eval("psylVue") as any)(startTemp);
+    }
+
+    /**
+     * screen view setting
+     * @param viewPort meta tag default("width=device-width, initial-scale=1.0, user-scalable=no")
+     * @returns CreateVue
+     */
+    setMetaViewport = (content?:string)=>
+    {
+        if(content!=null && content!=undefined)//setting viewport
+            pb.el.tag("head").at(0).name("viewport").at(0).get.setAttribute("content",content);
+        
+        return {
+            getData:<T>(mainDataJson:any)=>this.getData<T>(mainDataJson)
+        };
     }
 
     /** add 自定義指令 
      * @param name 指令名
+     * @returns CreateVue
     */
     addCommand = (name:string,fun:(dir:vueDirectiveEvt)=>void)=>
     {
@@ -110,6 +127,7 @@ export default class CreateVue
 
     /**
      * app 樣版數據物件
+     * @returns CreateVue
     */
     getData:DataObj=(mainDataJson:any)=> this.nowVueObj.getData(mainDataJson);
 }

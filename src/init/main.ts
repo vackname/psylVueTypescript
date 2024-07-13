@@ -1,5 +1,5 @@
 import {mainData} from "./main_VueTemp";
-import {importLoad} from "../models/vueSDK";
+import {importLoad,pb} from "../models/vueSDK";
 import CreateVue from "../models/SysConfig_Interface/psylVueTsc";
 
 /** 當下網址路徑 */
@@ -53,6 +53,7 @@ new CreateVue(temp=>temp.view_index)
         }).remove();
     }))
 )
+//.setMetaViewport("width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=contain") //屏幕設定
 .getData<mainData>({
     init:{//共用資訊
         page:"",
