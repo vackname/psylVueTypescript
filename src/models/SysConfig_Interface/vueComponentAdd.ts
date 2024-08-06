@@ -1,6 +1,61 @@
 import * as vueComponentM from "./vueComponent";
 import ProjectMap from "./ProjectMap/ProjectList";
 import TempMap from "./ProjectMap/MapProject";
+/**
+ *  vue catch teamp(generation 取得)
+ */
+interface vuePropGeneration<T>
+{
+    /**
+     * 子層級 template 物件讀取
+     * @param map tamp map ex: "a1/b1/c1"
+     * @returns 注冊該樣版
+     */
+    generation:<T1>(map:string)=>vuePropSub<T1>,
+
+    /**
+    * catch tamp this
+    * @param fun async this
+    */
+    async:(fun:(e:T)=>void)=>void
+}
+
+/**
+ *  vue catch teamp(generation 取得)
+ */
+interface vuePropSub<T>
+{
+    /** 等候 進入樣版時間點 最大時間(單位:毫秒,default=400毫秒) 
+     * @param time (單位:毫秒)
+    */
+    wait:(time:number)=>vuePropGeneration<T>,
+
+    /**
+     * 子層級 template 物件讀取
+     * @param map tamp map ex: "a1/b1/c1"
+     * @returns 注冊該樣版
+     */
+    generation:<T1>(map:string)=>vuePropSub<T1>,
+      
+    /**
+    * catch tamp this
+    * @param fun async this
+    */
+    async:(fun:(e:T)=>void)=>void
+}
+
+/**
+ * 取樣版子節點 
+ */
+interface vuePropSubPsylMVC<T>
+{
+  /**
+   * @param $t tamp object
+   * @param vObj add map tamp ojbect
+   * @param map tamp map ex: "a1/b1/c1"
+  */
+  ($t:T,vObj:vuePropSub<T>|null,map:string):vuePropSub<T>
+}
 
  /**
  * 專案 開始渲染注冊樣版物件
@@ -146,8 +201,18 @@ export default class ComponentObj<T extends vueComponentM.ThisImport<any>>
      */
    import = (Path:addTemplateObj)=> 
    this.get$t.import.url(Path(new TempMap()));
-   
-   
+
+   /**
+     * 子層級 template 物件讀取
+     * @param map tamp map ex: "a1/b1/c1"
+     * @returns 注冊該樣版
+     */
+   generation = <T1>(map:string)=>
+    {
+      var toFun:vuePropSubPsylMVC<T1> = eval("vueGetMapMVC");
+      return toFun((this.get$t as any),null,map);
+    }
+
    /**
     * template(需注意為後注入 需再次做動重新渲染) 額外加入新物件(綁定)
     * @param Name 定議註冊樣版 名稱

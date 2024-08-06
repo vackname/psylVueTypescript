@@ -33,24 +33,6 @@ interface isMobile{
 }
 
 /**
- *  vue catch teamp
- */
-interface vueProp<T>
-{
-    /**
-     * vue
-     * @param map tamp map ex: "a1/b1/c1"
-     * @param wait now set wait create tamp 20 ms
-    */
-    v:<T>(map:string,wait?:number)=>vueProp<T>,
-    /**
-     * catch tamp this
-     * @param fun async this
-    */
-    async:(fun:(e:T)=>void)=>void,
-}
-
-/**
  * browser 解析 format
  */
 interface BrowserInfo
@@ -190,12 +172,4 @@ export default interface pb
       * @param json 取得資料源 物件
      */
      AddPrototype:<T>(now:any,json:any)=>T,
-    /**
-     * vue
-     * @param $t now vue this
-     * @param map tamp map ex: "a1/b1/c1"
-     * @param wait now set wait create tamp 20 ms
-    */
-     v:<T>($t:any,map:string,wait?:number)=>vueProp<T>,
-
 }

@@ -79,7 +79,7 @@ export interface templateObj<T1,T extends ThisImport<T1>>
     /** template 繼承 參數
      * @param json json 參數 與 vue template data bind)
      */
-    exportVue:<T extends ThisImport<T1>>(json:any)=>templateObj<T1,T>,
+    exportVue:<T extends ThisImport<T1>>(json?:any)=>templateObj<T1,T>,
     
     /** 注入樣版source物件 */
     vue:T

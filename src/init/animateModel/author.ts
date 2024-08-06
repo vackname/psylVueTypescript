@@ -16,11 +16,7 @@ export default class author
         {//大查帳 觸發動畫 觸發變大(主角)
             "0%":{"opacity":"1"},
             "100%":{"opacity":"0.3"}
-        }).frame((e)=>
-        setTimeout(()=>
-        {
-
-        },20)).remove();;
+        }).remove();;
      }
 
      /** 動畫運行 */
