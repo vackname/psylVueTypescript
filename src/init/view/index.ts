@@ -1,5 +1,6 @@
 ﻿import tscM from "../../models/SysConfig_Interface/tscModel/init";
-import indexData from "./index_Interface";
+import * as indexView from "./index_Interface";
+import aaProjectIndexTemp from "../../aa/view/index_VueTemp";
 import indexVueTemp from "./index_VueTemp";
 
 import {pb,vueComponentModel,vueModelTemp,Component,urlHistory} from "../../models/vueSDK";
@@ -26,22 +27,34 @@ export default {
         return {
             toFormat:(value):string=>
             {
-               return "";
+               return "QQ"+value;
             }
-        };
+        } as indexView.Filter;
     },
     watch:
     {
-        "textBox":(val:string,oldValue:string)=>
+        textBox:(val:string,oldValue:string)=>
         {
             
         }
-    },
+    } as indexView.Watch,
     completed:($t)=>
     {//主樣版初始化完成
+        setTimeout(()=>{// Computed參數 get/set (經6秒後會發生變化
+            $t.getComputedForTitle="[computed set 變化]";
+        },6000); 
 
         $t.import.p.aa(InsertTemp=>
-            InsertTemp("aaTemp", tempObj=>tempObj).toLoad());
+            InsertTemp("aaTemp", tempObj=>tempObj.exportVue({ main:$t.main })).toLoad());
+
+        Component($t)//取得下層頁 this 物件
+        .generation<aaProjectIndexTemp>("aaTemp/view1").async(temp=>{
+            setTimeout(()=>{
+            temp.show = false;
+            console.log("generation");
+            console.log(temp);
+            },5000);
+        });
 
         //樣版渲染完成
         pb.el.id("init_panel").style({"opacity":"0"}).animate({"duration":0.6,"delay":0.3,"count":1},
@@ -51,13 +64,13 @@ export default {
         }).remove();
 
         if($t.main!=null)
-            $t.main.page = 'index';//啟動觸發 html head title
+            $t.main.init.page = 'index';//啟動觸發 html head title
     },
     temp:($t)=>
     {
         /** 樣版緩存 */
         var tempObj:vueModelTemp = {};
-        pb.AddPrototype($t.head,{main:$t});
+        pb.AddPrototype($t.head,{main:$t.main,index$m:$t.$m});//相融繼承key (props)
         tempObj["headTemp"] = Component($t).import(temp=>temp.init.temp_index_head).exportVue($t.head);
         tempObj["footTemp"] = $t.import.url("@temp/index/foot").exportVue($t.foot);
         tempObj["AuthorATemp"] = Component($t).import(temp=>temp.init.temp_index_AuthorAnimate).exportVue({});
@@ -65,27 +78,22 @@ export default {
     },
     action:($t)=>{
         return {
-            /** add function */
             getFun:()=>
             {
                 
             },
-            /**
-             * 運行url function
-            */
             toUrlHistoryFuntion:()=>
             {
                 alert('test 你觸發網址錨點程序記錄功能');
             },
-            /** 儲存此頁程序參數 記錄 於url 錨點 */
             saveHomeToHistory:()=>
             {
                 //click 後，重新整理頁面即可出現運行 url function 效果
                 urlHistory.addJoinApp("toUrlHistoryFuntion()");//join index of this.toUrlHistoryFuntion()
                 //urlHistory.add("appThis.toUrlHistoryFuntion()"); 等同
             }
-        }
+        } as indexView.Action;
     }
-} as vueComponentModel<indexData,indexVueTemp>;//<bind data KeyName,VueTemplate=$t>
+} as vueComponentModel<indexView.Data,indexVueTemp>;//<bind data KeyName,VueTemplate=$t>
 
 

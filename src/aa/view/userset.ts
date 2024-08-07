@@ -1,5 +1,4 @@
-﻿import tscM from "../../models/SysConfig_Interface/tscModel/aa";
-import {vueComponentModel,VueTemplate,MainVueTemplate,Component} from '../../models/vueSDK';
+﻿import {vueComponentModel,VueTemplate,MainVueTemplate,Component} from '../../models/vueSDK';
 
 export default {
     data:{
@@ -28,4 +27,4 @@ export default {
             }
         }
     }
-} as vueComponentModel<any,VueTemplate<MainVueTemplate>>;
+} as vueComponentModel<any,VueTemplate>;

@@ -455,6 +455,15 @@
                 this.import = function (Path) {
                     return _this.get$t.import.url(Path(new MapProject_1.default()));
                 };
+                /**
+                  * 子層級 template 物件讀取
+                  * @param map tamp map ex: "a1/b1/c1"
+                  * @returns 注冊該樣版
+                  */
+                this.generation = function (map) {
+                    var toFun = eval("vueGetMapMVC");
+                    return toFun(_this.get$t, null, map);
+                };
                 this.get$t = $t;
             }
             /**

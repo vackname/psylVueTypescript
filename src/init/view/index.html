@@ -3,6 +3,10 @@
     <div style="width:100%;padding-top:20px;padding-bottom:20px;">
         <component v-bind:is="getVue(this,'AuthorATemp')"></component>
     </div>
+    <div style="background-color: #AE0000;color:#FFFFFF;">Computed 引入-><br/>
+    get/set:{{getComputedForTitle}} <br/>
+    get Function:{{getComputedForTitleOutput}}
+    </div>
     <div style="background-color: rgb(5, 56, 68);color:#FFFFFF;">now url to save for history-><input type="button" v-on:click="saveHomeToHistory()" value="click" /></div>
     <div style="background-color: rgb(61, 36, 6);color:#FFFFFF;">data-value->{{title}}</div>
     <div style="background-color:#666666;">
@@ -15,6 +19,7 @@
     <div v-desbind:bindOrderIDName="toMesBind" style="background-color:blueviolet;"></div><!--全域 自定義指令 bind 調用-->
     全域自定義指令bind 調用----end
     </div>
+    <div style="background-color:#162109;color:#FFFFFF;border-bottom:1px solid #FFFFFF;">過濾字串:{{'filterValue+'|toFormat}}</div>
     <div style="background-color:#162109;color:#FFFFFF;border-bottom:1px solid #FFFFFF;"> task 系統 測試(output console.log(開發者模式)) <input type="button" value="運行Task測試" v-on:click="$m.taskObj.run()" /></div>
     <div style="background-color:#162109;color:#FFFFFF;"> catch 全域圖片(已載入直接取用) <img id="aa_index_closBt" style="width:70px;cursor:pointer;" v-loadimg="importLoad.pub.libSrc('takephoto.png')" /></div>
     <div style="background-color:rgb(51, 48, 3);color:#FFFFFF;">

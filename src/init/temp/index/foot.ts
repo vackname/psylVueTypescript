@@ -25,4 +25,4 @@ export default {
 
             }
     }
-} as vueComponentModel<any,VueTemplate<MainVueTemplate>>;
+} as vueComponentModel<any,VueTemplate>;

@@ -1,12 +1,12 @@
 ﻿
-/** temp data */
 import {VueTemplate} from "../../models/vueSDK";
-import * as mainTemp from "../main_VueTemp";
-import * as asyncLoadViewData from "./asyncLoadView_Interface";
-import asyncLoadView_col_temp from "../controllers/asyncLoadView_Interface";
+import * as forProtalMain from "../../init/main_VueTemp";
+import * as asyncLoadViewControllers from "../controllers/asyncLoadView_Interface";
+import * as asyncLoadView from "./asyncLoadView_Interface";
 
-/** asyncLoadView teamp */
-export default interface asyncLoadView extends asyncLoadView_col_temp,asyncLoadViewData.asyncLoadView,asyncLoadViewData.asyncLoadViewTemp,VueTemplate<mainTemp.main>
+/** init project(初始化入口點project) props 進入點 interface */
+export  default interface asyncLoad extends asyncLoadView.Data,asyncLoadViewControllers.Data,VueTemplate
 {
-    main:mainTemp.main
+    /** vue 程序 入口點 this */
+   main?:forProtalMain.init
 }

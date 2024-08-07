@@ -17,9 +17,10 @@ interface PropsColum
     validator?:<T>(value:T)=>boolean
 }
 
-
-/** props 承接參數 */
-export default interface PropsObj
+/** props 承接參數 typeof */
+export type propsTypeObj = PropsColum | Object | String | Number | Boolean | (StringConstructor|NumberConstructor|BooleanConstructor|ObjectConstructor)[];
+/** props 承接參數(序列或自己本身type) */
+export interface PropsObj
 {
-    [name:string]:PropsColum | Object | String | Number | Boolean | (StringConstructor|NumberConstructor|BooleanConstructor|ObjectConstructor)[]
+    [name:string]:propsTypeObj
 }

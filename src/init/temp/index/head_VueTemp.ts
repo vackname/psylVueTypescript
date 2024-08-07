@@ -1,10 +1,13 @@
 
 import {VueTemplate} from "../../../models/vueSDK";
 import * as mainTemp from "../../main_VueTemp";
-import HeadData from "./head_Interface";
-
-/** head teamp */
-export default interface Head extends HeadData,VueTemplate<mainTemp.main>
+import * as view from "./head_Interface";
+import indexMainModel from "../../model/indexTsc/main";
+/** head teamp props 進入點 interface */
+export default interface Head extends view.Data,VueTemplate
 {
-
+    /** 入口this props */
+    main?:mainTemp.main,
+    /** index.$m model this */
+    index$m:indexMainModel 
 }

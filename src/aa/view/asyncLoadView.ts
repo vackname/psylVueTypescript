@@ -1,5 +1,5 @@
 ﻿import {vueComponentModel} from "../../models/vueSDK";
-import * as asyncLoadViewData from "./asyncLoadView_Interface";
+import * as asyncLoadView from "./asyncLoadView_Interface";
 import asyncLoadViewVueTemp from "./asyncLoadView_VueTemp";
 import tscM from "../../models/SysConfig_Interface/tscModel/aa";
 
@@ -23,4 +23,4 @@ export default {
     {
 
     }
-} as vueComponentModel<asyncLoadViewData.asyncLoadViewTemp,asyncLoadViewVueTemp>;
+} as vueComponentModel<asyncLoadView.Data,asyncLoadViewVueTemp>;

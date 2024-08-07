@@ -1,13 +1,13 @@
 ﻿import {pb,importLoad} from "../../../models/vueSDK";
-import asyncLoadView_VueTemp from '../../view/asyncLoadView_VueTemp';
+import asyncLoadViewTemp from '../../view/asyncLoadView_VueTemp';
 
 /** temp this */
-let $t:any | undefined;
+let $t:asyncLoadViewTemp;
 /** class this */
 let self:model;
 /** example model item1 */
 export default class model{
-    constructor($tObj:any) 
+    constructor($tObj:asyncLoadViewTemp) 
     {
         $t = $tObj;
         self = this;

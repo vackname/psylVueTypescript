@@ -56,7 +56,7 @@ export var jObj =():jObjInterface=> eval("new Jobj()");
 export interface jObjInterface extends jObjM { }
 
  /** (T=專案入口 最高層級樣版) 專案內 子樣版 this 內import 注入功能 備註:model js 只能取 project 本身 */
- export interface VueTemplate<T> extends vueComponentM.ThisImport<T>
+ export interface VueTemplate extends vueComponentM.ThisImport<MainVueTemplate>
  {
     /** 無註解 自動注入 class/model */
     [name:string]:any

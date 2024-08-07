@@ -1,6 +1,6 @@
 ﻿import tscM from "../../models/SysConfig_Interface/tscModel/init";
 import indexVueTemp from "../view/index_VueTemp";
-import indexData from "./index_interface";
+import * as indexControllers from "./index_interface";
 import {vueModelControllers} from "../../models/vueSDK";
 
 var M:tscM = new tscM();
@@ -23,18 +23,23 @@ export default
     },
     funComputed:($t)=>
     {
-        return {
-            cache:true,
-            mesCo:{
+        return {//組合式計算 參數渲染
+            getComputedForTitle:{
                 get:()=>
                 {
-                    return $t.page+$t.spUrl;
+                    return "controller-我是Computed參數 get/set (經5秒後會發生變化)function:"+$t.head.headTitle+"_"+$t.title;
                 },
-                set:()=>
+                set:(value:string)=>
                 {
-
+                    console.log($t);
+                    console.log("HIHIMyset");
+                    $t.title = value;
+                    console.log($t);
                 }
-            }
-        };
+            },
+            getComputedForTitleOutput:()=>
+                "controller-我是Computed參數 get function:"+$t.head.headTitle+"_"+$t.title
+
+        } as indexControllers.Computed;
     }
-} as vueModelControllers<indexData,indexVueTemp>;
+} as vueModelControllers<indexControllers.Data,indexVueTemp>;

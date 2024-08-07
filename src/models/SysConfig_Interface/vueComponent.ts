@@ -1,7 +1,7 @@
 import PJImport from "./ProjectMap/ProjectImportList";
 import mImport from "./ModelsInterface/js";
 import cssImport from "./ModelsInterface/css";
-import PropsObj from "./vueComponentProps";
+import {PropsObj} from "./vueComponentProps";
 import dModel from "./discreteModel";
 
 
@@ -109,13 +109,13 @@ interface vueModeInit<T>
 /**
  * vueModel 偵聽參數get/set渲染 function
  */
-interface vueModelWatchFun
+export interface vueModelWatchFun
 {
     /**
      * @param value 當前變動參睥
      * @param oldValue 未變動前參數
     */
-    <T>(value:T,oldValue?:T):void;
+    <T>(value?:T,oldValue?:T):void;
 }
 
 /** 程序初始化完成(生命周期) */
@@ -146,7 +146,7 @@ interface vueModelTemp<T>
 /**
  * vueModel 偵聽渲染參數get/set
  */
-interface vueModelWatch
+export interface vueModelWatch
 {
     [name:string]:vueModelWatchFun
 }
@@ -154,15 +154,15 @@ interface vueModelWatch
 /**
  * vueModel get/set 運算 function
  */
-interface vueModeMethods
+export interface vueModeMethods
 {
-    [name:string]:Function
+    [name:string]:Function | undefined
 }
 
 /**
  * vueModel funcFilter 過濾字符
  */
-interface vueModeFfuncFilterli
+export interface vueModeFfuncFilterli
 {
     <T>(value:any):T
 }
@@ -170,7 +170,7 @@ interface vueModeFfuncFilterli
 /**
  * vueModel funcFilter 過濾字符
  */
-interface vueModeFfuncFilter
+export interface vueModeFfuncFilter
 {
     [name:string]:vueModeFfuncFilterli
 }
@@ -189,7 +189,7 @@ interface vueModeFfuncFilterFun<T>
 /**
  * vueModel 運算即時參數 get
  */
-interface vueModelFunComputeFunli
+export interface vueModelFunComputeFunli
 {
     /** get */
     <T>():T
@@ -198,28 +198,24 @@ interface vueModelFunComputeFunli
 /**
  * vueModel 運算即時參數 get set
  */
-interface vueModelFunComputeli
+export interface vueModelFunComputeli
 {
     get:<T>()=>T
-    set:()=>void
+    /**
+     * 參數設定
+     * @param setValue 進入設定Value
+     * @returns 
+     */
+    set:<T>(setValue:T)=>void
 }
 
 /**
  * vueModel 運算即時參數 extends
  */
-interface vueModelFunComputed
+export interface vueModelFunComputed
 {
-    /** extends get set function | key=cache=開關閉緩存 default = true */
-    [name:string]:vueModelFunComputeli|vueModelFunComputeFunli|boolean
-}
-
-/** 運算即時參數(參數變化取用 負載運算較重(與watch類似)) */
-interface vueModelFunComputedFun<T>
-{
-    /**
-     * @param $t VueTemplate<T?> 樣版 extends
-     */
-    ($t:T):vueModelFunComputed,
+    /** extends get set function*/
+    [name:string]:vueModelFunComputeli|vueModelFunComputeFunli
 }
 
 /**
@@ -230,23 +226,17 @@ interface vueModelToModelMark
     [name:string]:any
 }
 
-/** vue methods */
-export interface vueMethods<T>
-{
-    ($t:T):vueModeMethods
-}
-
 /** 基礎物件 格式 */
-export interface vueObjBest<T2>
+export interface vueObjBest<T>
 {
     /** 樣版初始化階段(生命周期) */
-    init?:vueModeInit<T2>,
+    init?:vueModeInit<T>,
     /** 偵聽渲染參數get/set(屬性變化取用 負載運算較輕) */
     watch?:vueModelWatch,
     /** 過慮字符 */
-    funcFilters?:vueModeFfuncFilterFun<T2>,
+    funcFilters?:vueModeFfuncFilterFun<T>,
     /** 運算即時參數(參數變化取用 負載運算較重(與watch類似)) */
-    funComputed?:vueModelFunComputedFun<T2>
+    funComputed?:($t:T)=>vueModelFunComputed,
 }
 
 /** controllers 數據取用層級 */
@@ -268,7 +258,7 @@ export interface vueModel<T1,T2> extends vueColModel<T1,T2>
     /** 載入子樣版(生命周期) */
     temp?:vueModelTemp<T2>,
     /** vueModel get/set 運算 function/methods */
-    action?:vueMethods<T2>,
+    action?:($t:T2)=>vueModeMethods,
     /** 註冊 外部繼承 變數(參數 key 於Html 皆為 caselower | boolean=false=自動繼承參數) | 不使用 props=自動繼承參數 */
-    props?: PropsObj | Array<string> | boolean,
+    props?: PropsObj | Array<string> | boolean
 }

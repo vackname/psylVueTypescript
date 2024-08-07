@@ -6,4 +6,4 @@ export default {
     data:{
         subject:"myUserset"
     }
-} as vueModelControllers<any,VueTemplate<MainVueTemplate>>;
+} as vueModelControllers<any,VueTemplate>;

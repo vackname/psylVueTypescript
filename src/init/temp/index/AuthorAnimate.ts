@@ -6,6 +6,7 @@ import animate_author from "../../animateModel/author";//作者主題 動畫
 export default {
     data:{
         authorImg:null,
+        showAnimateFlag:false,
     },
     init:($t)=>{
         /** 作者主題 動畫模組宣告 */
@@ -43,5 +44,5 @@ export default {
             authorSrc:(src:string) => ({'source':$t.authorImg,'src':src,'show':$t.showAnimateFlag} as Commandloadimg),
         }
     }
-} as vueComponentModel<any,VueTemplate<MainVueTemplate>>;
+} as vueComponentModel<any,VueTemplate>;
 ;

@@ -7,10 +7,13 @@
 <div style='width:100%;position:relative;' >
        OK index
        1.project main data to index.html:<span class='aa_index_content'>{{datamain.a1}}__{{datamain.a2}}</span>
-       <div style='width:100%;font-size:18px;'>2.project main data to index.html: <span class='aa_index_content'>{{main.layout}}</span></div>
+       <div style='width:100%;font-size:18px;'>2.project main data to index.html: <span class='aa_index_content'>{{aaProject_main.layout}}</span></div>
        3.index button(open include userset.html)(wait show 3s)<input type='button' value='open userset.html' v-on:click='$m.page()' v-show='show' />
        <div style='height:70px;'>5.index img (catch libary)->close userset.html:
-            <!--demon catch image   --><span style="position:relative;"><img id="aa_index_closBt" style="width:30px;position:absolute;cursor:pointer;" v-bind:src="lib.src('close.png')" v-on:click='$m.close()' /></span>
+            <!--demon catch image   --><span style="position:relative;"><img id="aa_index_closBt" style="width:30px;position:absolute;cursor:pointer;" v-loadimg="importLoad.pub.libSrc('close.png')" v-on:click='$m.close()' /></span>
+       </div>
+       <div>
+              6.我是經由 aa project main.html props aaa參數->{{aaa}}
        </div>
        <div>
               index component(include userset.html):<component v-bind:is='((v.indexOf(data.user.load)>-1)?data.user.load:"")'></component>

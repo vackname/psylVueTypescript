@@ -1,5 +1,5 @@
 ﻿import tscM from "../../../models/SysConfig_Interface/tscModel/init";
-import headData from "./head_Interface";
+import * as headView from "./head_Interface";
 import headVueTemp from "./head_VueTemp";
 import {vueComponentModel} from "../../../models/vueSDK";
 
@@ -30,4 +30,4 @@ export default {
     {
         console.log($t);
     }
-} as vueComponentModel<headData,headVueTemp>;
+} as vueComponentModel<headView.Data,headVueTemp>;
