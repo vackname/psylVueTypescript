@@ -41,14 +41,15 @@ export interface Action extends interfaceFormat.addVueAction,ActionFunction
 }
 
 /** download model format 
- * 注意: model為載入物件 需注入 "KeyName?"*/
+ * 注意:來自於 model typescript 為載入物件 註冊時機需注入 'KeyName?'
+ * 注意: model為載入物件 需注入 'KeyName?'*/
 interface joinModeldownFormat
 {
 
 }
 
-/** init project(初始化入口點project)
-  * 注意:來自於 template computed 為載入物件 註冊時機需注入 "KeyName?"
+/** view index 數據
+* 注意:如加入 Key,來自於 template computed 為載入物件 註冊時機需注入 'KeyName?'
  */
 export  interface Data extends joinModeldownFormat,ActionFunction
 {

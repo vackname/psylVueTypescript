@@ -56,10 +56,10 @@ interface maindataObj
 }
 
 
-/** init project(初始化入口點project)
-  * 注意:來自於 template computed 為載入物件 註冊時機需注入 "KeyName?"
+/** project 入口點 數據
+  * 注意:如加入 Key,來自於 template computed 為載入物件 註冊時機需注入 'KeyName?'
  */
-export  interface Data extends joinModeldownFormat,ActionFunction
+export interface Data extends joinModeldownFormat,ActionFunction
 {
     /** 宣告 prop 下放繼承數據 */
     maindata:maindataObj,
