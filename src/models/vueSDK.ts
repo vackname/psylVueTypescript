@@ -91,7 +91,9 @@ export interface jObjInterface extends jObjM { }
 /** API Enum 定義(API sorce)*/
 export {EnumsAPI};
 
-/*
+/* 定義 前端取得 table key name
+// 也可以 定義 [JsonPropertyName("Key name")] 
+// 優先層級 JsonPropertyName>DBM>DBAPI
 後端 表class 實例 ->webapi for net core 
 	/// <summary>
 	/// 示範Table
