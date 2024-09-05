@@ -2,16 +2,25 @@ import GetObj from "./ajax/ajaxGetObj";
 import PostObj from "./ajax/ajaxPostObj";
 import FileStreamObj from "./ajax/ajaxFileStreamObj";
 import JsonObj from "./ajax/ajaxJsonObj";
+import uploadObj from "./ajax/ajaxUploadFile";
+
 /**
- * @param url Api 路經
-*/
-type goApiPost = (url:string)=>PostObj;
+ * url ID key Delete/PUt 作動 Form GET ajax
+ */
+interface urlIDObjGETForm extends GetObj
+{
+    /** Set type String delete/put 使用url ID/value */
+    InputUrlIDForString:(valID:string)=>urlIDObjGETForm ,
+    /** Set type number delete/put 使用url ID/value*/
+    InputUrlIDForNumber:(valID:number)=>urlIDObjGETForm
+}
+
 
 /**
  * 僅限 get 使用
  * @param url Api 路經
 */
-type goApiGet = (url:string)=>GetObj;
+type goApiGet = (url:string)=>urlIDObjGETForm;
 
 /**
  * 僅限 get  stream file 使用
@@ -20,13 +29,7 @@ type goApiGet = (url:string)=>GetObj;
 type goApiFileStream= (url:string)=>FileStreamObj;
 
 /**
- * 僅限 json body 使用
- * @param url Api 路經
-*/
-type goApiJson = (url:string)=>JsonObj;
-
-/**
- * url ID key Delete/PUt 作動 Form ajax
+ * url ID key Delete/PUt/POST 作動 Form ajax
  */
 interface urlIDObjForm extends PostObj
 {
@@ -44,7 +47,7 @@ type goApiJsonToUrlIDForm = (url:string)=>urlIDObjForm;
 
 
 /**
- * url ID key Delete/PUt 作動 Json Body ajax
+ * url ID key Delete/PUT/POST 作動 Json Body ajax
  */
 interface urlIDObj extends JsonObj
 {
@@ -66,12 +69,12 @@ interface ajaxMethodFormPost
     /**
      *  ajax post to gZip input for data (application/x-www-form-urlencoded)
     */
-    sendGzip:goApiPost,
+    sendGzip:goApiJsonToUrlIDForm,
 
     /**
      *  ajax post (application/x-www-form-urlencoded)
     */
-    send:goApiPost,
+    send:goApiJsonToUrlIDForm,
 }
 
 /** form */
@@ -96,7 +99,7 @@ interface ajaxMethodForm
     /**
      *  ajax post file (multipart/form-data)
     */
-    UploadFile:goApiPost,
+    UploadFile:uploadObj,
 }
 
 /** json body */
@@ -113,12 +116,12 @@ interface ajaxMethodJson
     /**
      *  ajax (application/json)
     */
-    sendGzip:goApiJson,
+    sendGzip:goApiJsonToUrlID,
 
     /**
      *  ajax (application/json)
     */
-    send:goApiJson,
+    send:goApiJsonToUrlID,
 }
 
 export interface ajax
