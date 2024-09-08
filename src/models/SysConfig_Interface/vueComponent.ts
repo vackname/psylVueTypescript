@@ -73,7 +73,7 @@ export interface ThisImport<T1>
     pj:T1,
 
     /** system 功能 樣版取用 json key(html 設定功能才會存在)*/
-    getJson:<T>(key:string)=>T
+    getJson:<T>(key?:string)=>T
 }
 
 /** (T1=專案入口 最高層級樣版) template format(psyl vue) */
