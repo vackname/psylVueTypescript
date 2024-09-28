@@ -251,6 +251,10 @@
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
+    define("src/models/SysConfig_Interface/ajax/ajaxUploadFile", ["require", "exports"], function (require, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: true });
+    });
     define("src/models/SysConfig_Interface/ajax", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
@@ -260,6 +264,10 @@
         Object.defineProperty(exports, "__esModule", { value: true });
     });
     define("src/models/SysConfig_Interface/ProjectMap/ProjectImportLoadList", ["require", "exports"], function (require, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: true });
+    });
+    define("src/models/SysConfig_Interface/vueModelsJSTypeScript", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
     });
@@ -336,30 +344,14 @@
         Object.defineProperty(exports, "__esModule", { value: true });
         var ProjectMap = /** @class */ (function () {
             function ProjectMap() {
-                /**  aa 專案 入口  */
-                this.aa = 'aa';
                 /**  application 入口  */
                 this.init = 'init';
+                /**  aa 專案 入口  */
+                this.aa = 'aa';
             }
             return ProjectMap;
         }());
         exports.default = ProjectMap;
-    });
-    define("src/models/SysConfig_Interface/ProjectMap/aa_View", ["require", "exports"], function (require, exports) {
-        "use strict";
-        Object.defineProperty(exports, "__esModule", { value: true });
-        var aa = /** @class */ (function () {
-            function aa() {
-                /** Project[aa]->Temp[view/asyncLoadView] */
-                this.view_asyncLoadView = 'aa@view/asyncLoadView';
-                /** Project[aa]->Temp[view/index] */
-                this.view_index = 'aa@view/index';
-                /** Project[aa]->Temp[view/userset] */
-                this.view_userset = 'aa@view/userset';
-            }
-            return aa;
-        }());
-        exports.default = aa;
     });
     define("src/models/SysConfig_Interface/ProjectMap/init_View", ["require", "exports"], function (require, exports) {
         "use strict";
@@ -379,17 +371,33 @@
         }());
         exports.default = init;
     });
-    define("src/models/SysConfig_Interface/ProjectMap/MapProject", ["require", "exports", "src/models/SysConfig_Interface/ProjectMap/aa_View", "src/models/SysConfig_Interface/ProjectMap/init_View"], function (require, exports, aa_View_1, init_View_1) {
+    define("src/models/SysConfig_Interface/ProjectMap/aa_View", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
-        aa_View_1 = __importDefault(aa_View_1);
+        var aa = /** @class */ (function () {
+            function aa() {
+                /** Project[aa]->Temp[view/asyncLoadView] */
+                this.view_asyncLoadView = 'aa@view/asyncLoadView';
+                /** Project[aa]->Temp[view/index] */
+                this.view_index = 'aa@view/index';
+                /** Project[aa]->Temp[view/userset] */
+                this.view_userset = 'aa@view/userset';
+            }
+            return aa;
+        }());
+        exports.default = aa;
+    });
+    define("src/models/SysConfig_Interface/ProjectMap/MapProject", ["require", "exports", "src/models/SysConfig_Interface/ProjectMap/init_View", "src/models/SysConfig_Interface/ProjectMap/aa_View"], function (require, exports, init_View_1, aa_View_1) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: true });
         init_View_1 = __importDefault(init_View_1);
+        aa_View_1 = __importDefault(aa_View_1);
         var ViewMap = /** @class */ (function () {
             function ViewMap() {
-                /**  aa 專案 入口  */
-                this.aa = new aa_View_1.default();
                 /**  application 入口  */
                 this.init = new init_View_1.default();
+                /**  aa 專案 入口  */
+                this.aa = new aa_View_1.default();
             }
             return ViewMap;
         }());
@@ -713,6 +721,27 @@
             }
         };
     });
+    define("copy_e_Component/load2/img2_VueTemp", ["require", "exports"], function (require, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: true });
+    });
+    define("copy_e_Component/load2/img2_vue", ["require", "exports"], function (require, exports) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: true });
+        /** 自定義擴充組件 */
+        exports.default = {
+            props: ["src", "source", "show"],
+            action: function ($t) {
+                console.log("img2-------");
+                console.log($t);
+                return {
+                    use: function () {
+                        return { 'source': $t.source, 'src': $t.src, 'show': $t.show };
+                    }
+                };
+            }
+        };
+    });
     define("copy_e_Component/load/img2_VueTemp", ["require", "exports"], function (require, exports) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
@@ -743,28 +772,7 @@
             }
         };
     });
-    define("copy_e_Component/load2/img2_VueTemp", ["require", "exports"], function (require, exports) {
-        "use strict";
-        Object.defineProperty(exports, "__esModule", { value: true });
-    });
-    define("copy_e_Component/load2/img2_vue", ["require", "exports"], function (require, exports) {
-        "use strict";
-        Object.defineProperty(exports, "__esModule", { value: true });
-        /** 自定義擴充組件 */
-        exports.default = {
-            props: ["src", "source", "show"],
-            action: function ($t) {
-                console.log("img2-------");
-                console.log($t);
-                return {
-                    use: function () {
-                        return { 'source': $t.source, 'src': $t.src, 'show': $t.show };
-                    }
-                };
-            }
-        };
-    });
-    define("copy_e_Component/loadConfig_output_CAry", ["require", "exports", "copy_e_Component/input/open_vue", "copy_e_Component/load/img2_vue", "copy_e_Component/load2/img2_vue"], function (require, exports, open_vue_1, img2_vue_1, img2_vue_2) {
+    define("copy_e_Component/loadConfig_output_CAry", ["require", "exports", "copy_e_Component/input/open_vue", "copy_e_Component/load2/img2_vue", "copy_e_Component/load/img2_vue"], function (require, exports, open_vue_1, img2_vue_1, img2_vue_2) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
         open_vue_1 = __importDefault(open_vue_1);
@@ -773,17 +781,17 @@
         var ary = [
             {
                 n: 'input-open',
-                t: 'H4sIAAAAAAAAA7NJySxTyEyxVSooTXKtKEnNSyl2zs8tyM9LzStRsrPJzCsoLVEoqSxItVUqSa0oUVIo083NT0nNsVVKzCt3VLKrrgbRtbU2+kCD7ABMzkZqTgAAAA==',
+                t: 'H4sIAAAAAAAAAy3MywmAMAwA0FVK7tIF0oKIgyjNoWCTgulHirur4OndHqrUSM1jiNXE4CCXfe1KHM5FUhYmVvAYORc1emVyoNQVTJ2SBDocbNxm8GN83jfaN/Jo//YBWP/Qj18AAAA=',
                 p: open_vue_1.default
             },
             {
-                n: 'load-img2',
-                t: 'H4sIAAAAAAAAA7MpLkjMs7PJzE1XyEyxVcrPy6kMSS0uUVIo083JT0wBitsqlRanamgq2dmAlVZXl2SW5KTW1troQ7RCKACrdP+cSAAAAA==',
+                n: 'load2-img2',
+                t: 'H4sIAAAAAAAAA7MpyS/LTC23sykuSMyzs8nMTVfITLFVys/LqQxJLS4xUlIo083JT0wBStgqlRanamgq2dnoQxTrQ/UCAJQknDhEAAAA',
                 p: img2_vue_1.default
             },
             {
-                n: 'load2-img2',
-                t: 'H4sIAAAAAAAAA7MpLkjMs7PJzE1XyEyxVcrPy6kMSS0uMVJSKNPNyU9MAUrYKpUWp2poKtnZ6IMVAwAhAx28MwAAAA==',
+                n: 'load-img2',
+                t: 'H4sIAAAAAAAAA7MpyS/LTC23sykuSMyzs8nMTVfITLFVys/LqQxJLS5RUijTzclPTAGK2yqVFqdqaCpBlVZXl2SW5KTW1troQ7TCKKiBAJaIGy9ZAAAA',
                 p: img2_vue_2.default
             }
         ];
