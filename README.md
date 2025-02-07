@@ -1,4 +1,15 @@
-# psyl build(Docker version前/後端整合型前端-開發工具)
+# 封裝工具
+## 封裝工具簡介(作者:小鐘)
+- version 3.2.0
+- 僅支持工具 VSCode
+- 開發環境:僅支持 mac/linux/ubuntu
+- 該工具支緩 python 3.6之後版本/net core8/vue 緩前端(非node)
+- 特性:前後端分離及、前端支援封裝後離散式載入、莎麗原則開發模型、穩定封裝環境開發Docker Debug
+- 後端工具套件(作者:小鐘)net core套件-ConfigForSystem: Json 套件、mssql migration、mysql migration、sqllite、redis、memory cache
+
+***
+
+# 工具使用簡介- psyl build(Docker version前/後端整合型前端-開發工具)
 ### 建置啟動環境  docker-compose --compatibility up -d
 ### 起用指令集 node psyl
 ### 起用指令集後 node psyl -> psyl -h 啟用幫助
@@ -65,7 +76,7 @@
 - 開發 可經由 jObj().loadlib(....) 控制載入時機及取用
 - 取用物件 示例 jObj().loadlib(...).src("/dd.jpeg")
 
-### Libary&Document/jsonDoc 文檔/多過語系/環境資料 json 文件 擴充 模組
+### Libary&Document/jsonDoc 文檔/多國語系/環境資料 json 文件 擴充 模組
 - 開發  經由 jObj().load(...) 控制載入時機及取用
 - 取用物件 示例 jObj().load(...).get("testJson")
 
