@@ -1,6 +1,6 @@
 # 封裝工具
 ## 封裝工具簡介(作者:小鐘)
-- version 3.2.0
+- version 3.3.0(net core9)
 - 僅支持工具 VSCode
 - 開發環境:僅支持 mac/linux/ubuntu
 - 該工具支緩 python 3.6之後版本/net core8/vue 緩前端(非node)
