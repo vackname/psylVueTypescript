@@ -3,7 +3,7 @@
 - version 3.3.0(net core9)
 - 僅支持工具 VSCode
 - 開發環境:僅支持 mac/linux/ubuntu
-- 該工具支緩 python 3.6之後版本/net core8/vue 緩前端(非node)
+- 該工具支緩 python 3.6之後版本/net core9/golang 1.24.1/vue 緩前端(非node)
 - 特性:前後端分離及、前端支援封裝後離散式載入、莎麗原則開發模型、穩定封裝環境開發Docker Debug
 - 後端工具套件(作者:小鐘)net core套件-ConfigForSystem: Json 套件、mssql migration、mysql migration、sqllite、redis、memory cache
 
@@ -13,7 +13,7 @@
 ### 建置啟動環境  docker-compose --compatibility up -d
 ### 起用指令集 node psyl
 ### 起用指令集後 node psyl -> psyl -h 啟用幫助
-### 支援 net core8 webapi/classlib/console 生成及dev debug(共構 前端)
+### 支援 net core9 webapi/classlib/console 生成及dev debug(共構 前端)
 ### 其它備註
 - dir = build web 夾(release/debug model)
 - src = psyl 前端開發資料夾
