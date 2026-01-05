@@ -9,6 +9,8 @@ export default interface models
  video:objJsFun,
  /** Web Socket */
  WebSocket:objJsFun,
+ /** JWTCrypto encode */
+ JWTCrypto:objJsFun,
  /** to QRDecode */
  QRDecoder:objJsFun,
  /** create qrcode */
