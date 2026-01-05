@@ -56,6 +56,13 @@ export default interface ajaxThen extends ajaxPB.AjaxSubmit
     input:<T>(json:T)=>ajaxThenInput,
 
     /**
+     * authz bearer
+     * @param token jwt token
+     * @returns 
+     */
+    AuthzBearer:(token:string)=>ajaxThen,
+
+    /**
     * send web head (json object)
     */
     head:<T>(json:T)=>ajaxThen
