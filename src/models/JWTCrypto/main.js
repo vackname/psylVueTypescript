@@ -1,11 +1,10 @@
 function JWTCryptoObj()
 {
-    this.CreateJWT=function(Header, Payload, Secret) 
+    this.CreateJWT = function(Header, Payload, Secret) 
     {        
         //密鑰
         const hash = CryptoJS.HmacSHA256(Payload.iss, Secret);
         var getSecret = CryptoJS.enc.Hex.stringify(hash).replace(/-/g,"").toLowerCase();
-        console.log(getSecret);
         //帳戶加密
         // Sign the JWT using KJUR.jws.JWS.sign
         var jwt = KJUR.jws.JWS.sign(

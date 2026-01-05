@@ -2,6 +2,7 @@
 import * as indexView from "./index_Interface";
 import aaProjectIndexTemp from "../../aa/view/index_VueTemp";
 import indexVueTemp from "./index_VueTemp";
+import JWTCrypto from "../../models/JWTCrypto/interface";
 
 import {pb,vueComponentModel,vueModelTemp,Component,urlHistory} from "../../models/vueSDK";
 
@@ -40,6 +41,23 @@ export default {
     } as indexView.Watch,
     completed:($t)=>
     {//主樣版初始化完成
+
+        //models 載入實例 jwt toke 生成範例
+        $t.import.m.js.JWTCrypto<JWTCrypto>(e=>{
+            console.log("jwt toke 生成範例-----");
+            var JWTCryptoData = e();
+            console.log(JWTCryptoData.CreateJWT({
+            "alg": "HS256",
+            "typ": "JWT"
+            },{
+            "toLang": "ja",
+            "nbf": 1767191398,
+            "exp": 1767491398,
+            "iat": 1767153914,
+            "iss": "a525"
+            },"aa1234"));//加密後 密鑰 HmacSHA256("aa1234")
+        });
+
         setTimeout(()=>{// Computed參數 get/set (經6秒後會發生變化
             $t.getComputedForTitle="[computed set 變化]";
         },6000); 
